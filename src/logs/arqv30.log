@@ -1,0 +1,542 @@
+2025-08-01 20:44:25,364 - services.groq_client - INFO - ✅ Cliente Groq (llama3-70b-8192) inicializado com sucesso.
+2025-08-01 20:44:25,365 - services.ai_manager - INFO - ✅ Gemini (gemini-1.5-flash) inicializado com sucesso
+2025-08-01 20:44:25,378 - services.ai_manager - INFO - ✅ OpenAI (gpt-3.5-turbo) inicializado com sucesso
+2025-08-01 20:44:25,379 - services.ai_manager - INFO - ✅ Groq (llama3-70b-8192) inicializado com sucesso
+2025-08-01 20:44:25,379 - services.ai_manager - INFO - ✅ HuggingFace inicializado com sucesso
+2025-08-01 20:44:25,379 - services.ai_manager - INFO - 🤖 AI Manager inicializado com 4 provedores disponíveis.
+2025-08-01 20:44:25,711 - services.robust_content_extractor - INFO - 🔧 Robust Content Extractor inicializado
+2025-08-01 20:44:25,713 - services.robust_content_extractor - INFO - 📚 Extratores disponíveis: ['trafilatura', 'readability', 'newspaper', 'beautifulsoup', 'pdf_pypdf2', 'pdf_pdfplumber']
+2025-08-01 20:44:25,717 - services.content_quality_validator - INFO - Content Quality Validator inicializado
+2025-08-01 20:44:25,766 - services.production_search_manager - INFO - 🚀 Production Search Manager inicializado
+2025-08-01 20:44:25,766 - services.production_search_manager - INFO - 📊 Provedores habilitados: google, serper, bing, duckduckgo
+2025-08-01 20:44:25,770 - services.content_extractor - INFO - Content Extractor inicializado com múltiplas estratégias
+2025-08-01 20:44:25,780 - services.mental_drivers_architect - INFO - Mental Drivers Architect inicializado com 19 drivers universais
+2025-08-01 20:44:25,783 - services.visual_proofs_generator - INFO - Visual Proofs Generator inicializado com biblioteca de experimentos
+2025-08-01 20:44:25,787 - services.anti_objection_system - INFO - Anti-Objection System inicializado com arsenal completo
+2025-08-01 20:44:25,791 - services.pre_pitch_architect - INFO - Pre-Pitch Architect inicializado
+2025-08-01 20:44:25,796 - services.future_prediction_engine - INFO - Future Prediction Engine inicializado
+2025-08-01 20:44:25,796 - services.ultra_detailed_analysis_engine - INFO - 🚀 Ultra Detailed Analysis Engine GIGANTE ROBUSTO inicializado
+2025-08-01 20:44:25,797 - services.enhanced_analysis_engine - INFO - Enhanced Analysis Engine inicializado - Sistemas: {'ai_manager': True, 'search_manager': True, 'content_extractor': True}
+2025-08-01 20:44:26,207 - services.supabase_client - INFO - ✅ Supabase client inicializado com sucesso
+2025-08-01 20:44:26,213 - services.local_file_manager - INFO - Local File Manager inicializado: C:\Users\user\Desktop\V502V12 project-bolt-github-fbvefkxu\project\src\services\..\..\analyses_data
+2025-08-01 20:44:26,213 - database - INFO - ✅ Database Manager inicializado com Supabase + Local Files
+2025-08-01 20:44:26,361 - services.production_content_extractor - WARNING - ⚠️ ProductionContentExtractor está DEPRECATED - usando RobustContentExtractor
+2025-08-01 20:44:26,376 - __main__ - INFO - 🚀 Iniciando ARQV30 Enhanced v2.0 em MODO PRODUÇÃO
+2025-08-01 20:44:26,376 - __main__ - INFO - 🔒 Debug desabilitado, headers de segurança habilitados
+2025-08-01 20:44:26,376 - __main__ - INFO - Servidor: http://0.0.0.0:5000
+2025-08-01 20:44:26,377 - __main__ - INFO - Encoding: UTF-8
+2025-08-01 20:44:26,378 - __main__ - INFO - Locale: ('pt_BR', 'UTF-8')
+2025-08-01 20:44:26,378 - __main__ - INFO - 🔍 Provedores de busca ativos: google, serper, bing, duckduckgo
+2025-08-01 20:44:26,390 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.5:5000
+2025-08-01 20:44:26,391 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-08-01 20:44:36,373 - routes.analysis - INFO - 🚀 Iniciando análise de mercado ultra-detalhada
+2025-08-01 20:44:36,373 - routes.analysis - INFO - 📊 Dados recebidos: Segmento=Telemedicina, Produto=Curso de telemedicina
+2025-08-01 20:44:36,373 - routes.analysis - INFO - 🔍 Query de pesquisa: PROFISSIONAIS DE SAUDE INTERESSADOS EM TELEMEDICINA NO Mercado brasileiro desde 2021
+2025-08-01 20:44:36,373 - routes.analysis - INFO - 🚀 Executando análise GIGANTE ultra-detalhada...
+2025-08-01 20:44:36,373 - services.ultra_detailed_analysis_engine - INFO - 🚀 INICIANDO ANÁLISE GIGANTE ROBUSTA para Telemedicina
+2025-08-01 20:44:36,373 - routes.progress - INFO - Progress session_1754090613712_8pxykddz8: Step 1/13 - 🔍 Validando dados de entrada...
+2025-08-01 20:44:36,378 - routes.progress - INFO - Progress session_1754090613712_8pxykddz8: Step 2/13 - 🌐 Executando pesquisa web massiva REAL...
+2025-08-01 20:44:36,378 - services.ultra_detailed_analysis_engine - INFO - 🌐 INICIANDO PESQUISA WEB MASSIVA ROBUSTA
+2025-08-01 20:44:36,378 - routes.progress - INFO - Progress session_1754090613712_8pxykddz8: Step 2/13 - 🔍 Pesquisando: mercado Telemedicina Brasil 2024 dados estatística...
+2025-08-01 20:44:36,848 - services.production_search_manager - INFO - 🔍 Google API Response: 200
+2025-08-01 20:44:36,848 - services.production_search_manager - INFO - ✅ Google Custom Search: 5 resultados válidos
+2025-08-01 20:44:36,853 - services.production_search_manager - INFO - ✅ google: 5 resultados
+2025-08-01 20:44:37,410 - services.production_search_manager - INFO - ✅ Serper Search: 5 resultados
+2025-08-01 20:44:37,412 - services.production_search_manager - INFO - ✅ serper: 5 resultados
+2025-08-01 20:44:38,204 - services.production_search_manager - INFO - 🔍 Bing encontrou 10 elementos
+2025-08-01 20:44:38,206 - services.production_search_manager - INFO - ✅ Bing Scraping: 5 resultados válidos
+2025-08-01 20:44:38,207 - services.production_search_manager - INFO - ✅ bing: 5 resultados
+2025-08-01 20:44:38,208 - services.production_search_manager - INFO - 🎯 Busca final: 10 resultados únicos de 3 provedores
+2025-08-01 20:44:38,208 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.bing.com/ck/a?!&&p=49e8b3698e386c2204ae8fe8a2e36f884cd6f262d80708993d7017e0dbe7e3ccJmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2bea3ca4-d0e8-629d-2d6e-2a9fd13663fa&u=a1aHR0cHM6Ly93d3cubWVyY2Fkb3BhZ28uY29tLmJyLw&ntb=1
+2025-08-01 20:44:38,208 - services.url_resolver - INFO - 🔄 Resolvendo URL do Bing: https://www.bing.com/ck/a?!&&p=49e8b3698e386c2204ae8fe8a2e36f884cd6f262d80708993d7017e0dbe7e3ccJmltd...
+2025-08-01 20:44:38,208 - services.url_resolver - INFO - ✅ URL Bing resolvida: https://www.mercadopago.com.br/
+2025-08-01 20:44:38,209 - services.robust_content_extractor - INFO - 🔄 URL resolvida: https://www.bing.com/ck/a?!&&p=49e8b3698e386c2204ae8fe8a2e36f884cd6f262d80708993d7017e0dbe7e3ccJmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2bea3ca4-d0e8-629d-2d6e-2a9fd13663fa&u=a1aHR0cHM6Ly93d3cubWVyY2Fkb3BhZ28uY29tLmJyLw&ntb=1 -> https://www.mercadopago.com.br/
+2025-08-01 20:44:38,603 - services.robust_content_extractor - INFO - 📥 HTML baixado: 1371961 caracteres
+2025-08-01 20:44:38,637 - services.robust_content_extractor - WARNING - ⚠️ Página dinâmica detectada: https://www.mercadopago.com.br/
+2025-08-01 20:44:38,694 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://www.mercadopago.com.br/: 2559 caracteres, 391 palavras
+2025-08-01 20:44:38,694 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 2559 chars de https://www.bing.com/ck/a?!&&p=49e8b3698e386c2204ae8fe8a2e36f884cd6f262d80708993d7017e0dbe7e3ccJmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2bea3ca4-d0e8-629d-2d6e-2a9fd13663fa&u=a1aHR0cHM6Ly93d3cubWVyY2Fkb3BhZ28uY29tLmJyLw&ntb=1
+2025-08-01 20:44:38,694 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.bing.com/ck/a?!&&p=5c424907137a8039c405c31c0d8d50d56d19dc6ddf2ca792e29535b8d91b7bc4JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2bea3ca4-d0e8-629d-2d6e-2a9fd13663fa&u=a1aHR0cHM6Ly93d3cubWVyY2Fkb211bmljaXBhbGRlY3VyaXRpYmEuY29tLmJyLw&ntb=1
+2025-08-01 20:44:38,697 - services.url_resolver - INFO - 🔄 Resolvendo URL do Bing: https://www.bing.com/ck/a?!&&p=5c424907137a8039c405c31c0d8d50d56d19dc6ddf2ca792e29535b8d91b7bc4Jmltd...
+2025-08-01 20:44:38,697 - services.url_resolver - INFO - ✅ URL Bing resolvida: https://www.mercadomunicipaldecuritiba.com.br/
+2025-08-01 20:44:38,698 - services.robust_content_extractor - INFO - 🔄 URL resolvida: https://www.bing.com/ck/a?!&&p=5c424907137a8039c405c31c0d8d50d56d19dc6ddf2ca792e29535b8d91b7bc4JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2bea3ca4-d0e8-629d-2d6e-2a9fd13663fa&u=a1aHR0cHM6Ly93d3cubWVyY2Fkb211bmljaXBhbGRlY3VyaXRpYmEuY29tLmJyLw&ntb=1 -> https://www.mercadomunicipaldecuritiba.com.br/
+2025-08-01 20:44:39,103 - services.robust_content_extractor - INFO - 📥 HTML baixado: 134088 caracteres
+2025-08-01 20:44:39,125 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:44:39,166 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://www.mercadomunicipaldecuritiba.com.br/: 312 caracteres, 52 palavras
+2025-08-01 20:44:39,166 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 312 caracteres em 0.04s
+2025-08-01 20:44:39,166 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 312 chars de https://www.bing.com/ck/a?!&&p=5c424907137a8039c405c31c0d8d50d56d19dc6ddf2ca792e29535b8d91b7bc4JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2bea3ca4-d0e8-629d-2d6e-2a9fd13663fa&u=a1aHR0cHM6Ly93d3cubWVyY2Fkb211bmljaXBhbGRlY3VyaXRpYmEuY29tLmJyLw&ntb=1
+2025-08-01 20:44:39,167 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.bing.com/ck/a?!&&p=fb17d2b133f3a7ddf9ad3e72275faa0155ef316e11736e2a1a17cf6817ee7e90JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2bea3ca4-d0e8-629d-2d6e-2a9fd13663fa&u=a1aHR0cHM6Ly93d3cubWVyY2Fkb2xpdnJlLmNvbS5ici9sb2phL21lcmNhZG9saXZyZT9tc29ja2lkPTJiZWEzY2E0ZDBlODYyOWQyZDZlMmE5ZmQxMzY2M2Zh&ntb=1
+2025-08-01 20:44:39,167 - services.url_resolver - INFO - 🔄 Resolvendo URL do Bing: https://www.bing.com/ck/a?!&&p=fb17d2b133f3a7ddf9ad3e72275faa0155ef316e11736e2a1a17cf6817ee7e90Jmltd...
+2025-08-01 20:44:39,167 - services.url_resolver - INFO - ✅ URL Bing resolvida: https://www.mercadolivre.com.br/loja/mercadolivre?msockid=2bea3ca4d0e8629d2d6e2a9fd13663fa
+2025-08-01 20:44:39,167 - services.robust_content_extractor - INFO - 🔄 URL resolvida: https://www.bing.com/ck/a?!&&p=fb17d2b133f3a7ddf9ad3e72275faa0155ef316e11736e2a1a17cf6817ee7e90JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2bea3ca4-d0e8-629d-2d6e-2a9fd13663fa&u=a1aHR0cHM6Ly93d3cubWVyY2Fkb2xpdnJlLmNvbS5ici9sb2phL21lcmNhZG9saXZyZT9tc29ja2lkPTJiZWEzY2E0ZDBlODYyOWQyZDZlMmE5ZmQxMzY2M2Zh&ntb=1 -> https://www.mercadolivre.com.br/loja/mercadolivre?msockid=2bea3ca4d0e8629d2d6e2a9fd13663fa
+2025-08-01 20:44:39,757 - services.robust_content_extractor - INFO - 📥 HTML baixado: 1148971 caracteres
+2025-08-01 20:44:39,800 - services.robust_content_extractor - WARNING - ⚠️ Página dinâmica detectada: https://www.mercadolivre.com.br/loja/mercadolivre?msockid=2bea3ca4d0e8629d2d6e2a9fd13663fa
+2025-08-01 20:44:39,903 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://www.mercadolivre.com.br/loja/mercadolivre?msockid=2bea3ca4d0e8629d2d6e2a9fd13663fa: 2121 caracteres, 234 palavras
+2025-08-01 20:44:39,904 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 2121 chars de https://www.bing.com/ck/a?!&&p=fb17d2b133f3a7ddf9ad3e72275faa0155ef316e11736e2a1a17cf6817ee7e90JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2bea3ca4-d0e8-629d-2d6e-2a9fd13663fa&u=a1aHR0cHM6Ly93d3cubWVyY2Fkb2xpdnJlLmNvbS5ici9sb2phL21lcmNhZG9saXZyZT9tc29ja2lkPTJiZWEzY2E0ZDBlODYyOWQyZDZlMmE5ZmQxMzY2M2Zh&ntb=1
+2025-08-01 20:44:39,904 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.bing.com/ck/a?!&&p=f499b7454d244d6b1a3a8341be6ae382f5eb444a1c6a31ba56f4a0e363d9689bJmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2bea3ca4-d0e8-629d-2d6e-2a9fd13663fa&u=a1aHR0cHM6Ly93d3cubWVyY2Fkb2xpdnJlLmNvbS5ici8_bXNvY2tpZD0yYmVhM2NhNGQwZTg2MjlkMmQ2ZTJhOWZkMTM2NjNmYQ&ntb=1
+2025-08-01 20:44:39,904 - services.url_resolver - INFO - 🔄 Resolvendo URL do Bing: https://www.bing.com/ck/a?!&&p=f499b7454d244d6b1a3a8341be6ae382f5eb444a1c6a31ba56f4a0e363d9689bJmltd...
+2025-08-01 20:44:40,297 - services.robust_content_extractor - INFO - 📥 HTML baixado: 1947 caracteres
+2025-08-01 20:44:40,298 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:44:40,412 - services.robust_content_extractor - WARNING - ⚠️ Conteúdo pequeno para https://www.bing.com/ck/a?!&&p=f499b7454d244d6b1a3a8341be6ae382f5eb444a1c6a31ba56f4a0e363d9689bJmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2bea3ca4-d0e8-629d-2d6e-2a9fd13663fa&u=a1aHR0cHM6Ly93d3cubWVyY2Fkb2xpdnJlLmNvbS5ici8_bXNvY2tpZD0yYmVhM2NhNGQwZTg2MjlkMmQ2ZTJhOWZkMTM2NjNmYQ&ntb=1: 65 < 200
+2025-08-01 20:44:40,412 - services.robust_content_extractor - WARNING - ⚠️ Conteúdo insuficiente com trafilatura: 65 caracteres
+2025-08-01 20:44:40,415 - services.robust_content_extractor - INFO - 🔍 Tentando extração com readability...
+2025-08-01 20:44:40,421 - services.robust_content_extractor - WARNING - ⚠️ Conteúdo pequeno para https://www.bing.com/ck/a?!&&p=f499b7454d244d6b1a3a8341be6ae382f5eb444a1c6a31ba56f4a0e363d9689bJmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2bea3ca4-d0e8-629d-2d6e-2a9fd13663fa&u=a1aHR0cHM6Ly93d3cubWVyY2Fkb2xpdnJlLmNvbS5ici8_bXNvY2tpZD0yYmVhM2NhNGQwZTg2MjlkMmQ2ZTJhOWZkMTM2NjNmYQ&ntb=1: 65 < 200
+2025-08-01 20:44:40,421 - services.robust_content_extractor - WARNING - ⚠️ Conteúdo insuficiente com readability: 65 caracteres
+2025-08-01 20:44:40,421 - services.robust_content_extractor - INFO - 🔍 Tentando extração com newspaper...
+2025-08-01 20:44:40,443 - services.robust_content_extractor - WARNING - ⚠️ Conteúdo pequeno para https://www.bing.com/ck/a?!&&p=f499b7454d244d6b1a3a8341be6ae382f5eb444a1c6a31ba56f4a0e363d9689bJmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2bea3ca4-d0e8-629d-2d6e-2a9fd13663fa&u=a1aHR0cHM6Ly93d3cubWVyY2Fkb2xpdnJlLmNvbS5ici8_bXNvY2tpZD0yYmVhM2NhNGQwZTg2MjlkMmQ2ZTJhOWZkMTM2NjNmYQ&ntb=1: 65 < 200
+2025-08-01 20:44:40,443 - services.robust_content_extractor - WARNING - ⚠️ Conteúdo insuficiente com newspaper: 65 caracteres
+2025-08-01 20:44:40,445 - services.robust_content_extractor - INFO - 🔍 Tentando extração com beautifulsoup...
+2025-08-01 20:44:40,459 - services.robust_content_extractor - WARNING - ⚠️ Conteúdo insuficiente com beautifulsoup: 0 caracteres
+2025-08-01 20:44:40,460 - services.robust_content_extractor - WARNING - ⚠️ Todos os extratores padrão falharam, tentando extração agressiva...
+2025-08-01 20:44:40,463 - services.robust_content_extractor - ERROR - ❌ FALHA CRÍTICA: Todos os extratores falharam para https://www.bing.com/ck/a?!&&p=f499b7454d244d6b1a3a8341be6ae382f5eb444a1c6a31ba56f4a0e363d9689bJmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2bea3ca4-d0e8-629d-2d6e-2a9fd13663fa&u=a1aHR0cHM6Ly93d3cubWVyY2Fkb2xpdnJlLmNvbS5ici8_bXNvY2tpZD0yYmVhM2NhNGQwZTg2MjlkMmQ2ZTJhOWZkMTM2NjNmYQ&ntb=1
+2025-08-01 20:44:40,464 - services.ultra_detailed_analysis_engine - WARNING - ⚠️ Conteúdo insuficiente: 0 chars
+2025-08-01 20:44:40,468 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.bing.com/ck/a?!&&p=092778755e38c276bd494dba5dae0d8855dfaf8128799e0d6d2a4acebfa997a2JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2bea3ca4-d0e8-629d-2d6e-2a9fd13663fa&u=a1aHR0cHM6Ly93d3cubWVyY2Fkb2xpdnJlLmNvbS5ici9sL2FwcD9tc29ja2lkPTJiZWEzY2E0ZDBlODYyOWQyZDZlMmE5ZmQxMzY2M2Zh&ntb=1
+2025-08-01 20:44:40,468 - services.url_resolver - INFO - 🔄 Resolvendo URL do Bing: https://www.bing.com/ck/a?!&&p=092778755e38c276bd494dba5dae0d8855dfaf8128799e0d6d2a4acebfa997a2Jmltd...
+2025-08-01 20:44:40,471 - services.url_resolver - INFO - ✅ URL Bing resolvida: https://www.mercadolivre.com.br/l/app?msockid=2bea3ca4d0e8629d2d6e2a9fd13663fa
+2025-08-01 20:44:40,472 - services.robust_content_extractor - INFO - 🔄 URL resolvida: https://www.bing.com/ck/a?!&&p=092778755e38c276bd494dba5dae0d8855dfaf8128799e0d6d2a4acebfa997a2JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2bea3ca4-d0e8-629d-2d6e-2a9fd13663fa&u=a1aHR0cHM6Ly93d3cubWVyY2Fkb2xpdnJlLmNvbS5ici9sL2FwcD9tc29ja2lkPTJiZWEzY2E0ZDBlODYyOWQyZDZlMmE5ZmQxMzY2M2Zh&ntb=1 -> https://www.mercadolivre.com.br/l/app?msockid=2bea3ca4d0e8629d2d6e2a9fd13663fa
+2025-08-01 20:44:40,754 - services.robust_content_extractor - INFO - 📥 HTML baixado: 238498 caracteres
+2025-08-01 20:44:40,781 - services.robust_content_extractor - WARNING - ⚠️ Página dinâmica detectada: https://www.mercadolivre.com.br/l/app?msockid=2bea3ca4d0e8629d2d6e2a9fd13663fa
+2025-08-01 20:44:40,902 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://www.mercadolivre.com.br/l/app?msockid=2bea3ca4d0e8629d2d6e2a9fd13663fa: 342 caracteres, 52 palavras
+2025-08-01 20:44:40,902 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 342 chars de https://www.bing.com/ck/a?!&&p=092778755e38c276bd494dba5dae0d8855dfaf8128799e0d6d2a4acebfa997a2JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2bea3ca4-d0e8-629d-2d6e-2a9fd13663fa&u=a1aHR0cHM6Ly93d3cubWVyY2Fkb2xpdnJlLmNvbS5ici9sL2FwcD9tc29ja2lkPTJiZWEzY2E0ZDBlODYyOWQyZDZlMmE5ZmQxMzY2M2Zh&ntb=1
+2025-08-01 20:44:40,904 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://g1.globo.com/sc/santa-catarina/especial-publicitario/pergunte-ao-medico/noticia/2024/08/12/telemedicina-se-consolida-no-brasil-apos-a-pandemia.ghtml
+2025-08-01 20:44:41,170 - services.robust_content_extractor - INFO - 📥 HTML baixado: 1051355 caracteres
+2025-08-01 20:44:41,348 - services.robust_content_extractor - WARNING - ⚠️ Página dinâmica detectada: https://g1.globo.com/sc/santa-catarina/especial-publicitario/pergunte-ao-medico/noticia/2024/08/12/telemedicina-se-consolida-no-brasil-apos-a-pandemia.ghtml
+2025-08-01 20:44:41,858 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://g1.globo.com/sc/santa-catarina/especial-publicitario/pergunte-ao-medico/noticia/2024/08/12/telemedicina-se-consolida-no-brasil-apos-a-pandemia.ghtml: 9548 caracteres, 1381 palavras
+2025-08-01 20:44:41,858 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 9548 chars de https://g1.globo.com/sc/santa-catarina/especial-publicitario/pergunte-ao-medico/noticia/2024/08/12/telemedicina-se-consolida-no-brasil-apos-a-pandemia.ghtml
+2025-08-01 20:44:41,863 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.saudebusiness.com/artigos/pesquisa-revela-alto-uso-da-telemedicina-por-pacientes-e-instituicoes-de-saude/
+2025-08-01 20:44:42,916 - services.robust_content_extractor - INFO - 📥 HTML baixado: 222936 caracteres
+2025-08-01 20:44:42,939 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:44:42,955 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://www.saudebusiness.com/artigos/pesquisa-revela-alto-uso-da-telemedicina-por-pacientes-e-instituicoes-de-saude/: 4450 caracteres, 692 palavras
+2025-08-01 20:44:42,955 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 4450 caracteres em 0.01s
+2025-08-01 20:44:42,955 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 4450 chars de https://www.saudebusiness.com/artigos/pesquisa-revela-alto-uso-da-telemedicina-por-pacientes-e-instituicoes-de-saude/
+2025-08-01 20:44:42,956 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://medicinasa.com.br/paciente-digital-25/
+2025-08-01 20:44:47,378 - services.robust_content_extractor - INFO - 📥 HTML baixado: 122255 caracteres
+2025-08-01 20:44:47,406 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:44:47,419 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://medicinasa.com.br/paciente-digital-25/: 4001 caracteres, 612 palavras
+2025-08-01 20:44:47,423 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 4001 caracteres em 0.01s
+2025-08-01 20:44:47,423 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 4001 chars de https://medicinasa.com.br/paciente-digital-25/
+2025-08-01 20:44:47,925 - routes.progress - INFO - Progress session_1754090613712_8pxykddz8: Step 2/13 - 🔍 Pesquisando: análise competitiva Telemedicina principais empres...
+2025-08-01 20:44:48,302 - services.production_search_manager - INFO - 🔍 Google API Response: 200
+2025-08-01 20:44:48,302 - services.production_search_manager - INFO - ✅ Google Custom Search: 5 resultados válidos
+2025-08-01 20:44:48,309 - services.production_search_manager - INFO - ✅ google: 5 resultados
+2025-08-01 20:44:48,847 - services.production_search_manager - INFO - ✅ Serper Search: 5 resultados
+2025-08-01 20:44:48,848 - services.production_search_manager - INFO - ✅ serper: 5 resultados
+2025-08-01 20:44:49,709 - services.production_search_manager - INFO - 🔍 Bing encontrou 10 elementos
+2025-08-01 20:44:49,710 - services.production_search_manager - INFO - ✅ Bing Scraping: 5 resultados válidos
+2025-08-01 20:44:49,712 - services.production_search_manager - INFO - ✅ bing: 5 resultados
+2025-08-01 20:44:49,715 - services.production_search_manager - INFO - 🎯 Busca final: 10 resultados únicos de 3 provedores
+2025-08-01 20:44:49,715 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.significados.com.br/analise/
+2025-08-01 20:44:50,697 - services.robust_content_extractor - INFO - 📥 HTML baixado: 148306 caracteres
+2025-08-01 20:44:50,710 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:44:50,728 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://www.significados.com.br/analise/: 1910 caracteres, 299 palavras
+2025-08-01 20:44:50,728 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 1910 caracteres em 0.02s
+2025-08-01 20:44:50,740 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 1910 chars de https://www.significados.com.br/analise/
+2025-08-01 20:44:50,741 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://conceito.de/analise
+2025-08-01 20:44:51,278 - services.robust_content_extractor - INFO - 📥 HTML baixado: 23627 caracteres
+2025-08-01 20:44:51,383 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:44:51,394 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://conceito.de/analise: 4230 caracteres, 673 palavras
+2025-08-01 20:44:51,394 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 4230 caracteres em 0.01s
+2025-08-01 20:44:51,394 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 4230 chars de https://conceito.de/analise
+2025-08-01 20:44:51,397 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.dicio.com.br/analise-ou-analise/
+2025-08-01 20:44:52,303 - services.robust_content_extractor - INFO - 📥 HTML baixado: 156453 caracteres
+2025-08-01 20:44:52,321 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:44:52,345 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://www.dicio.com.br/analise-ou-analise/: 1963 caracteres, 311 palavras
+2025-08-01 20:44:52,345 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 1963 caracteres em 0.02s
+2025-08-01 20:44:52,359 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 1963 chars de https://www.dicio.com.br/analise-ou-analise/
+2025-08-01 20:44:52,360 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.sinonimos.com.br/analise/
+2025-08-01 20:44:53,505 - services.robust_content_extractor - INFO - 📥 HTML baixado: 265560 caracteres
+2025-08-01 20:44:53,525 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:44:53,549 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://www.sinonimos.com.br/analise/: 1014 caracteres, 129 palavras
+2025-08-01 20:44:53,549 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 1014 caracteres em 0.02s
+2025-08-01 20:44:53,551 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 1014 chars de https://www.sinonimos.com.br/analise/
+2025-08-01 20:44:53,557 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://portuguesaletra.com/duvidas/analise-ou-analise/
+2025-08-01 20:44:54,517 - services.robust_content_extractor - INFO - 📥 HTML baixado: 24753 caracteres
+2025-08-01 20:44:54,526 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:44:54,536 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://portuguesaletra.com/duvidas/analise-ou-analise/: 1355 caracteres, 217 palavras
+2025-08-01 20:44:54,536 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 1355 caracteres em 0.01s
+2025-08-01 20:44:54,536 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 1355 chars de https://portuguesaletra.com/duvidas/analise-ou-analise/
+2025-08-01 20:44:54,543 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://star.med.br/lista-10-melhores-empresas-de-telemedicina/
+2025-08-01 20:44:54,701 - services.robust_content_extractor - INFO - 📥 HTML baixado: 107332 caracteres
+2025-08-01 20:44:54,717 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:44:54,744 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://star.med.br/lista-10-melhores-empresas-de-telemedicina/: 8622 caracteres, 1307 palavras
+2025-08-01 20:44:54,744 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 8622 caracteres em 0.03s
+2025-08-01 20:44:54,746 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 8622 chars de https://star.med.br/lista-10-melhores-empresas-de-telemedicina/
+2025-08-01 20:44:54,758 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://eigierdiagnosticos.com.br/blog/empresas-de-telemedicina/
+2025-08-01 20:44:54,894 - services.robust_content_extractor - INFO - 📥 HTML baixado: 51946 caracteres
+2025-08-01 20:44:54,910 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:44:54,937 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://eigierdiagnosticos.com.br/blog/empresas-de-telemedicina/: 6126 caracteres, 943 palavras
+2025-08-01 20:44:54,937 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 6126 caracteres em 0.03s
+2025-08-01 20:44:54,939 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 6126 chars de https://eigierdiagnosticos.com.br/blog/empresas-de-telemedicina/
+2025-08-01 20:44:54,943 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.econodata.com.br/maiores-empresas/todo-brasil/busca-telemedicina
+2025-08-01 20:44:55,156 - services.robust_content_extractor - INFO - 📥 HTML baixado: 431945 caracteres
+2025-08-01 20:44:55,269 - services.robust_content_extractor - WARNING - ⚠️ Página dinâmica detectada: https://www.econodata.com.br/maiores-empresas/todo-brasil/busca-telemedicina
+2025-08-01 20:44:55,627 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://www.econodata.com.br/maiores-empresas/todo-brasil/busca-telemedicina: 24857 caracteres, 2737 palavras
+2025-08-01 20:44:55,628 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 24857 chars de https://www.econodata.com.br/maiores-empresas/todo-brasil/busca-telemedicina
+2025-08-01 20:44:56,134 - routes.progress - INFO - Progress session_1754090613712_8pxykddz8: Step 2/13 - 🔍 Pesquisando: tendências Telemedicina oportunidades investimento...
+2025-08-01 20:44:56,533 - services.production_search_manager - INFO - 🔍 Google API Response: 200
+2025-08-01 20:44:56,534 - services.production_search_manager - INFO - ✅ Google Custom Search: 5 resultados válidos
+2025-08-01 20:44:56,540 - services.production_search_manager - INFO - ✅ google: 5 resultados
+2025-08-01 20:44:56,956 - services.production_search_manager - INFO - ✅ Serper Search: 5 resultados
+2025-08-01 20:44:56,957 - services.production_search_manager - INFO - ✅ serper: 5 resultados
+2025-08-01 20:44:57,683 - services.production_search_manager - INFO - 🔍 Bing encontrou 10 elementos
+2025-08-01 20:44:57,684 - services.production_search_manager - INFO - ✅ Bing Scraping: 5 resultados válidos
+2025-08-01 20:44:57,686 - services.production_search_manager - INFO - ✅ bing: 5 resultados
+2025-08-01 20:44:57,690 - services.production_search_manager - INFO - 🎯 Busca final: 10 resultados únicos de 3 provedores
+2025-08-01 20:44:57,690 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://trends.google.com.br/trends/
+2025-08-01 20:44:58,405 - services.robust_content_extractor - INFO - 📥 HTML baixado: 704998 caracteres
+2025-08-01 20:44:58,432 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:44:58,489 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://trends.google.com.br/trends/: 348 caracteres, 64 palavras
+2025-08-01 20:44:58,489 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 348 caracteres em 0.06s
+2025-08-01 20:44:58,491 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 348 chars de https://trends.google.com.br/trends/
+2025-08-01 20:44:58,494 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://trends.google.com.br/trending?geo=BR&hl=pt-PT
+2025-08-01 20:44:58,962 - services.robust_content_extractor - INFO - 📥 HTML baixado: 752892 caracteres
+2025-08-01 20:44:59,000 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:44:59,082 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://trends.google.com.br/trending?geo=BR&hl=pt-PT: 705 caracteres, 114 palavras
+2025-08-01 20:44:59,083 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 705 caracteres em 0.08s
+2025-08-01 20:44:59,088 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 705 chars de https://trends.google.com.br/trending?geo=BR&hl=pt-PT
+2025-08-01 20:44:59,088 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://trends.google.com.br/trends/explore
+2025-08-01 20:44:59,562 - services.robust_content_extractor - ERROR - ❌ Erro ao baixar https://trends.google.com.br/trends/explore (tentativa 1): 429 Client Error: Too Many Requests for url: https://www.google.com/sorry/index?continue=https://trends.google.com.br/trends/explore&q=EhAoBAFNeDWO0MhK5qXvORCxGPuitcQGIi8r5L2zRAVVqvl4Sodu0CiC6OxDBbE9UR0TTe-3I49iUS853NkHUkjWJpChi8LlBzICclJaAUM
+2025-08-01 20:45:01,994 - services.robust_content_extractor - ERROR - ❌ Erro ao baixar https://trends.google.com.br/trends/explore (tentativa 2): 429 Client Error: Too Many Requests for url: https://www.google.com/sorry/index?continue=https://trends.google.com.br/trends/explore&q=EhAoBAFNeDWO0MhK5qXvORCxGP2itcQGIi_A-_KaBQs552_RyXF6l-SHi1OHZg_m-ypYE8K5-MRwmkFYmzLpCiG52_w_jMxA0DICclJaAUM
+2025-08-01 20:45:04,397 - services.robust_content_extractor - ERROR - ❌ Erro ao baixar https://trends.google.com.br/trends/explore (tentativa 3): 429 Client Error: Too Many Requests for url: https://www.google.com/sorry/index?continue=https://trends.google.com.br/trends/explore&q=EhAoBAFNeDWO0MhK5qXvORCxGICjtcQGIi_xaheLGHpnysIj3oOkUAHB8KPGAUFUIKt-AMQiFRVbobCKD1rSOAcwms3qqUmqGTICclJaAUM
+2025-08-01 20:45:04,397 - services.robust_content_extractor - ERROR - ❌ Falha ao baixar HTML para https://trends.google.com.br/trends/explore
+2025-08-01 20:45:04,404 - services.ultra_detailed_analysis_engine - WARNING - ⚠️ Conteúdo insuficiente: 0 chars
+2025-08-01 20:45:04,405 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://trends.google.com.br/trends/explore?date=today%201-m&geo=BR&hl=pt-BR
+2025-08-01 20:45:05,054 - services.robust_content_extractor - ERROR - ❌ Erro ao baixar https://trends.google.com.br/trends/explore?date=today%201-m&geo=BR&hl=pt-BR (tentativa 1): 429 Client Error: Too Many Requests for url: https://www.google.com/sorry/index?continue=https://trends.google.com.br/trends/explore%3Fdate%3Dtoday%25201-m%26geo%3DBR%26hl%3Dpt-BR&hl=pt-BR&q=EhAoBAFNeDWO0MhK5qXvORCxGICjtcQGIi-Dc3qDgxMOZ8O90iSvMfHaYY2yIzPXrONuVKZO3voKI0edG2-GN12RZ9Ji5IeAejICclJaAUM
+2025-08-01 20:45:07,628 - services.robust_content_extractor - ERROR - ❌ Erro ao baixar https://trends.google.com.br/trends/explore?date=today%201-m&geo=BR&hl=pt-BR (tentativa 2): 429 Client Error: Too Many Requests for url: https://www.google.com/sorry/index?continue=https://trends.google.com.br/trends/explore%3Fdate%3Dtoday%25201-m%26geo%3DBR%26hl%3Dpt-BR&hl=pt-BR&q=EhAoBAFNeDWO0MhK5qXvORCxGIOjtcQGIi-FAkNpDVi_WwCGagGF1AzTAWzStQfOc6Kiign6P_L6AO7otiBZrBwwkOv0Ng7vazICclJaAUM
+2025-08-01 20:45:10,162 - services.robust_content_extractor - ERROR - ❌ Erro ao baixar https://trends.google.com.br/trends/explore?date=today%201-m&geo=BR&hl=pt-BR (tentativa 3): 429 Client Error: Too Many Requests for url: https://www.google.com/sorry/index?continue=https://trends.google.com.br/trends/explore%3Fdate%3Dtoday%25201-m%26geo%3DBR%26hl%3Dpt-BR&hl=pt-BR&q=EhAoBAFNeDWO0MhK5qXvORCxGIWjtcQGIi-mD4Dk7kyzKFY2IaEhIDZIHb0XTOlEl5wXneeSr5ip41w2kdszLctEER6xjeOEAzICclJaAUM
+2025-08-01 20:45:10,162 - services.robust_content_extractor - ERROR - ❌ Falha ao baixar HTML para https://trends.google.com.br/trends/explore?date=today%201-m&geo=BR&hl=pt-BR
+2025-08-01 20:45:10,170 - services.ultra_detailed_analysis_engine - WARNING - ⚠️ Conteúdo insuficiente: 0 chars
+2025-08-01 20:45:10,172 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://trends.google.com.br/trends/yis/2022/BR/
+2025-08-01 20:45:10,808 - services.robust_content_extractor - ERROR - ❌ Erro ao baixar https://trends.google.com.br/trends/yis/2022/BR/ (tentativa 1): 429 Client Error: Too Many Requests for url: https://www.google.com/sorry/index?continue=https://trends.google.com.br/trends/yis/2022/BR/&q=EhAoBAFNeDWO0MhK5qXvORCxGIajtcQGIi8fxwDGJESvYwLtbO69EIqrnxXZJHYLlpcAod-j1z2qNKlrJVAxr5Vr1MONbOWwlzICclJaAUM
+2025-08-01 20:45:13,364 - services.robust_content_extractor - ERROR - ❌ Erro ao baixar https://trends.google.com.br/trends/yis/2022/BR/ (tentativa 2): 429 Client Error: Too Many Requests for url: https://www.google.com/sorry/index?continue=https://trends.google.com.br/trends/yis/2022/BR/&q=EhAoBAFNeDWO0MhK5qXvORCxGIijtcQGIi-Iu-yxRWRMwNtlvyQqGJ5vlnpI8tjc3bm9L6Ccfs2UYNvitYAbZpV2VelRBVZ5_DICclJaAUM
+2025-08-01 20:45:15,723 - services.robust_content_extractor - ERROR - ❌ Erro ao baixar https://trends.google.com.br/trends/yis/2022/BR/ (tentativa 3): 429 Client Error: Too Many Requests for url: https://www.google.com/sorry/index?continue=https://trends.google.com.br/trends/yis/2022/BR/&q=EhAoBAFNeDWO0MhK5qXvORCxGIujtcQGIi9qcg8PvHbH_JreAGb0-2Q2sNCSd43agooljawjVtCw0ptVmtx6V-rJyTcWkmyybTICclJaAUM
+2025-08-01 20:45:15,723 - services.robust_content_extractor - ERROR - ❌ Falha ao baixar HTML para https://trends.google.com.br/trends/yis/2022/BR/
+2025-08-01 20:45:15,723 - services.ultra_detailed_analysis_engine - WARNING - ⚠️ Conteúdo insuficiente: 0 chars
+2025-08-01 20:45:15,728 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://portaltelemedicina.com.br/tendencias-telemedicina
+2025-08-01 20:45:16,827 - services.robust_content_extractor - INFO - 📥 HTML baixado: 625307 caracteres
+2025-08-01 20:45:16,870 - services.robust_content_extractor - WARNING - ⚠️ Página dinâmica detectada: https://portaltelemedicina.com.br/tendencias-telemedicina
+2025-08-01 20:45:16,980 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://portaltelemedicina.com.br/tendencias-telemedicina: 50003 caracteres, 7169 palavras
+2025-08-01 20:45:16,980 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 50003 chars de https://portaltelemedicina.com.br/tendencias-telemedicina
+2025-08-01 20:45:16,987 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://mediquo.com.br/blog/futuro-da-saude-digital/
+2025-08-01 20:45:17,454 - services.robust_content_extractor - INFO - 📥 HTML baixado: 157186 caracteres
+2025-08-01 20:45:17,485 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:45:17,522 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://mediquo.com.br/blog/futuro-da-saude-digital/: 20562 caracteres, 3094 palavras
+2025-08-01 20:45:17,522 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 20562 caracteres em 0.03s
+2025-08-01 20:45:17,524 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 20562 chars de https://mediquo.com.br/blog/futuro-da-saude-digital/
+2025-08-01 20:45:17,525 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.amigotech.com.br/materias-do-blogs/quais-as-tendencias-para-o-futuro-da-medicina
+2025-08-01 20:45:17,694 - services.robust_content_extractor - INFO - 📥 HTML baixado: 112735 caracteres
+2025-08-01 20:45:17,805 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:45:17,825 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://www.amigotech.com.br/materias-do-blogs/quais-as-tendencias-para-o-futuro-da-medicina: 5573 caracteres, 825 palavras
+2025-08-01 20:45:17,826 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 5573 caracteres em 0.02s
+2025-08-01 20:45:17,826 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 5573 chars de https://www.amigotech.com.br/materias-do-blogs/quais-as-tendencias-para-o-futuro-da-medicina
+2025-08-01 20:45:18,328 - routes.progress - INFO - Progress session_1754090613712_8pxykddz8: Step 2/13 - 🔍 Pesquisando: comportamento consumidor Telemedicina Brasil pesqu...
+2025-08-01 20:45:18,716 - services.production_search_manager - INFO - 🔍 Google API Response: 200
+2025-08-01 20:45:18,716 - services.production_search_manager - INFO - ✅ Google Custom Search: 5 resultados válidos
+2025-08-01 20:45:18,719 - services.production_search_manager - INFO - ✅ google: 5 resultados
+2025-08-01 20:45:19,369 - services.production_search_manager - INFO - ✅ Serper Search: 5 resultados
+2025-08-01 20:45:19,370 - services.production_search_manager - INFO - ✅ serper: 5 resultados
+2025-08-01 20:45:20,456 - services.production_search_manager - INFO - 🔍 Bing encontrou 10 elementos
+2025-08-01 20:45:20,458 - services.production_search_manager - INFO - ✅ Bing Scraping: 5 resultados válidos
+2025-08-01 20:45:20,460 - services.production_search_manager - INFO - ✅ bing: 5 resultados
+2025-08-01 20:45:20,460 - services.production_search_manager - INFO - 🎯 Busca final: 10 resultados únicos de 3 provedores
+2025-08-01 20:45:20,460 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.significados.com.br/comportamento/
+2025-08-01 20:45:21,343 - services.robust_content_extractor - INFO - 📥 HTML baixado: 148419 caracteres
+2025-08-01 20:45:21,353 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:45:21,370 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://www.significados.com.br/comportamento/: 2532 caracteres, 400 palavras
+2025-08-01 20:45:21,370 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 2532 caracteres em 0.02s
+2025-08-01 20:45:21,371 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 2532 chars de https://www.significados.com.br/comportamento/
+2025-08-01 20:45:21,372 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.psicanaliseclinica.com/comportamento-humano/
+2025-08-01 20:45:26,646 - services.robust_content_extractor - INFO - 📥 HTML baixado: 73871 caracteres
+2025-08-01 20:45:26,663 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:45:26,676 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://www.psicanaliseclinica.com/comportamento-humano/: 6617 caracteres, 998 palavras
+2025-08-01 20:45:26,677 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 6617 caracteres em 0.01s
+2025-08-01 20:45:26,679 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 6617 chars de https://www.psicanaliseclinica.com/comportamento-humano/
+2025-08-01 20:45:26,687 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://pt.wikipedia.org/wiki/Comportamento
+2025-08-01 20:45:26,781 - services.robust_content_extractor - INFO - 📥 HTML baixado: 164964 caracteres
+2025-08-01 20:45:26,835 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:45:26,925 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://pt.wikipedia.org/wiki/Comportamento: 8004 caracteres, 1163 palavras
+2025-08-01 20:45:26,926 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 8004 caracteres em 0.09s
+2025-08-01 20:45:26,930 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 8004 chars de https://pt.wikipedia.org/wiki/Comportamento
+2025-08-01 20:45:26,931 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://maestrovirtuale.com/os-15-tipos-de-comportamentos-e-suas-caracteristicas/
+2025-08-01 20:45:28,879 - services.robust_content_extractor - INFO - 📥 HTML baixado: 288307 caracteres
+2025-08-01 20:45:28,900 - services.robust_content_extractor - WARNING - ⚠️ Página dinâmica detectada: https://maestrovirtuale.com/os-15-tipos-de-comportamentos-e-suas-caracteristicas/
+2025-08-01 20:45:28,964 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://maestrovirtuale.com/os-15-tipos-de-comportamentos-e-suas-caracteristicas/: 50003 caracteres, 6867 palavras
+2025-08-01 20:45:28,964 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 50003 chars de https://maestrovirtuale.com/os-15-tipos-de-comportamentos-e-suas-caracteristicas/
+2025-08-01 20:45:28,966 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://passarpelasbarreiras.com.br/comportamento/
+2025-08-01 20:45:31,344 - services.robust_content_extractor - INFO - 📥 HTML baixado: 179094 caracteres
+2025-08-01 20:45:31,374 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:45:31,434 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://passarpelasbarreiras.com.br/comportamento/: 12417 caracteres, 1724 palavras
+2025-08-01 20:45:31,434 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 12417 caracteres em 0.06s
+2025-08-01 20:45:31,436 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 12417 chars de https://passarpelasbarreiras.com.br/comportamento/
+2025-08-01 20:45:31,440 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.apm.org.br/estudo-revela-novos-dados-sobre-o-perfil-do-paciente-digital-no-brasil/
+2025-08-01 20:45:33,063 - services.robust_content_extractor - INFO - 📥 HTML baixado: 56318 caracteres
+2025-08-01 20:45:33,075 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:45:33,084 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://www.apm.org.br/estudo-revela-novos-dados-sobre-o-perfil-do-paciente-digital-no-brasil/: 3950 caracteres, 603 palavras
+2025-08-01 20:45:33,084 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 3950 caracteres em 0.01s
+2025-08-01 20:45:33,088 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 3950 chars de https://www.apm.org.br/estudo-revela-novos-dados-sobre-o-perfil-do-paciente-digital-no-brasil/
+2025-08-01 20:45:33,088 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://saudedigitalbrasil.com.br/entidade-aponta-que-telemedicina-salvou-mais-de-75-mil-vidas-entre-2020-e-2021/
+2025-08-01 20:45:34,062 - services.robust_content_extractor - INFO - 📥 HTML baixado: 153329 caracteres
+2025-08-01 20:45:34,094 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:45:34,120 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://saudedigitalbrasil.com.br/entidade-aponta-que-telemedicina-salvou-mais-de-75-mil-vidas-entre-2020-e-2021/: 3687 caracteres, 573 palavras
+2025-08-01 20:45:34,121 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 3687 caracteres em 0.02s
+2025-08-01 20:45:34,123 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 3687 chars de https://saudedigitalbrasil.com.br/entidade-aponta-que-telemedicina-salvou-mais-de-75-mil-vidas-entre-2020-e-2021/
+2025-08-01 20:45:34,123 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://abes.com.br/a-era-digital-e-a-saude-desafios-dos-servicos-de-telemedicina-no-brasil/
+2025-08-01 20:45:35,254 - services.robust_content_extractor - INFO - 📥 HTML baixado: 299163 caracteres
+2025-08-01 20:45:35,300 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:45:35,323 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://abes.com.br/a-era-digital-e-a-saude-desafios-dos-servicos-de-telemedicina-no-brasil/: 3293 caracteres, 508 palavras
+2025-08-01 20:45:35,323 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 3293 caracteres em 0.02s
+2025-08-01 20:45:35,323 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 3293 chars de https://abes.com.br/a-era-digital-e-a-saude-desafios-dos-servicos-de-telemedicina-no-brasil/
+2025-08-01 20:45:35,825 - routes.progress - INFO - Progress session_1754090613712_8pxykddz8: Step 2/13 - 🔍 Pesquisando: startups Telemedicina investimento venture capital...
+2025-08-01 20:45:36,228 - services.production_search_manager - INFO - 🔍 Google API Response: 200
+2025-08-01 20:45:36,228 - services.production_search_manager - INFO - ✅ Google Custom Search: 5 resultados válidos
+2025-08-01 20:45:36,235 - services.production_search_manager - INFO - ✅ google: 5 resultados
+2025-08-01 20:45:36,745 - services.production_search_manager - INFO - ✅ Serper Search: 5 resultados
+2025-08-01 20:45:36,747 - services.production_search_manager - INFO - ✅ serper: 5 resultados
+2025-08-01 20:45:37,655 - services.production_search_manager - INFO - 🔍 Bing encontrou 7 elementos
+2025-08-01 20:45:37,656 - services.production_search_manager - INFO - ✅ Bing Scraping: 5 resultados válidos
+2025-08-01 20:45:37,658 - services.production_search_manager - INFO - ✅ bing: 5 resultados
+2025-08-01 20:45:37,658 - services.production_search_manager - INFO - 🎯 Busca final: 10 resultados únicos de 3 provedores
+2025-08-01 20:45:37,659 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.bing.com/ck/a?!&&p=c26718c891a245c24810d04cae749e880f167bdc0128d2380ec4c3ddc7d76621JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2e790619-8162-63e8-3c29-102280c862bb&u=a1aHR0cHM6Ly9waXBlbGluZS5jYXBpdGFsL2hlYWx0aHRlY2gtZS1zY2FsZS12ZW50dXJlcy8&ntb=1
+2025-08-01 20:45:37,659 - services.url_resolver - INFO - 🔄 Resolvendo URL do Bing: https://www.bing.com/ck/a?!&&p=c26718c891a245c24810d04cae749e880f167bdc0128d2380ec4c3ddc7d76621Jmltd...
+2025-08-01 20:45:37,659 - services.url_resolver - INFO - ✅ URL Bing resolvida: https://pipeline.capital/healthtech-e-scale-ventures/
+2025-08-01 20:45:37,660 - services.robust_content_extractor - INFO - 🔄 URL resolvida: https://www.bing.com/ck/a?!&&p=c26718c891a245c24810d04cae749e880f167bdc0128d2380ec4c3ddc7d76621JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2e790619-8162-63e8-3c29-102280c862bb&u=a1aHR0cHM6Ly9waXBlbGluZS5jYXBpdGFsL2hlYWx0aHRlY2gtZS1zY2FsZS12ZW50dXJlcy8&ntb=1 -> https://pipeline.capital/healthtech-e-scale-ventures/
+2025-08-01 20:45:39,046 - services.robust_content_extractor - ERROR - ❌ Erro ao baixar https://pipeline.capital/healthtech-e-scale-ventures/ (tentativa 1): 403 Client Error: Forbidden for url: https://pipeline.capital/healthtech-e-scale-ventures/
+2025-08-01 20:45:41,534 - services.robust_content_extractor - ERROR - ❌ Erro ao baixar https://pipeline.capital/healthtech-e-scale-ventures/ (tentativa 2): 403 Client Error: Forbidden for url: https://pipeline.capital/healthtech-e-scale-ventures/
+2025-08-01 20:45:45,338 - services.robust_content_extractor - ERROR - ❌ Erro ao baixar https://pipeline.capital/healthtech-e-scale-ventures/ (tentativa 3): 403 Client Error: Forbidden for url: https://pipeline.capital/healthtech-e-scale-ventures/
+2025-08-01 20:45:45,338 - services.robust_content_extractor - ERROR - ❌ Falha ao baixar HTML para https://pipeline.capital/healthtech-e-scale-ventures/
+2025-08-01 20:45:45,343 - services.ultra_detailed_analysis_engine - WARNING - ⚠️ Conteúdo insuficiente: 0 chars
+2025-08-01 20:45:45,343 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.bing.com/ck/a?!&&p=b5beb44b2382ca538cdbb274c12bfe679a11af6ea7b7db2d6a7a227924193d43JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2e790619-8162-63e8-3c29-102280c862bb&u=a1aHR0cHM6Ly9uZW9mZWVkLmNvbS5ici9ibG9nL2hvbWUvZXhjbHVzaXZvLWUtYnJpY2tzLXZlbnR1cmVzLWludmVzdGUtbmEtZW1wcmVzYS1kZS10ZWxlbWVkaWNpbmEtY29uZXhhLXNhdWRlLw&ntb=1
+2025-08-01 20:45:45,344 - services.url_resolver - INFO - 🔄 Resolvendo URL do Bing: https://www.bing.com/ck/a?!&&p=b5beb44b2382ca538cdbb274c12bfe679a11af6ea7b7db2d6a7a227924193d43Jmltd...
+2025-08-01 20:45:45,344 - services.url_resolver - INFO - ✅ URL Bing resolvida: https://neofeed.com.br/blog/home/exclusivo-e-bricks-ventures-investe-na-empresa-de-telemedicina-conexa-saude/
+2025-08-01 20:45:45,345 - services.robust_content_extractor - INFO - 🔄 URL resolvida: https://www.bing.com/ck/a?!&&p=b5beb44b2382ca538cdbb274c12bfe679a11af6ea7b7db2d6a7a227924193d43JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2e790619-8162-63e8-3c29-102280c862bb&u=a1aHR0cHM6Ly9uZW9mZWVkLmNvbS5ici9ibG9nL2hvbWUvZXhjbHVzaXZvLWUtYnJpY2tzLXZlbnR1cmVzLWludmVzdGUtbmEtZW1wcmVzYS1kZS10ZWxlbWVkaWNpbmEtY29uZXhhLXNhdWRlLw&ntb=1 -> https://neofeed.com.br/blog/home/exclusivo-e-bricks-ventures-investe-na-empresa-de-telemedicina-conexa-saude/
+2025-08-01 20:45:45,510 - services.robust_content_extractor - INFO - 📥 HTML baixado: 143103 caracteres
+2025-08-01 20:45:45,541 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:45:45,565 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://neofeed.com.br/blog/home/exclusivo-e-bricks-ventures-investe-na-empresa-de-telemedicina-conexa-saude/: 6617 caracteres, 1071 palavras
+2025-08-01 20:45:45,565 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 6617 caracteres em 0.02s
+2025-08-01 20:45:45,565 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 6617 chars de https://www.bing.com/ck/a?!&&p=b5beb44b2382ca538cdbb274c12bfe679a11af6ea7b7db2d6a7a227924193d43JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2e790619-8162-63e8-3c29-102280c862bb&u=a1aHR0cHM6Ly9uZW9mZWVkLmNvbS5ici9ibG9nL2hvbWUvZXhjbHVzaXZvLWUtYnJpY2tzLXZlbnR1cmVzLWludmVzdGUtbmEtZW1wcmVzYS1kZS10ZWxlbWVkaWNpbmEtY29uZXhhLXNhdWRlLw&ntb=1
+2025-08-01 20:45:45,566 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.bing.com/ck/a?!&&p=3ed7ec33b1a717271df2569c8b5a788e590085419d5c3a9497c0ffaef57720b8JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2e790619-8162-63e8-3c29-102280c862bb&u=a1aHR0cHM6Ly9saWdhLnZlbnR1cmVzL2luc2lnaHRzL3N0YXJ0dXBzLzctc3RhcnR1cHMtZGUtdGVsZW1lZGljaW5hLw&ntb=1
+2025-08-01 20:45:45,571 - services.url_resolver - INFO - 🔄 Resolvendo URL do Bing: https://www.bing.com/ck/a?!&&p=3ed7ec33b1a717271df2569c8b5a788e590085419d5c3a9497c0ffaef57720b8Jmltd...
+2025-08-01 20:45:45,571 - services.url_resolver - INFO - ✅ URL Bing resolvida: https://liga.ventures/insights/startups/7-startups-de-telemedicina/
+2025-08-01 20:45:45,574 - services.robust_content_extractor - INFO - 🔄 URL resolvida: https://www.bing.com/ck/a?!&&p=3ed7ec33b1a717271df2569c8b5a788e590085419d5c3a9497c0ffaef57720b8JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2e790619-8162-63e8-3c29-102280c862bb&u=a1aHR0cHM6Ly9saWdhLnZlbnR1cmVzL2luc2lnaHRzL3N0YXJ0dXBzLzctc3RhcnR1cHMtZGUtdGVsZW1lZGljaW5hLw&ntb=1 -> https://liga.ventures/insights/startups/7-startups-de-telemedicina/
+2025-08-01 20:45:46,719 - services.robust_content_extractor - INFO - 📥 HTML baixado: 81106 caracteres
+2025-08-01 20:45:46,734 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:45:46,765 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://liga.ventures/insights/startups/7-startups-de-telemedicina/: 1423 caracteres, 217 palavras
+2025-08-01 20:45:46,766 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 1423 caracteres em 0.03s
+2025-08-01 20:45:46,767 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 1423 chars de https://www.bing.com/ck/a?!&&p=3ed7ec33b1a717271df2569c8b5a788e590085419d5c3a9497c0ffaef57720b8JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2e790619-8162-63e8-3c29-102280c862bb&u=a1aHR0cHM6Ly9saWdhLnZlbnR1cmVzL2luc2lnaHRzL3N0YXJ0dXBzLzctc3RhcnR1cHMtZGUtdGVsZW1lZGljaW5hLw&ntb=1
+2025-08-01 20:45:46,778 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.bing.com/ck/a?!&&p=83657a7ebcf12c9d9ed21999131e3a75af39bddbacb3e3610a0856e984582874JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2e790619-8162-63e8-3c29-102280c862bb&u=a1aHR0cHM6Ly9mY2p2ZW50dXJlYnVpbGRlci5jb20vZG91dG9yLWFvLXZpdm8tc3RhcnR1cC1kZS10ZWxlbWVkaWNpbmEtcmVjZWJlLWFwb3J0ZS1wcmUtc2VlZC1saWRlcmFkby1wZWxhLWZjai1hbmdlbHMtbmV0d29yay8&ntb=1
+2025-08-01 20:45:46,790 - services.url_resolver - INFO - 🔄 Resolvendo URL do Bing: https://www.bing.com/ck/a?!&&p=83657a7ebcf12c9d9ed21999131e3a75af39bddbacb3e3610a0856e984582874Jmltd...
+2025-08-01 20:45:46,794 - services.url_resolver - INFO - ✅ URL Bing resolvida: https://fcjventurebuilder.com/doutor-ao-vivo-startup-de-telemedicina-recebe-aporte-pre-seed-liderado-pela-fcj-angels-network/
+2025-08-01 20:45:46,794 - services.robust_content_extractor - INFO - 🔄 URL resolvida: https://www.bing.com/ck/a?!&&p=83657a7ebcf12c9d9ed21999131e3a75af39bddbacb3e3610a0856e984582874JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2e790619-8162-63e8-3c29-102280c862bb&u=a1aHR0cHM6Ly9mY2p2ZW50dXJlYnVpbGRlci5jb20vZG91dG9yLWFvLXZpdm8tc3RhcnR1cC1kZS10ZWxlbWVkaWNpbmEtcmVjZWJlLWFwb3J0ZS1wcmUtc2VlZC1saWRlcmFkby1wZWxhLWZjai1hbmdlbHMtbmV0d29yay8&ntb=1 -> https://fcjventurebuilder.com/doutor-ao-vivo-startup-de-telemedicina-recebe-aporte-pre-seed-liderado-pela-fcj-angels-network/
+2025-08-01 20:45:48,528 - services.robust_content_extractor - INFO - 📥 HTML baixado: 318887 caracteres
+2025-08-01 20:45:48,576 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:45:48,603 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://fcjventurebuilder.com/doutor-ao-vivo-startup-de-telemedicina-recebe-aporte-pre-seed-liderado-pela-fcj-angels-network/: 8501 caracteres, 1374 palavras
+2025-08-01 20:45:48,603 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 8501 caracteres em 0.03s
+2025-08-01 20:45:48,605 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 8501 chars de https://www.bing.com/ck/a?!&&p=83657a7ebcf12c9d9ed21999131e3a75af39bddbacb3e3610a0856e984582874JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2e790619-8162-63e8-3c29-102280c862bb&u=a1aHR0cHM6Ly9mY2p2ZW50dXJlYnVpbGRlci5jb20vZG91dG9yLWFvLXZpdm8tc3RhcnR1cC1kZS10ZWxlbWVkaWNpbmEtcmVjZWJlLWFwb3J0ZS1wcmUtc2VlZC1saWRlcmFkby1wZWxhLWZjai1hbmdlbHMtbmV0d29yay8&ntb=1
+2025-08-01 20:45:48,606 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.bing.com/ck/a?!&&p=a03099d18bb1ee12c22fc8d2605e84c98c42b89a514037e4f00eb3aaaaaa6b36JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2e790619-8162-63e8-3c29-102280c862bb&u=a1aHR0cHM6Ly9zdGFydHVwcy5jb20uYnIvbmVnb2Npb3MvaGVhbHRodGVjaC1sZXZhbnRhLW1haXMtci0yNS1taWxob2VzLXBhcmEtaW52ZXN0aXItZW0tdGVsZW1lZGljaW5hLWUtYXRlbmRpbWVudG8tZW0tZW1wcmVzYXMv&ntb=1
+2025-08-01 20:45:48,607 - services.url_resolver - INFO - 🔄 Resolvendo URL do Bing: https://www.bing.com/ck/a?!&&p=a03099d18bb1ee12c22fc8d2605e84c98c42b89a514037e4f00eb3aaaaaa6b36Jmltd...
+2025-08-01 20:45:48,607 - services.url_resolver - INFO - ✅ URL Bing resolvida: https://startups.com.br/negocios/healthtech-levanta-mais-r-25-milhoes-para-investir-em-telemedicina-e-atendimento-em-empresas/
+2025-08-01 20:45:48,608 - services.robust_content_extractor - INFO - 🔄 URL resolvida: https://www.bing.com/ck/a?!&&p=a03099d18bb1ee12c22fc8d2605e84c98c42b89a514037e4f00eb3aaaaaa6b36JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2e790619-8162-63e8-3c29-102280c862bb&u=a1aHR0cHM6Ly9zdGFydHVwcy5jb20uYnIvbmVnb2Npb3MvaGVhbHRodGVjaC1sZXZhbnRhLW1haXMtci0yNS1taWxob2VzLXBhcmEtaW52ZXN0aXItZW0tdGVsZW1lZGljaW5hLWUtYXRlbmRpbWVudG8tZW0tZW1wcmVzYXMv&ntb=1 -> https://startups.com.br/negocios/healthtech-levanta-mais-r-25-milhoes-para-investir-em-telemedicina-e-atendimento-em-empresas/
+2025-08-01 20:45:49,556 - services.robust_content_extractor - INFO - 📥 HTML baixado: 445612 caracteres
+2025-08-01 20:45:49,605 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:45:49,652 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://startups.com.br/negocios/healthtech-levanta-mais-r-25-milhoes-para-investir-em-telemedicina-e-atendimento-em-empresas/: 1153 caracteres, 200 palavras
+2025-08-01 20:45:49,652 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 1153 caracteres em 0.05s
+2025-08-01 20:45:49,658 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 1153 chars de https://www.bing.com/ck/a?!&&p=a03099d18bb1ee12c22fc8d2605e84c98c42b89a514037e4f00eb3aaaaaa6b36JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2e790619-8162-63e8-3c29-102280c862bb&u=a1aHR0cHM6Ly9zdGFydHVwcy5jb20uYnIvbmVnb2Npb3MvaGVhbHRodGVjaC1sZXZhbnRhLW1haXMtci0yNS1taWxob2VzLXBhcmEtaW52ZXN0aXItZW0tdGVsZW1lZGljaW5hLWUtYXRlbmRpbWVudG8tZW0tZW1wcmVzYXMv&ntb=1
+2025-08-01 20:45:49,658 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://teletime.com.br/29/05/2025/wayra-brasil-da-vivo-realiza-aporte-na-startup-omni-saude/
+2025-08-01 20:45:50,731 - services.robust_content_extractor - INFO - 📥 HTML baixado: 178468 caracteres
+2025-08-01 20:45:50,763 - services.robust_content_extractor - WARNING - ⚠️ Página dinâmica detectada: https://teletime.com.br/29/05/2025/wayra-brasil-da-vivo-realiza-aporte-na-startup-omni-saude/
+2025-08-01 20:45:50,839 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://teletime.com.br/29/05/2025/wayra-brasil-da-vivo-realiza-aporte-na-startup-omni-saude/: 3526 caracteres, 506 palavras
+2025-08-01 20:45:50,839 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 3526 chars de https://teletime.com.br/29/05/2025/wayra-brasil-da-vivo-realiza-aporte-na-startup-omni-saude/
+2025-08-01 20:45:50,841 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://fcjventurebuilder.com/doutor-ao-vivo-startup-de-telemedicina-recebe-aporte-pre-seed-liderado-pela-fcj-angels-network/
+2025-08-01 20:45:52,090 - services.robust_content_extractor - INFO - 📥 HTML baixado: 318886 caracteres
+2025-08-01 20:45:52,216 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:45:52,244 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://fcjventurebuilder.com/doutor-ao-vivo-startup-de-telemedicina-recebe-aporte-pre-seed-liderado-pela-fcj-angels-network/: 8501 caracteres, 1374 palavras
+2025-08-01 20:45:52,244 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 8501 caracteres em 0.03s
+2025-08-01 20:45:52,257 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 8501 chars de https://fcjventurebuilder.com/doutor-ao-vivo-startup-de-telemedicina-recebe-aporte-pre-seed-liderado-pela-fcj-angels-network/
+2025-08-01 20:45:52,257 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://bossainvest.com/healthtech-investimento-em-startups-de-saude/
+2025-08-01 20:45:52,258 - services.url_resolver - INFO - 🔄 Resolvendo URL encurtada: https://bossainvest.com/healthtech-investimento-em-startups-de-saude/
+2025-08-01 20:45:52,457 - services.robust_content_extractor - INFO - 📥 HTML baixado: 196070 caracteres
+2025-08-01 20:45:52,479 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:45:52,527 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://bossainvest.com/healthtech-investimento-em-startups-de-saude/: 16760 caracteres, 2467 palavras
+2025-08-01 20:45:52,528 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 16760 caracteres em 0.05s
+2025-08-01 20:45:52,529 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 16760 chars de https://bossainvest.com/healthtech-investimento-em-startups-de-saude/
+2025-08-01 20:45:53,034 - routes.progress - INFO - Progress session_1754090613712_8pxykddz8: Step 2/13 - 🔍 Pesquisando: regulamentação Telemedicina mudanças legais impact...
+2025-08-01 20:45:53,433 - services.production_search_manager - INFO - 🔍 Google API Response: 200
+2025-08-01 20:45:53,434 - services.production_search_manager - INFO - ✅ Google Custom Search: 5 resultados válidos
+2025-08-01 20:45:53,440 - services.production_search_manager - INFO - ✅ google: 5 resultados
+2025-08-01 20:45:53,929 - services.production_search_manager - INFO - ✅ Serper Search: 5 resultados
+2025-08-01 20:45:53,930 - services.production_search_manager - INFO - ✅ serper: 5 resultados
+2025-08-01 20:45:54,998 - services.production_search_manager - INFO - 🔍 Bing encontrou 10 elementos
+2025-08-01 20:45:54,999 - services.production_search_manager - INFO - ✅ Bing Scraping: 5 resultados válidos
+2025-08-01 20:45:55,002 - services.production_search_manager - INFO - ✅ bing: 5 resultados
+2025-08-01 20:45:55,005 - services.production_search_manager - INFO - 🎯 Busca final: 10 resultados únicos de 3 provedores
+2025-08-01 20:45:55,006 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://support.google.com/youtube/answer/3227660?hl=en&co=GENIE.Platform%3DAndroid
+2025-08-01 20:45:55,963 - services.robust_content_extractor - INFO - 📥 HTML baixado: 1244201 caracteres
+2025-08-01 20:45:56,001 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:45:56,034 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://support.google.com/youtube/answer/3227660?hl=en&co=GENIE.Platform%3DAndroid: 1205 caracteres, 202 palavras
+2025-08-01 20:45:56,034 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 1205 caracteres em 0.03s
+2025-08-01 20:45:56,041 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 1205 chars de https://support.google.com/youtube/answer/3227660?hl=en&co=GENIE.Platform%3DAndroid
+2025-08-01 20:45:56,041 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://support.google.com/youtube/answer/3227660?hl=en&co=GENIE.Platform%3DiOS
+2025-08-01 20:45:56,669 - services.robust_content_extractor - INFO - 📥 HTML baixado: 1244253 caracteres
+2025-08-01 20:45:56,706 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:45:56,738 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://support.google.com/youtube/answer/3227660?hl=en&co=GENIE.Platform%3DiOS: 1145 caracteres, 193 palavras
+2025-08-01 20:45:56,738 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 1145 caracteres em 0.03s
+2025-08-01 20:45:56,740 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 1145 chars de https://support.google.com/youtube/answer/3227660?hl=en&co=GENIE.Platform%3DiOS
+2025-08-01 20:45:56,744 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://support.google.com/youtube/answer/3227660?hl=en-WS&co=GENIE.Platform%3DiOS
+2025-08-01 20:45:57,341 - services.robust_content_extractor - INFO - 📥 HTML baixado: 1245772 caracteres
+2025-08-01 20:45:57,379 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:45:57,412 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://support.google.com/youtube/answer/3227660?hl=en-WS&co=GENIE.Platform%3DiOS: 1142 caracteres, 193 palavras
+2025-08-01 20:45:57,412 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 1142 caracteres em 0.03s
+2025-08-01 20:45:57,413 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 1142 chars de https://support.google.com/youtube/answer/3227660?hl=en-WS&co=GENIE.Platform%3DiOS
+2025-08-01 20:45:57,415 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://support.google.com/youtube/answer/3227660?hl=nl&co=GENIE.Platform%3DAndroid
+2025-08-01 20:45:58,067 - services.robust_content_extractor - INFO - 📥 HTML baixado: 1247308 caracteres
+2025-08-01 20:45:58,103 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:45:58,136 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://support.google.com/youtube/answer/3227660?hl=nl&co=GENIE.Platform%3DAndroid: 1267 caracteres, 184 palavras
+2025-08-01 20:45:58,136 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 1267 caracteres em 0.03s
+2025-08-01 20:45:58,138 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 1267 chars de https://support.google.com/youtube/answer/3227660?hl=nl&co=GENIE.Platform%3DAndroid
+2025-08-01 20:45:58,138 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://support.google.com/youtube/answer/11977233?hl=en&co=GENIE.Platform%3DDesktop
+2025-08-01 20:45:58,733 - services.robust_content_extractor - INFO - 📥 HTML baixado: 1255080 caracteres
+2025-08-01 20:45:58,773 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:45:58,805 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://support.google.com/youtube/answer/11977233?hl=en&co=GENIE.Platform%3DDesktop: 2695 caracteres, 454 palavras
+2025-08-01 20:45:58,805 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 2695 caracteres em 0.03s
+2025-08-01 20:45:58,806 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 2695 chars de https://support.google.com/youtube/answer/11977233?hl=en&co=GENIE.Platform%3DDesktop
+2025-08-01 20:45:58,807 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://medicinasa.com.br/regulamentacao-da-telemedicina/
+2025-08-01 20:46:00,499 - services.robust_content_extractor - INFO - 📥 HTML baixado: 126928 caracteres
+2025-08-01 20:46:00,523 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:46:00,547 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://medicinasa.com.br/regulamentacao-da-telemedicina/: 7862 caracteres, 1181 palavras
+2025-08-01 20:46:00,548 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 7862 caracteres em 0.02s
+2025-08-01 20:46:00,550 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 7862 chars de https://medicinasa.com.br/regulamentacao-da-telemedicina/
+2025-08-01 20:46:00,550 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.scielo.br/j/sausoc/a/htDNpswTKXwVr667LV9V5cP/
+2025-08-01 20:46:00,657 - services.robust_content_extractor - INFO - 📥 HTML baixado: 147049 caracteres
+2025-08-01 20:46:00,705 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:46:00,782 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://www.scielo.br/j/sausoc/a/htDNpswTKXwVr667LV9V5cP/: 36469 caracteres, 5392 palavras
+2025-08-01 20:46:00,782 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 36469 caracteres em 0.07s
+2025-08-01 20:46:00,784 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 36469 chars de https://www.scielo.br/j/sausoc/a/htDNpswTKXwVr667LV9V5cP/
+2025-08-01 20:46:00,784 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://fleminglaboratorio.com/glossario/impacto-telemedicina-mercado-laboratorios/
+2025-08-01 20:46:01,908 - services.robust_content_extractor - INFO - 📥 HTML baixado: 92785 caracteres
+2025-08-01 20:46:01,928 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:46:01,937 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://fleminglaboratorio.com/glossario/impacto-telemedicina-mercado-laboratorios/: 2595 caracteres, 368 palavras
+2025-08-01 20:46:01,938 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 2595 caracteres em 0.01s
+2025-08-01 20:46:01,939 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 2595 chars de https://fleminglaboratorio.com/glossario/impacto-telemedicina-mercado-laboratorios/
+2025-08-01 20:46:02,441 - routes.progress - INFO - Progress session_1754090613712_8pxykddz8: Step 2/13 - 🔍 Pesquisando: inovação tecnológica Telemedicina disrupção transf...
+2025-08-01 20:46:02,792 - services.production_search_manager - INFO - 🔍 Google API Response: 200
+2025-08-01 20:46:02,792 - services.production_search_manager - INFO - ✅ Google Custom Search: 5 resultados válidos
+2025-08-01 20:46:02,798 - services.production_search_manager - INFO - ✅ google: 5 resultados
+2025-08-01 20:46:03,356 - services.production_search_manager - INFO - ✅ Serper Search: 5 resultados
+2025-08-01 20:46:03,358 - services.production_search_manager - INFO - ✅ serper: 5 resultados
+2025-08-01 20:46:04,694 - services.production_search_manager - INFO - 🔍 Bing encontrou 5 elementos
+2025-08-01 20:46:04,694 - services.production_search_manager - INFO - ✅ Bing Scraping: 5 resultados válidos
+2025-08-01 20:46:04,697 - services.production_search_manager - INFO - ✅ bing: 5 resultados
+2025-08-01 20:46:04,697 - services.production_search_manager - INFO - 🎯 Busca final: 10 resultados únicos de 3 provedores
+2025-08-01 20:46:04,697 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.bing.com/ck/a?!&&p=a5d788d3cec76c790a3a50e8a61495dfb632293e63e7bedcbb31c10a593286d7JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=1e11881f-e512-62bc-016a-9e24e4376341&u=a1aHR0cHM6Ly9sYXdzdWl0c3NldHRsZW1lbnRmdW5kaW5nLmNvbS9saXRpZ2F0aW9uLWZ1bmRpbmctY29tcGFuaWVzLnBocA&ntb=1
+2025-08-01 20:46:04,703 - services.url_resolver - INFO - 🔄 Resolvendo URL do Bing: https://www.bing.com/ck/a?!&&p=a5d788d3cec76c790a3a50e8a61495dfb632293e63e7bedcbb31c10a593286d7Jmltd...
+2025-08-01 20:46:04,703 - services.url_resolver - INFO - ✅ URL Bing resolvida: https://lawsuitssettlementfunding.com/litigation-funding-companies.php
+2025-08-01 20:46:04,703 - services.robust_content_extractor - INFO - 🔄 URL resolvida: https://www.bing.com/ck/a?!&&p=a5d788d3cec76c790a3a50e8a61495dfb632293e63e7bedcbb31c10a593286d7JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=1e11881f-e512-62bc-016a-9e24e4376341&u=a1aHR0cHM6Ly9sYXdzdWl0c3NldHRsZW1lbnRmdW5kaW5nLmNvbS9saXRpZ2F0aW9uLWZ1bmRpbmctY29tcGFuaWVzLnBocA&ntb=1 -> https://lawsuitssettlementfunding.com/litigation-funding-companies.php
+2025-08-01 20:46:05,468 - services.robust_content_extractor - INFO - 📥 HTML baixado: 348777 caracteres
+2025-08-01 20:46:05,493 - services.robust_content_extractor - WARNING - ⚠️ Página dinâmica detectada: https://lawsuitssettlementfunding.com/litigation-funding-companies.php
+2025-08-01 20:46:05,555 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://lawsuitssettlementfunding.com/litigation-funding-companies.php: 16029 caracteres, 2561 palavras
+2025-08-01 20:46:05,555 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 16029 chars de https://www.bing.com/ck/a?!&&p=a5d788d3cec76c790a3a50e8a61495dfb632293e63e7bedcbb31c10a593286d7JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=1e11881f-e512-62bc-016a-9e24e4376341&u=a1aHR0cHM6Ly9sYXdzdWl0c3NldHRsZW1lbnRmdW5kaW5nLmNvbS9saXRpZ2F0aW9uLWZ1bmRpbmctY29tcGFuaWVzLnBocA&ntb=1
+2025-08-01 20:46:05,557 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.bing.com/ck/a?!&&p=03b6c19fccda09f34962409dcf694db171d1214f803eb074683e3ee1887a2140JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=1e11881f-e512-62bc-016a-9e24e4376341&u=a1aHR0cHM6Ly9leHByZXNzbGVnYWxmdW5kaW5nLmNvbS9iZXN0LWxlZ2FsLWZ1bmRpbmctY29tcGFuaWVzLw&ntb=1
+2025-08-01 20:46:05,561 - services.url_resolver - INFO - 🔄 Resolvendo URL do Bing: https://www.bing.com/ck/a?!&&p=03b6c19fccda09f34962409dcf694db171d1214f803eb074683e3ee1887a2140Jmltd...
+2025-08-01 20:46:05,561 - services.url_resolver - INFO - ✅ URL Bing resolvida: https://expresslegalfunding.com/best-legal-funding-companies/
+2025-08-01 20:46:05,562 - services.robust_content_extractor - INFO - 🔄 URL resolvida: https://www.bing.com/ck/a?!&&p=03b6c19fccda09f34962409dcf694db171d1214f803eb074683e3ee1887a2140JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=1e11881f-e512-62bc-016a-9e24e4376341&u=a1aHR0cHM6Ly9leHByZXNzbGVnYWxmdW5kaW5nLmNvbS9iZXN0LWxlZ2FsLWZ1bmRpbmctY29tcGFuaWVzLw&ntb=1 -> https://expresslegalfunding.com/best-legal-funding-companies/
+2025-08-01 20:46:07,158 - services.robust_content_extractor - INFO - 📥 HTML baixado: 705348 caracteres
+2025-08-01 20:46:07,267 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:46:07,399 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://expresslegalfunding.com/best-legal-funding-companies/: 50003 caracteres, 7301 palavras
+2025-08-01 20:46:07,400 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 50003 caracteres em 0.12s
+2025-08-01 20:46:07,402 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 50003 chars de https://www.bing.com/ck/a?!&&p=03b6c19fccda09f34962409dcf694db171d1214f803eb074683e3ee1887a2140JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=1e11881f-e512-62bc-016a-9e24e4376341&u=a1aHR0cHM6Ly9leHByZXNzbGVnYWxmdW5kaW5nLmNvbS9iZXN0LWxlZ2FsLWZ1bmRpbmctY29tcGFuaWVzLw&ntb=1
+2025-08-01 20:46:07,406 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.bing.com/ck/a?!&&p=7e7604fe191dffe68ac1802a7ee0fbaae68c31508ed936bd434f04c051fcbdd4JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=1e11881f-e512-62bc-016a-9e24e4376341&u=a1aHR0cHM6Ly93d3cudG9wY29uc3VtZXJyZXZpZXdzLmNvbS9iZXN0LWxhd3N1aXQtZnVuZGluZy1jb21wYW5pZXMvZGV0YWlsZWQtcmV2aWV3cy5waHA&ntb=1
+2025-08-01 20:46:07,407 - services.url_resolver - INFO - 🔄 Resolvendo URL do Bing: https://www.bing.com/ck/a?!&&p=7e7604fe191dffe68ac1802a7ee0fbaae68c31508ed936bd434f04c051fcbdd4Jmltd...
+2025-08-01 20:46:07,407 - services.url_resolver - INFO - ✅ URL Bing resolvida: https://www.topconsumerreviews.com/best-lawsuit-funding-companies/detailed-reviews.php
+2025-08-01 20:46:07,408 - services.robust_content_extractor - INFO - 🔄 URL resolvida: https://www.bing.com/ck/a?!&&p=7e7604fe191dffe68ac1802a7ee0fbaae68c31508ed936bd434f04c051fcbdd4JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=1e11881f-e512-62bc-016a-9e24e4376341&u=a1aHR0cHM6Ly93d3cudG9wY29uc3VtZXJyZXZpZXdzLmNvbS9iZXN0LWxhd3N1aXQtZnVuZGluZy1jb21wYW5pZXMvZGV0YWlsZWQtcmV2aWV3cy5waHA&ntb=1 -> https://www.topconsumerreviews.com/best-lawsuit-funding-companies/detailed-reviews.php
+2025-08-01 20:46:08,744 - services.robust_content_extractor - INFO - 📥 HTML baixado: 341776 caracteres
+2025-08-01 20:46:08,880 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:46:09,041 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://www.topconsumerreviews.com/best-lawsuit-funding-companies/detailed-reviews.php: 50003 caracteres, 8222 palavras
+2025-08-01 20:46:09,041 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 50003 caracteres em 0.15s
+2025-08-01 20:46:09,046 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 50003 chars de https://www.bing.com/ck/a?!&&p=7e7604fe191dffe68ac1802a7ee0fbaae68c31508ed936bd434f04c051fcbdd4JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=1e11881f-e512-62bc-016a-9e24e4376341&u=a1aHR0cHM6Ly93d3cudG9wY29uc3VtZXJyZXZpZXdzLmNvbS9iZXN0LWxhd3N1aXQtZnVuZGluZy1jb21wYW5pZXMvZGV0YWlsZWQtcmV2aWV3cy5waHA&ntb=1
+2025-08-01 20:46:09,047 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.bing.com/ck/a?!&&p=985ae7ead7d4b6ae35783856a54d7c850efa2ac2dcf6511b37ca9122f33176ccJmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=1e11881f-e512-62bc-016a-9e24e4376341&u=a1aHR0cHM6Ly93d3cuYWxsaWFuY2VsaXRpZ2F0aW9uZnVuZGluZy5jb20vaW5kZXgucGhwL2VuL2Jsb2cvYWZmb3JkYWJsZS1sZWdhbC1oZWxwLW5lYXIteW91LWhvdy10by1maW5kLXRoZS1iZXN0LWxvdy1jb3N0LWF0dG9ybmV5cy1sZWdhbC1haWQtMjAyNQ&ntb=1
+2025-08-01 20:46:09,056 - services.url_resolver - INFO - 🔄 Resolvendo URL do Bing: https://www.bing.com/ck/a?!&&p=985ae7ead7d4b6ae35783856a54d7c850efa2ac2dcf6511b37ca9122f33176ccJmltd...
+2025-08-01 20:46:09,057 - services.url_resolver - INFO - ✅ URL Bing resolvida: https://www.alliancelitigationfunding.com/index.php/en/blog/affordable-legal-help-near-you-how-to-find-the-best-low-cost-attorneys-legal-aid-2025
+2025-08-01 20:46:09,058 - services.robust_content_extractor - INFO - 🔄 URL resolvida: https://www.bing.com/ck/a?!&&p=985ae7ead7d4b6ae35783856a54d7c850efa2ac2dcf6511b37ca9122f33176ccJmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=1e11881f-e512-62bc-016a-9e24e4376341&u=a1aHR0cHM6Ly93d3cuYWxsaWFuY2VsaXRpZ2F0aW9uZnVuZGluZy5jb20vaW5kZXgucGhwL2VuL2Jsb2cvYWZmb3JkYWJsZS1sZWdhbC1oZWxwLW5lYXIteW91LWhvdy10by1maW5kLXRoZS1iZXN0LWxvdy1jb3N0LWF0dG9ybmV5cy1sZWdhbC1haWQtMjAyNQ&ntb=1 -> https://www.alliancelitigationfunding.com/index.php/en/blog/affordable-legal-help-near-you-how-to-find-the-best-low-cost-attorneys-legal-aid-2025
+2025-08-01 20:46:12,394 - services.robust_content_extractor - INFO - 📥 HTML baixado: 160044 caracteres
+2025-08-01 20:46:12,428 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:46:12,489 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://www.alliancelitigationfunding.com/index.php/en/blog/affordable-legal-help-near-you-how-to-find-the-best-low-cost-attorneys-legal-aid-2025: 11324 caracteres, 1705 palavras
+2025-08-01 20:46:12,489 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 11324 caracteres em 0.06s
+2025-08-01 20:46:12,491 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 11324 chars de https://www.bing.com/ck/a?!&&p=985ae7ead7d4b6ae35783856a54d7c850efa2ac2dcf6511b37ca9122f33176ccJmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=1e11881f-e512-62bc-016a-9e24e4376341&u=a1aHR0cHM6Ly93d3cuYWxsaWFuY2VsaXRpZ2F0aW9uZnVuZGluZy5jb20vaW5kZXgucGhwL2VuL2Jsb2cvYWZmb3JkYWJsZS1sZWdhbC1oZWxwLW5lYXIteW91LWhvdy10by1maW5kLXRoZS1iZXN0LWxvdy1jb3N0LWF0dG9ybmV5cy1sZWdhbC1haWQtMjAyNQ&ntb=1
+2025-08-01 20:46:12,494 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.bing.com/ck/a?!&&p=d85b4f79e539c14d41c681e48846a5a68c67e697bfd04c65ce537718598ed16dJmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=1e11881f-e512-62bc-016a-9e24e4376341&u=a1aHR0cHM6Ly9sZWdhbGNsYXJpdHkub3JnL2ktbmVlZC1hLWxhd3llci1hbmQtaS1oYXZlLW5vLW1vbmV5LXdoYXQtYXJlLW15LW9wdGlvbnMv&ntb=1
+2025-08-01 20:46:12,494 - services.url_resolver - INFO - 🔄 Resolvendo URL do Bing: https://www.bing.com/ck/a?!&&p=d85b4f79e539c14d41c681e48846a5a68c67e697bfd04c65ce537718598ed16dJmltd...
+2025-08-01 20:46:12,494 - services.url_resolver - INFO - ✅ URL Bing resolvida: https://legalclarity.org/i-need-a-lawyer-and-i-have-no-money-what-are-my-options/
+2025-08-01 20:46:12,494 - services.robust_content_extractor - INFO - 🔄 URL resolvida: https://www.bing.com/ck/a?!&&p=d85b4f79e539c14d41c681e48846a5a68c67e697bfd04c65ce537718598ed16dJmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=1e11881f-e512-62bc-016a-9e24e4376341&u=a1aHR0cHM6Ly9sZWdhbGNsYXJpdHkub3JnL2ktbmVlZC1hLWxhd3llci1hbmQtaS1oYXZlLW5vLW1vbmV5LXdoYXQtYXJlLW15LW9wdGlvbnMv&ntb=1 -> https://legalclarity.org/i-need-a-lawyer-and-i-have-no-money-what-are-my-options/
+2025-08-01 20:46:13,514 - services.robust_content_extractor - INFO - 📥 HTML baixado: 141821 caracteres
+2025-08-01 20:46:13,524 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:46:13,547 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://legalclarity.org/i-need-a-lawyer-and-i-have-no-money-what-are-my-options/: 5390 caracteres, 779 palavras
+2025-08-01 20:46:13,547 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 5390 caracteres em 0.02s
+2025-08-01 20:46:13,549 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 5390 chars de https://www.bing.com/ck/a?!&&p=d85b4f79e539c14d41c681e48846a5a68c67e697bfd04c65ce537718598ed16dJmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=1e11881f-e512-62bc-016a-9e24e4376341&u=a1aHR0cHM6Ly9sZWdhbGNsYXJpdHkub3JnL2ktbmVlZC1hLWxhd3llci1hbmQtaS1oYXZlLW5vLW1vbmV5LXdoYXQtYXJlLW15LW9wdGlvbnMv&ntb=1
+2025-08-01 20:46:13,559 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://elogroup.com/insights/telemedicina-e-transformacao-digital-saude/
+2025-08-01 20:46:16,054 - services.robust_content_extractor - INFO - 📥 HTML baixado: 209634 caracteres
+2025-08-01 20:46:16,103 - services.robust_content_extractor - WARNING - ⚠️ Página dinâmica detectada: https://elogroup.com/insights/telemedicina-e-transformacao-digital-saude/
+2025-08-01 20:46:16,234 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://elogroup.com/insights/telemedicina-e-transformacao-digital-saude/: 17118 caracteres, 2565 palavras
+2025-08-01 20:46:16,234 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 17118 chars de https://elogroup.com/insights/telemedicina-e-transformacao-digital-saude/
+2025-08-01 20:46:16,241 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://andreaiorio.com/blog/inovacao-disruptiva-na-saude/
+2025-08-01 20:46:16,504 - services.robust_content_extractor - INFO - 📥 HTML baixado: 179091 caracteres
+2025-08-01 20:46:16,540 - services.robust_content_extractor - INFO - 🔍 Tentando extração com trafilatura...
+2025-08-01 20:46:16,570 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://andreaiorio.com/blog/inovacao-disruptiva-na-saude/: 10948 caracteres, 1596 palavras
+2025-08-01 20:46:16,570 - services.robust_content_extractor - INFO - ✅ Extração bem-sucedida com trafilatura: 10948 caracteres em 0.03s
+2025-08-01 20:46:16,571 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 10948 chars de https://andreaiorio.com/blog/inovacao-disruptiva-na-saude/
+2025-08-01 20:46:16,579 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://portaltelemedicina.com.br/inovacao-na-saude-exemplos-de-tecnologia-disruptiva
+2025-08-01 20:46:17,678 - services.robust_content_extractor - INFO - 📥 HTML baixado: 599427 caracteres
+2025-08-01 20:46:17,712 - services.robust_content_extractor - WARNING - ⚠️ Página dinâmica detectada: https://portaltelemedicina.com.br/inovacao-na-saude-exemplos-de-tecnologia-disruptiva
+2025-08-01 20:46:17,794 - services.robust_content_extractor - INFO - ✅ Conteúdo válido para https://portaltelemedicina.com.br/inovacao-na-saude-exemplos-de-tecnologia-disruptiva: 20186 caracteres, 2792 palavras
+2025-08-01 20:46:17,794 - services.ultra_detailed_analysis_engine - INFO - ✅ Conteúdo extraído: 20186 chars de https://portaltelemedicina.com.br/inovacao-na-saude-exemplos-de-tecnologia-disruptiva
+2025-08-01 20:46:18,301 - routes.progress - INFO - Progress session_1754090613712_8pxykddz8: Step 2/13 - 🔍 Pesquisando: cases sucesso empresas Telemedicina brasileiras lí...
+2025-08-01 20:46:18,706 - services.production_search_manager - INFO - 🔍 Google API Response: 200
+2025-08-01 20:46:18,707 - services.production_search_manager - INFO - ✅ Google Custom Search: 5 resultados válidos
+2025-08-01 20:46:18,713 - services.production_search_manager - INFO - ✅ google: 5 resultados
+2025-08-01 20:46:19,147 - services.production_search_manager - INFO - ✅ Serper Search: 5 resultados
+2025-08-01 20:46:19,149 - services.production_search_manager - INFO - ✅ serper: 5 resultados
+2025-08-01 20:46:20,489 - services.production_search_manager - INFO - 🔍 Bing encontrou 10 elementos
+2025-08-01 20:46:20,490 - services.production_search_manager - INFO - ✅ Bing Scraping: 5 resultados válidos
+2025-08-01 20:46:20,492 - services.production_search_manager - INFO - ✅ bing: 5 resultados
+2025-08-01 20:46:20,494 - services.production_search_manager - INFO - 🎯 Busca final: 10 resultados únicos de 3 provedores
+2025-08-01 20:46:20,494 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.bing.com/ck/a?!&&p=4d3ba2e7d175062c9262699873c256f70792978defdf3245c532437b764e60a3JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2b7a77ed-570a-68d4-11ae-61d6560869dd&u=a1aHR0cHM6Ly93d3cudXBzLmNvbS90cmFjaz9sb2M9ZW5fTVgmbXNvY2tpZD0yYjdhNzdlZDU3MGE2OGQ0MTFhZTYxZDY1NjA4NjlkZA&ntb=1
+2025-08-01 20:46:20,494 - services.url_resolver - INFO - 🔄 Resolvendo URL do Bing: https://www.bing.com/ck/a?!&&p=4d3ba2e7d175062c9262699873c256f70792978defdf3245c532437b764e60a3Jmltd...
+2025-08-01 20:46:20,494 - services.url_resolver - INFO - ✅ URL Bing resolvida: https://www.ups.com/track?loc=en_MX&msockid=2b7a77ed570a68d411ae61d6560869dd
+2025-08-01 20:46:20,494 - services.robust_content_extractor - INFO - 🔄 URL resolvida: https://www.bing.com/ck/a?!&&p=4d3ba2e7d175062c9262699873c256f70792978defdf3245c532437b764e60a3JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2b7a77ed-570a-68d4-11ae-61d6560869dd&u=a1aHR0cHM6Ly93d3cudXBzLmNvbS90cmFjaz9sb2M9ZW5fTVgmbXNvY2tpZD0yYjdhNzdlZDU3MGE2OGQ0MTFhZTYxZDY1NjA4NjlkZA&ntb=1 -> https://www.ups.com/track?loc=en_MX&msockid=2b7a77ed570a68d411ae61d6560869dd
+2025-08-01 20:46:50,563 - services.robust_content_extractor - WARNING - ⏰ Timeout na tentativa 1 para https://www.ups.com/track?loc=en_MX&msockid=2b7a77ed570a68d411ae61d6560869dd
+2025-08-01 20:47:22,629 - services.robust_content_extractor - WARNING - ⏰ Timeout na tentativa 2 para https://www.ups.com/track?loc=en_MX&msockid=2b7a77ed570a68d411ae61d6560869dd
+2025-08-01 20:47:54,697 - services.robust_content_extractor - WARNING - ⏰ Timeout na tentativa 3 para https://www.ups.com/track?loc=en_MX&msockid=2b7a77ed570a68d411ae61d6560869dd
+2025-08-01 20:47:54,697 - services.robust_content_extractor - ERROR - ❌ Falha ao baixar HTML para https://www.ups.com/track?loc=en_MX&msockid=2b7a77ed570a68d411ae61d6560869dd
+2025-08-01 20:47:54,702 - services.ultra_detailed_analysis_engine - WARNING - ⚠️ Conteúdo insuficiente: 0 chars
+2025-08-01 20:47:54,706 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.bing.com/ck/a?!&&p=3aa5ee02edb22edbae7378ed5ada427387ca1bdb003c56caa6723916f405d596JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2b7a77ed-570a-68d4-11ae-61d6560869dd&u=a1aHR0cHM6Ly93d3dhcHBzLnVwcy5jb20vdXMvZW4vc3VwcG9ydC90cmFja2luZy1zdXBwb3J0&ntb=1
+2025-08-01 20:47:54,706 - services.url_resolver - INFO - 🔄 Resolvendo URL do Bing: https://www.bing.com/ck/a?!&&p=3aa5ee02edb22edbae7378ed5ada427387ca1bdb003c56caa6723916f405d596Jmltd...
+2025-08-01 20:47:54,707 - services.url_resolver - INFO - ✅ URL Bing resolvida: https://wwwapps.ups.com/us/en/support/tracking-support
+2025-08-01 20:47:54,707 - services.robust_content_extractor - INFO - 🔄 URL resolvida: https://www.bing.com/ck/a?!&&p=3aa5ee02edb22edbae7378ed5ada427387ca1bdb003c56caa6723916f405d596JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2b7a77ed-570a-68d4-11ae-61d6560869dd&u=a1aHR0cHM6Ly93d3dhcHBzLnVwcy5jb20vdXMvZW4vc3VwcG9ydC90cmFja2luZy1zdXBwb3J0&ntb=1 -> https://wwwapps.ups.com/us/en/support/tracking-support
+2025-08-01 20:48:24,930 - services.robust_content_extractor - WARNING - ⏰ Timeout na tentativa 1 para https://wwwapps.ups.com/us/en/support/tracking-support
+2025-08-01 20:48:56,997 - services.robust_content_extractor - WARNING - ⏰ Timeout na tentativa 2 para https://wwwapps.ups.com/us/en/support/tracking-support
+2025-08-01 20:49:29,101 - services.robust_content_extractor - WARNING - ⏰ Timeout na tentativa 3 para https://wwwapps.ups.com/us/en/support/tracking-support
+2025-08-01 20:49:29,101 - services.robust_content_extractor - ERROR - ❌ Falha ao baixar HTML para https://wwwapps.ups.com/us/en/support/tracking-support
+2025-08-01 20:49:29,103 - services.ultra_detailed_analysis_engine - WARNING - ⚠️ Conteúdo insuficiente: 0 chars
+2025-08-01 20:49:29,107 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.bing.com/ck/a?!&&p=d443c143e8b450a08cd9f6fa1641df3ef14cdaf004d9e7f310d819244c6825e4JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2b7a77ed-570a-68d4-11ae-61d6560869dd&u=a1aHR0cHM6Ly93d3cudXBzLmNvbS90cmFjaz9sb2M9ZW5fVVMmbXNvY2tpZD0yYjdhNzdlZDU3MGE2OGQ0MTFhZTYxZDY1NjA4NjlkZA&ntb=1
+2025-08-01 20:49:29,107 - services.url_resolver - INFO - 🔄 Resolvendo URL do Bing: https://www.bing.com/ck/a?!&&p=d443c143e8b450a08cd9f6fa1641df3ef14cdaf004d9e7f310d819244c6825e4Jmltd...
+2025-08-01 20:49:29,108 - services.url_resolver - INFO - ✅ URL Bing resolvida: https://www.ups.com/track?loc=en_US&msockid=2b7a77ed570a68d411ae61d6560869dd
+2025-08-01 20:49:29,108 - services.robust_content_extractor - INFO - 🔄 URL resolvida: https://www.bing.com/ck/a?!&&p=d443c143e8b450a08cd9f6fa1641df3ef14cdaf004d9e7f310d819244c6825e4JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2b7a77ed-570a-68d4-11ae-61d6560869dd&u=a1aHR0cHM6Ly93d3cudXBzLmNvbS90cmFjaz9sb2M9ZW5fVVMmbXNvY2tpZD0yYjdhNzdlZDU3MGE2OGQ0MTFhZTYxZDY1NjA4NjlkZA&ntb=1 -> https://www.ups.com/track?loc=en_US&msockid=2b7a77ed570a68d411ae61d6560869dd
+2025-08-01 20:49:59,166 - services.robust_content_extractor - WARNING - ⏰ Timeout na tentativa 1 para https://www.ups.com/track?loc=en_US&msockid=2b7a77ed570a68d411ae61d6560869dd
+2025-08-01 20:50:31,248 - services.robust_content_extractor - WARNING - ⏰ Timeout na tentativa 2 para https://www.ups.com/track?loc=en_US&msockid=2b7a77ed570a68d411ae61d6560869dd
+2025-08-01 20:51:03,328 - services.robust_content_extractor - WARNING - ⏰ Timeout na tentativa 3 para https://www.ups.com/track?loc=en_US&msockid=2b7a77ed570a68d411ae61d6560869dd
+2025-08-01 20:51:03,328 - services.robust_content_extractor - ERROR - ❌ Falha ao baixar HTML para https://www.ups.com/track?loc=en_US&msockid=2b7a77ed570a68d411ae61d6560869dd
+2025-08-01 20:51:03,330 - services.ultra_detailed_analysis_engine - WARNING - ⚠️ Conteúdo insuficiente: 0 chars
+2025-08-01 20:51:03,336 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.bing.com/ck/a?!&&p=6ba1c27c73172e75f3a7316738e09aa10fa06fc68cd6fd4cd056cd90e711a1c7JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2b7a77ed-570a-68d4-11ae-61d6560869dd&u=a1aHR0cHM6Ly93d3cudXBzLmNvbS90cmFjaz9sb2M9ZW5fQ0EmbXNvY2tpZD0yYjdhNzdlZDU3MGE2OGQ0MTFhZTYxZDY1NjA4NjlkZA&ntb=1
+2025-08-01 20:51:03,336 - services.url_resolver - INFO - 🔄 Resolvendo URL do Bing: https://www.bing.com/ck/a?!&&p=6ba1c27c73172e75f3a7316738e09aa10fa06fc68cd6fd4cd056cd90e711a1c7Jmltd...
+2025-08-01 20:51:03,338 - services.url_resolver - INFO - ✅ URL Bing resolvida: https://www.ups.com/track?loc=en_CA&msockid=2b7a77ed570a68d411ae61d6560869dd
+2025-08-01 20:51:03,338 - services.robust_content_extractor - INFO - 🔄 URL resolvida: https://www.bing.com/ck/a?!&&p=6ba1c27c73172e75f3a7316738e09aa10fa06fc68cd6fd4cd056cd90e711a1c7JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2b7a77ed-570a-68d4-11ae-61d6560869dd&u=a1aHR0cHM6Ly93d3cudXBzLmNvbS90cmFjaz9sb2M9ZW5fQ0EmbXNvY2tpZD0yYjdhNzdlZDU3MGE2OGQ0MTFhZTYxZDY1NjA4NjlkZA&ntb=1 -> https://www.ups.com/track?loc=en_CA&msockid=2b7a77ed570a68d411ae61d6560869dd
+2025-08-01 20:51:33,402 - services.robust_content_extractor - WARNING - ⏰ Timeout na tentativa 1 para https://www.ups.com/track?loc=en_CA&msockid=2b7a77ed570a68d411ae61d6560869dd
+2025-08-01 20:52:05,452 - services.robust_content_extractor - WARNING - ⏰ Timeout na tentativa 2 para https://www.ups.com/track?loc=en_CA&msockid=2b7a77ed570a68d411ae61d6560869dd
+2025-08-01 20:52:37,498 - services.robust_content_extractor - WARNING - ⏰ Timeout na tentativa 3 para https://www.ups.com/track?loc=en_CA&msockid=2b7a77ed570a68d411ae61d6560869dd
+2025-08-01 20:52:37,498 - services.robust_content_extractor - ERROR - ❌ Falha ao baixar HTML para https://www.ups.com/track?loc=en_CA&msockid=2b7a77ed570a68d411ae61d6560869dd
+2025-08-01 20:52:37,504 - services.ultra_detailed_analysis_engine - WARNING - ⚠️ Conteúdo insuficiente: 0 chars
+2025-08-01 20:52:37,505 - services.robust_content_extractor - INFO - 🔍 Iniciando extração de: https://www.bing.com/ck/a?!&&p=b1e11d106aa05d1ff3f8835dfcb180290a74b7e47a46e377e0536cba8f0a1818JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2b7a77ed-570a-68d4-11ae-61d6560869dd&u=a1aHR0cHM6Ly93d3cudXBzLmNvbS91cy9lbi9zdXBwb3J0L3RyYWNraW5nLXN1cHBvcnQvd2hlcmUtaXMtbXktcGFja2FnZT9tc29ja2lkPTJiN2E3N2VkNTcwYTY4ZDQxMWFlNjFkNjU2MDg2OWRk&ntb=1
+2025-08-01 20:52:37,506 - services.url_resolver - INFO - 🔄 Resolvendo URL do Bing: https://www.bing.com/ck/a?!&&p=b1e11d106aa05d1ff3f8835dfcb180290a74b7e47a46e377e0536cba8f0a1818Jmltd...
+2025-08-01 20:52:37,507 - services.url_resolver - INFO - ✅ URL Bing resolvida: https://www.ups.com/us/en/support/tracking-support/where-is-my-package?msockid=2b7a77ed570a68d411ae61d6560869dd
+2025-08-01 20:52:37,507 - services.robust_content_extractor - INFO - 🔄 URL resolvida: https://www.bing.com/ck/a?!&&p=b1e11d106aa05d1ff3f8835dfcb180290a74b7e47a46e377e0536cba8f0a1818JmltdHM9MTc1NDAwNjQwMA&ptn=3&ver=2&hsh=4&fclid=2b7a77ed-570a-68d4-11ae-61d6560869dd&u=a1aHR0cHM6Ly93d3cudXBzLmNvbS91cy9lbi9zdXBwb3J0L3RyYWNraW5nLXN1cHBvcnQvd2hlcmUtaXMtbXktcGFja2FnZT9tc29ja2lkPTJiN2E3N2VkNTcwYTY4ZDQxMWFlNjFkNjU2MDg2OWRk&ntb=1 -> https://www.ups.com/us/en/support/tracking-support/where-is-my-package?msockid=2b7a77ed570a68d411ae61d6560869dd
+2025-08-01 20:53:07,608 - services.robust_content_extractor - WARNING - ⏰ Timeout na tentativa 1 para https://www.ups.com/us/en/support/tracking-support/where-is-my-package?msockid=2b7a77ed570a68d411ae61d6560869dd
