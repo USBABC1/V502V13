@@ -9,6 +9,7 @@ import os
 import logging
 import time
 import requests
+import json
 from typing import Dict, List, Optional, Any, Tuple
 from urllib.parse import urljoin, urlparse
 import re
@@ -99,6 +100,10 @@ class RobustContentExtractor:
         Extrai conteúdo usando múltiplos extratores em ordem de prioridade
         Agora com suporte aprimorado a PDF e melhor fallback
         """
+        if not url or not url.startswith('http'):
+            logger.error(f"❌ URL inválida: {url}")
+            return None
+            
         try:
             start_time = time.time()
             self.stats['global']['total_extractions'] += 1
@@ -110,6 +115,13 @@ class RobustContentExtractor:
             if resolved_url != url:
                 logger.info(f"🔄 URL resolvida: {url} -> {resolved_url}")
                 url = resolved_url
+            
+            # Valida URL resolvida
+            if not url.startswith('http'):
+                logger.error(f"❌ URL resolvida inválida: {url}")
+                self.stats['global']['total_failures'] += 1
+                self._update_global_stats()
+                return None
             
             # 2. Verifica se é PDF
             if self._is_pdf_url(url):
@@ -127,6 +139,11 @@ class RobustContentExtractor:
                 self.stats['global']['total_failures'] += 1
                 self._update_global_stats()
                 return None
+            
+            # Valida HTML mínimo
+            if len(html_content) < 500:
+                logger.warning(f"⚠️ HTML muito pequeno: {len(html_content)} caracteres")
+                # Continua tentando extrair, mas com expectativas baixas
             
             logger.info(f"📥 HTML baixado: {len(html_content)} caracteres")
             
@@ -654,38 +671,48 @@ class RobustContentExtractor:
     def _validate_content(self, content: str, url: str) -> bool:
         """Valida se o conteúdo extraído é válido com critérios aprimorados"""
         if not content:
+            logger.warning(f"⚠️ Conteúdo vazio para {url}")
             return False
         
-        # Verifica tamanho mínimo (reduzido para ser mais flexível)
-        if len(content) < self.min_content_length:
+        # Verifica tamanho mínimo mais rigoroso
+        min_length = 500 if not self._is_pdf_url(url) else 200
+        if len(content) < min_length:
             logger.warning(f"⚠️ Conteúdo pequeno para {url}: {len(content)} < {self.min_content_length}")
-            # Para PDFs, aceita conteúdo menor
-            if self._is_pdf_url(url) and len(content) > 100:
-                logger.info(f"✅ PDF aceito com conteúdo menor: {len(content)} caracteres")
-                return True
             return False
         
-        # Verifica se não é só lixo
+        # Verifica densidade de palavras
         words = content.split()
-        if len(words) < 20:  # Reduzido de 50 para 20
+        min_words = 100 if not self._is_pdf_url(url) else 50
+        if len(words) < min_words:
             logger.warning(f"⚠️ Poucas palavras para {url}: {len(words)}")
             return False
         
-        # Verifica densidade de conteúdo real
-        common_words = ['o', 'a', 'de', 'da', 'do', 'e', 'em', 'um', 'uma', 'com', 'não', 'para', 'que', 'se', 'é', 'ou']
-        real_words = sum(1 for word in words if any(common in word.lower() for common in common_words))
-        
-        if real_words / len(words) < 0.05:  # Reduzido de 0.1 para 0.05
-            logger.warning(f"⚠️ Conteúdo suspeito para {url}: poucos conectivos ({real_words}/{len(words)})")
-            return False
-        
         # Verifica se não é página de erro
-        error_indicators = ['404', 'not found', 'página não encontrada', 'erro', 'error', 'forbidden', 'access denied']
+        error_indicators = ['404', 'not found', 'página não encontrada', 'erro', 'error', 
+                           'forbidden', 'access denied', 'unauthorized', 'service unavailable']
         content_lower = content.lower()
         
         error_count = sum(1 for indicator in error_indicators if indicator in content_lower)
-        if error_count > 2 and len(content) < 1000:  # Muitos indicadores de erro em conteúdo pequeno
-            logger.warning(f"⚠️ Possível página de erro para {url}")
+        if error_count > 2 and len(content) < 2000:
+            logger.warning(f"⚠️ Possível página de erro para {url}: {error_count} indicadores")
+            return False
+        
+        # Verifica densidade de conteúdo português
+        common_words = ['o', 'a', 'de', 'da', 'do', 'e', 'em', 'um', 'uma', 'com', 'não', 'para', 'que', 'se', 'é', 'ou']
+        real_words = sum(1 for word in words if any(common in word.lower() for common in common_words))
+        
+        portuguese_ratio = real_words / len(words)
+        if portuguese_ratio < 0.08:  # Pelo menos 8% de palavras em português
+            logger.warning(f"⚠️ Conteúdo suspeito para {url}: poucos conectivos ({real_words}/{len(words)})")
+            return False
+        
+        # Verifica se não é só navegação/menu
+        navigation_words = ['menu', 'home', 'contato', 'sobre', 'login', 'cadastro', 'produtos', 'serviços']
+        nav_count = sum(1 for word in words if word.lower() in navigation_words)
+        nav_ratio = nav_count / len(words)
+        
+        if nav_ratio > 0.3:  # Mais de 30% são palavras de navegação
+            logger.warning(f"⚠️ Muito conteúdo de navegação para {url}: {nav_ratio:.2%}")
             return False
         
         logger.info(f"✅ Conteúdo válido para {url}: {len(content)} caracteres, {len(words)} palavras")

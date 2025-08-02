@@ -6,6 +6,7 @@ Sistema de Engenharia Psicológica Anti-Objeção
 """
 
 import logging
+import json
 from typing import Dict, List, Any, Optional
 from services.ai_manager import ai_manager
 
@@ -155,11 +156,28 @@ class AntiObjectionSystem:
     ) -> Dict[str, Any]:
         """Gera sistema completo anti-objeção"""
         
+        # Validação crítica de entrada
+        if not objections_list:
+            logger.error("❌ Lista de objeções vazia")
+            raise ValueError("SISTEMA ANTI-OBJEÇÃO FALHOU: Nenhuma objeção fornecida")
+        
+        if not avatar_data:
+            logger.error("❌ Dados do avatar ausentes")
+            raise ValueError("SISTEMA ANTI-OBJEÇÃO FALHOU: Dados do avatar ausentes")
+        
+        if not context_data.get('segmento'):
+            logger.error("❌ Segmento não informado")
+            raise ValueError("SISTEMA ANTI-OBJEÇÃO FALHOU: Segmento obrigatório")
+        
         try:
             logger.info(f"🛡️ Gerando sistema anti-objeção para {len(objections_list)} objeções")
             
             # Analisa objeções específicas do avatar
             analyzed_objections = self._analyze_specific_objections(objections_list, avatar_data)
+            
+            if not analyzed_objections:
+                logger.error("❌ Falha na análise de objeções")
+                raise ValueError("SISTEMA ANTI-OBJEÇÃO FALHOU: Não foi possível analisar objeções")
             
             # Mapeia para objeções universais e ocultas
             mapped_objections = self._map_to_universal_objections(analyzed_objections)
@@ -167,25 +185,71 @@ class AntiObjectionSystem:
             # Cria arsenal de contra-ataques
             counter_attacks = self._create_counter_attacks(mapped_objections, avatar_data, context_data)
             
+            if not counter_attacks:
+                logger.error("❌ Falha na criação de contra-ataques")
+                raise ValueError("SISTEMA ANTI-OBJEÇÃO FALHOU: Não foi possível criar contra-ataques")
+            
             # Gera scripts personalizados
             personalized_scripts = self._generate_personalized_scripts(counter_attacks, avatar_data, context_data)
+            
+            # Valida scripts gerados
+            if not self._validate_scripts(personalized_scripts, context_data):
+                logger.error("❌ Scripts gerados são inválidos")
+                raise ValueError("SISTEMA ANTI-OBJEÇÃO FALHOU: Scripts inválidos gerados")
             
             # Cria arsenal de emergência
             emergency_arsenal = self._create_emergency_arsenal(avatar_data, context_data)
             
-            return {
+            result = {
                 'objecoes_universais': self._customize_universal_objections(avatar_data, context_data),
                 'objecoes_ocultas': self._identify_hidden_objections(avatar_data),
                 'contra_ataques_personalizados': counter_attacks,
                 'scripts_personalizados': personalized_scripts,
                 'arsenal_emergencia': emergency_arsenal,
                 'sequencia_neutralizacao': self._create_neutralization_sequence(mapped_objections),
-                'metricas_eficacia': self._create_effectiveness_metrics()
+                'metricas_eficacia': self._create_effectiveness_metrics(),
+                'validation_status': 'VALID',
+                'generation_timestamp': time.time()
             }
+            
+            logger.info("✅ Sistema anti-objeção gerado com sucesso")
+            return result
             
         except Exception as e:
             logger.error(f"❌ Erro ao gerar sistema anti-objeção: {str(e)}")
             raise Exception(f"SISTEMA ANTI-OBJEÇÃO FALHOU: {str(e)}")
+    
+    def _validate_scripts(self, scripts: Dict[str, List[str]], context_data: Dict[str, Any]) -> bool:
+        """Valida qualidade dos scripts gerados"""
+        if not scripts or len(scripts) < 3:
+            logger.error("❌ Scripts insuficientes gerados")
+            return False
+        
+        segmento = context_data.get('segmento', '')
+        total_content = 0
+        
+        for category, script_list in scripts.items():
+            if not script_list or len(script_list) < 2:
+                logger.error(f"❌ Categoria {category} com scripts insuficientes")
+                return False
+            
+            for script in script_list:
+                if len(script) < 50:  # Scripts muito curtos
+                    logger.error(f"❌ Script muito curto: {script[:30]}...")
+                    return False
+                
+                # Verifica se não é genérico
+                if 'customizado para' in script.lower() and len(script) < 100:
+                    logger.error(f"❌ Script genérico detectado: {script[:50]}...")
+                    return False
+                
+                total_content += len(script)
+        
+        if total_content < 1000:  # Mínimo de conteúdo total
+            logger.error(f"❌ Scripts anti-objeção muito curtos: {total_content} caracteres. Mínimo: 1000")
+            return False
+        
+        return True
     
     def _analyze_specific_objections(
         self, 

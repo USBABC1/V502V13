@@ -6,6 +6,7 @@ Arquiteto do Pré-Pitch Invisível - Orquestração Psicológica
 """
 
 import logging
+import json
 from typing import Dict, List, Any, Optional
 from services.ai_manager import ai_manager
 
@@ -87,17 +88,43 @@ class PrePitchArchitect:
     ) -> Dict[str, Any]:
         """Gera sistema completo de pré-pitch invisível"""
         
+        # Validação crítica de entrada
+        if not drivers_list:
+            logger.error("❌ Lista de drivers vazia")
+            raise ValueError("PRÉ-PITCH FALHOU: Nenhum driver mental fornecido")
+        
+        if not avatar_analysis:
+            logger.error("❌ Análise do avatar ausente")
+            raise ValueError("PRÉ-PITCH FALHOU: Análise do avatar ausente")
+        
+        if not context_data.get('segmento'):
+            logger.error("❌ Segmento não informado")
+            raise ValueError("PRÉ-PITCH FALHOU: Segmento obrigatório")
+        
         try:
             logger.info(f"🎯 Gerando pré-pitch invisível com {len(drivers_list)} drivers")
             
             # Seleciona drivers ótimos para pré-pitch
             selected_drivers = self._select_optimal_drivers(drivers_list)
             
+            if not selected_drivers:
+                logger.error("❌ Nenhum driver adequado selecionado")
+                raise ValueError("PRÉ-PITCH FALHOU: Nenhum driver adequado encontrado")
+            
             # Cria orquestração emocional
             emotional_orchestration = self._create_emotional_orchestration(selected_drivers, avatar_analysis)
             
+            if not emotional_orchestration or not emotional_orchestration.get('sequencia_psicologica'):
+                logger.error("❌ Falha na orquestração emocional")
+                raise ValueError("PRÉ-PITCH FALHOU: Orquestração emocional inválida")
+            
             # Gera roteiro completo
             complete_script = self._generate_complete_script(emotional_orchestration, context_data)
+            
+            # Valida roteiro gerado
+            if not self._validate_script(complete_script, context_data):
+                logger.error("❌ Roteiro gerado é inválido")
+                raise ValueError("PRÉ-PITCH FALHOU: Roteiro inválido gerado")
             
             # Cria variações por formato
             format_variations = self._create_format_variations(complete_script, context_data)
@@ -105,19 +132,49 @@ class PrePitchArchitect:
             # Gera métricas de sucesso
             success_metrics = self._create_success_metrics()
             
-            return {
+            result = {
                 'orquestracao_emocional': emotional_orchestration,
                 'roteiro_completo': complete_script,
                 'variacoes_formato': format_variations,
                 'metricas_sucesso': success_metrics,
                 'drivers_utilizados': [driver['nome'] for driver in selected_drivers],
                 'duracao_total': self._calculate_total_duration(emotional_orchestration),
-                'intensidade_maxima': self._calculate_max_intensity(emotional_orchestration)
+                'intensidade_maxima': self._calculate_max_intensity(emotional_orchestration),
+                'validation_status': 'VALID',
+                'generation_timestamp': time.time()
             }
+            
+            logger.info("✅ Pré-pitch invisível gerado com sucesso")
+            return result
             
         except Exception as e:
             logger.error(f"❌ Erro ao gerar pré-pitch: {str(e)}")
             raise Exception(f"PRÉ-PITCH FALHOU: {str(e)}")
+    
+    def _validate_script(self, script: Dict[str, Any], context_data: Dict[str, Any]) -> bool:
+        """Valida se o roteiro gerado é válido"""
+        if not script:
+            return False
+        
+        required_sections = ['abertura', 'desenvolvimento', 'fechamento']
+        
+        for section in required_sections:
+            if section not in script:
+                logger.error(f"❌ Seção obrigatória ausente no roteiro: {section}")
+                return False
+            
+            section_data = script[section]
+            if not section_data.get('script') or len(section_data['script']) < 50:
+                logger.error(f"❌ Script da seção '{section}' muito curto ou ausente")
+                return False
+            
+            # Verifica se não é genérico
+            script_text = section_data['script'].lower()
+            if 'customizado para' in script_text and len(script_text) < 100:
+                logger.error(f"❌ Script genérico na seção '{section}'")
+                return False
+        
+        return True
     
     def _select_optimal_drivers(self, drivers_list: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         """Seleciona drivers ótimos para pré-pitch"""

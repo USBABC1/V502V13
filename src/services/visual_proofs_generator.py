@@ -6,6 +6,7 @@ Sistema Completo de Provas Visuais Instantâneas
 """
 
 import logging
+import json
 from typing import Dict, List, Any, Optional
 from services.ai_manager import ai_manager
 
@@ -140,34 +141,92 @@ class VisualProofsGenerator:
     ) -> List[Dict[str, Any]]:
         """Gera sistema completo de provas visuais"""
         
+        # Validação crítica de entrada
+        if not concepts_to_prove:
+            logger.error("❌ Nenhum conceito fornecido para provas visuais")
+            raise ValueError("PROVAS VISUAIS FALHOU: Nenhum conceito fornecido")
+        
+        if not avatar_data:
+            logger.error("❌ Dados do avatar ausentes para provas visuais")
+            raise ValueError("PROVAS VISUAIS FALHOU: Dados do avatar ausentes")
+        
         try:
             logger.info(f"🎭 Gerando provas visuais para {len(concepts_to_prove)} conceitos")
             
             # Analisa conceitos e categoriza
             categorized_concepts = self._categorize_concepts(concepts_to_prove)
             
+            # Valida se há conceitos categorizados
+            total_concepts = sum(len(concepts) for concepts in categorized_concepts.values())
+            if total_concepts == 0:
+                logger.error("❌ Nenhum conceito foi categorizado adequadamente")
+                raise ValueError("PROVAS VISUAIS FALHOU: Conceitos não puderam ser categorizados")
+            
             # Seleciona experimentos apropriados
             selected_experiments = self._select_optimal_experiments(categorized_concepts, avatar_data)
+            
+            if not selected_experiments:
+                logger.error("❌ Nenhum experimento selecionado")
+                raise ValueError("PROVAS VISUAIS FALHOU: Nenhum experimento adequado encontrado")
             
             # Customiza experimentos para o contexto
             customized_proofs = []
             for experiment in selected_experiments:
-                customized_proof = self._customize_experiment(experiment, avatar_data, context_data)
-                customized_proofs.append(customized_proof)
+                try:
+                    customized_proof = self._customize_experiment(experiment, avatar_data, context_data)
+                    if customized_proof and self._validate_proof(customized_proof):
+                        customized_proofs.append(customized_proof)
+                    else:
+                        logger.warning(f"⚠️ Prova inválida descartada: {experiment.get('nome', 'Desconhecida')}")
+                except Exception as e:
+                    logger.error(f"❌ Erro ao customizar experimento {experiment.get('nome', 'Desconhecido')}: {str(e)}")
+                    continue
             
             # Adiciona experimentos únicos gerados por IA
-            ai_generated_proofs = self._generate_ai_custom_proofs(concepts_to_prove, avatar_data, context_data)
-            customized_proofs.extend(ai_generated_proofs)
+            try:
+                ai_generated_proofs = self._generate_ai_custom_proofs(concepts_to_prove, avatar_data, context_data)
+                if ai_generated_proofs:
+                    # Valida provas geradas por IA
+                    valid_ai_proofs = [proof for proof in ai_generated_proofs if self._validate_proof(proof)]
+                    customized_proofs.extend(valid_ai_proofs)
+                    logger.info(f"✅ {len(valid_ai_proofs)} provas IA válidas adicionadas")
+            except Exception as e:
+                logger.warning(f"⚠️ Falha na geração de provas com IA: {str(e)}")
+            
+            # Valida resultado final
+            if not customized_proofs:
+                logger.error("❌ Nenhuma prova visual foi gerada com sucesso")
+                raise ValueError("PROVAS VISUAIS FALHOU: Nenhuma prova válida gerada")
             
             # Ordena por impacto e relevância
             final_proofs = self._optimize_proof_sequence(customized_proofs)
             
-            logger.info(f"✅ {len(final_proofs)} provas visuais geradas")
+            logger.info(f"✅ {len(final_proofs)} provas visuais geradas com sucesso")
             return final_proofs
             
         except Exception as e:
             logger.error(f"❌ Erro ao gerar provas visuais: {str(e)}")
             raise Exception(f"PROVAS VISUAIS FALHARAM: {str(e)}")
+    
+    def _validate_proof(self, proof: Dict[str, Any]) -> bool:
+        """Valida se uma prova visual é válida"""
+        required_fields = ['nome', 'conceito_alvo', 'experimento']
+        
+        for field in required_fields:
+            if not proof.get(field) or proof[field] == 'N/A':
+                logger.warning(f"⚠️ Prova inválida: campo '{field}' ausente ou N/A")
+                return False
+        
+        # Verifica se não é conteúdo genérico
+        generic_indicators = ['customizada para', 'baseado em', 'específico para']
+        experiment_text = proof.get('experimento', '').lower()
+        
+        if any(indicator in experiment_text for indicator in generic_indicators):
+            if len(experiment_text) < 100:  # Muito curto e genérico
+                logger.warning(f"⚠️ Prova muito genérica: {proof.get('nome', 'Desconhecida')}")
+                return False
+        
+        return True
     
     def _categorize_concepts(self, concepts: List[str]) -> Dict[str, List[str]]:
         """Categoriza conceitos por tipo de prova necessária"""

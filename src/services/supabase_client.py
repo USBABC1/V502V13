@@ -7,6 +7,7 @@ Cliente configurado para integração com Supabase
 
 import os
 import logging
+import time
 from typing import Dict, List, Optional, Any
 from supabase import create_client, Client
 from datetime import datetime
@@ -69,6 +70,11 @@ class SupabaseClient:
             logger.warning("⚠️ Supabase não conectado")
             return None
         
+        # Valida chave de API antes de tentar
+        if not self._validate_api_key():
+            logger.error("❌ Chave de API do Supabase inválida")
+            return None
+        
         try:
             # Prepara dados para inserção
             insert_data = {
@@ -106,8 +112,8 @@ class SupabaseClient:
             # Remove campos None
             insert_data = {k: v for k, v in insert_data.items() if v is not None}
             
-            # Insere no banco
-            result = self.client.table('analyses').insert(insert_data).execute()
+            # Insere no banco com retry
+            result = self._insert_with_retry(insert_data)
             
             if result.data:
                 logger.info(f"✅ Análise criada no Supabase com ID: {result.data[0]['id']}")
@@ -119,6 +125,40 @@ class SupabaseClient:
         except Exception as e:
             logger.error(f"❌ Erro ao criar análise no Supabase: {str(e)}")
             return None
+    
+    def _validate_api_key(self) -> bool:
+        """Valida se a chave de API está funcionando"""
+        try:
+            # Tenta uma operação simples
+            result = self.client.table('analyses').select('id').limit(1).execute()
+            return True
+        except Exception as e:
+            error_str = str(e).lower()
+            if 'invalid api key' in error_str or 'unauthorized' in error_str:
+                logger.error("❌ Chave de API do Supabase inválida ou expirada")
+                return False
+            # Outros erros podem ser temporários
+            return True
+    
+    def _insert_with_retry(self, insert_data: Dict[str, Any], max_retries: int = 3) -> Any:
+        """Insere dados com retry e backoff exponencial"""
+        for attempt in range(max_retries):
+            try:
+                result = self.client.table('analyses').insert(insert_data).execute()
+                return result
+            except Exception as e:
+                error_str = str(e).lower()
+                
+                if 'invalid api key' in error_str or 'unauthorized' in error_str:
+                    # Erro de autenticação - não tenta novamente
+                    raise e
+                
+                if attempt < max_retries - 1:
+                    wait_time = (2 ** attempt) + 1  # Backoff exponencial
+                    logger.warning(f"⚠️ Tentativa {attempt + 1} falhou, tentando novamente em {wait_time}s: {str(e)}")
+                    time.sleep(wait_time)
+                else:
+                    raise e
     
     def get_analysis(self, analysis_id: str) -> Optional[Dict[str, Any]]:
         """Busca análise por ID"""

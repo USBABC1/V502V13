@@ -6,6 +6,7 @@ Arquiteto de Drivers Mentais - Sistema de Ancoragem Psicológica
 """
 
 import logging
+import json
 from typing import Dict, List, Any, Optional
 from services.ai_manager import ai_manager
 
@@ -183,30 +184,85 @@ class MentalDriversArchitect:
     ) -> Dict[str, Any]:
         """Gera sistema completo de drivers mentais customizados"""
         
+        # Validação crítica de entrada
+        if not avatar_data:
+            logger.error("❌ Dados do avatar ausentes")
+            raise ValueError("DRIVERS MENTAIS FALHOU: Dados do avatar ausentes")
+        
+        if not context_data.get('segmento'):
+            logger.error("❌ Segmento não informado")
+            raise ValueError("DRIVERS MENTAIS FALHOU: Segmento obrigatório")
+        
         try:
+            logger.info(f"🧠 Gerando drivers mentais para segmento: {context_data.get('segmento')}")
+            
             # Seleciona os drivers mais relevantes para o contexto
             selected_drivers = self._select_optimal_drivers(avatar_data, context_data)
+            
+            if not selected_drivers:
+                logger.error("❌ Nenhum driver selecionado")
+                raise ValueError("DRIVERS MENTAIS FALHOU: Nenhum driver adequado encontrado")
             
             # Customiza cada driver selecionado
             customized_drivers = []
             for driver in selected_drivers:
-                customized = self._customize_driver(driver, avatar_data, context_data)
-                customized_drivers.append(customized)
+                try:
+                    customized = self._customize_driver(driver, avatar_data, context_data)
+                    if customized and self._validate_driver(customized):
+                        customized_drivers.append(customized)
+                    else:
+                        logger.warning(f"⚠️ Driver inválido descartado: {driver.get('nome', 'Desconhecido')}")
+                except Exception as e:
+                    logger.error(f"❌ Erro ao customizar driver {driver.get('nome', 'Desconhecido')}: {str(e)}")
+                    continue
+            
+            if not customized_drivers:
+                logger.error("❌ Nenhum driver foi customizado com sucesso")
+                raise ValueError("DRIVERS MENTAIS FALHOU: Nenhum driver válido gerado")
             
             # Cria sequenciamento estratégico
             sequencing = self._create_strategic_sequencing(customized_drivers)
             
-            return {
+            result = {
                 "drivers_customizados": customized_drivers,
                 "sequenciamento_estrategico": sequencing,
                 "fases_implementacao": self._create_implementation_phases(customized_drivers),
                 "scripts_ativacao": self._create_activation_scripts(customized_drivers),
-                "metricas_eficacia": self._create_effectiveness_metrics(customized_drivers)
+                "metricas_eficacia": self._create_effectiveness_metrics(customized_drivers),
+                "validation_status": "VALID",
+                "total_drivers": len(customized_drivers),
+                "generation_timestamp": time.time()
             }
             
+            logger.info(f"✅ {len(customized_drivers)} drivers mentais gerados com sucesso")
+            return result
+            
         except Exception as e:
-            logger.error(f"Erro ao gerar sistema de drivers: {str(e)}")
-            return self._generate_fallback_drivers_system(context_data)
+            logger.error(f"❌ Erro ao gerar sistema de drivers: {str(e)}")
+            raise Exception(f"DRIVERS MENTAIS FALHOU: {str(e)}")
+    
+    def _validate_driver(self, driver: Dict[str, Any]) -> bool:
+        """Valida se um driver mental é válido"""
+        required_fields = ['nome', 'gatilho_central', 'roteiro_ativacao']
+        
+        for field in required_fields:
+            if not driver.get(field):
+                logger.warning(f"⚠️ Driver inválido: campo '{field}' ausente")
+                return False
+        
+        # Valida roteiro de ativação
+        roteiro = driver.get('roteiro_ativacao', {})
+        if not roteiro.get('pergunta_abertura') or len(roteiro['pergunta_abertura']) < 20:
+            logger.warning(f"⚠️ Driver com pergunta de abertura inválida")
+            return False
+        
+        # Verifica se não é genérico
+        if 'customizada para' in roteiro.get('historia_analogia', '').lower():
+            if len(roteiro['historia_analogia']) < 100:
+                logger.warning(f"⚠️ Driver com história muito genérica")
+                return False
+        
+        return True
     
     def _select_optimal_drivers(self, avatar_data: Dict[str, Any], context_data: Dict[str, Any]) -> List[Dict[str, Any]]:
         """Seleciona os drivers mais relevantes para o contexto"""

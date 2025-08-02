@@ -15,7 +15,8 @@ from services.enhanced_analysis_engine import enhanced_analysis_engine
 from services.ultra_detailed_analysis_engine import ultra_detailed_analysis_engine
 from services.ai_manager import ai_manager
 from services.production_search_manager import production_search_manager
-from services.robust_content_extractor import robust_content_extractor
+from services.safe_extract_content import safe_content_extractor
+from services.analysis_quality_controller import analysis_quality_controller
 from services.content_quality_validator import content_quality_validator
 from services.attachment_service import attachment_service
 from database import db_manager
@@ -84,55 +85,44 @@ def analyze_market():
                 progress_callback=progress_callback
             )
         except Exception as e:
+            # VALIDAÇÃO RIGOROSA DO RESULTADO
+            logger.info("🔍 Validando qualidade da análise...")
+            quality_validation = analysis_quality_controller.validate_complete_analysis(analysis_result)
+            
+            if not quality_validation['valid']:
+                logger.error(f"❌ Análise rejeitada por baixa qualidade: {quality_validation['errors']}")
+                return jsonify({
+                    'error': 'Análise de baixa qualidade rejeitada',
+                    'message': 'A análise gerada não atende aos critérios de qualidade',
+                    'quality_report': quality_validation,
+                    'recommendations': quality_validation['recommendations'],
+                    'timestamp': datetime.now().isoformat()
+                }), 422
+            
+            # Limpa análise removendo componentes inválidos
+            analysis_result = analysis_quality_controller.clean_analysis_for_output(analysis_result)
+            
+            logger.info(f"✅ Análise validada com score {quality_validation['quality_score']:.1f}%")
+            
             logger.error(f"❌ Análise GIGANTE falhou: {str(e)}")
             
-            # SISTEMA ROBUSTO: NUNCA PARA, SEMPRE RETORNA ALGO
-            logger.warning(f"⚠️ Análise com limitações: {str(e)}")
-            
-            # Tenta gerar análise básica REAL como último recurso
-            try:
-                from services.enhanced_analysis_engine import enhanced_analysis_engine
-                analysis_result = enhanced_analysis_engine.generate_comprehensive_analysis(data, session_id)
-                
-                # Adiciona aviso sobre limitações
-                analysis_result['system_warning'] = {
-                    'status': 'ANALISE_COM_LIMITACOES',
-                    'original_error': str(e),
-                    'message': 'Análise gerada com sistema de backup - configure APIs para análise completa',
-                    'recommendation': 'Configure todas as APIs para análise GIGANTE completa'
-                }
-                
-            except Exception as backup_error:
-                logger.error(f"❌ Backup também falhou: {str(backup_error)}")
-                
-                # ÚLTIMO RECURSO: Análise mínima mas REAL
-                analysis_result = {
-                    'projeto_dados': data,
-                    'avatar_ultra_detalhado': {
-                        'nome_ficticio': f"Profissional {data.get('segmento', 'Negócios')} Brasileiro",
-                        'perfil_demografico': {
-                            'idade': '30-45 anos - faixa de maior poder aquisitivo',
-                            'renda': 'R$ 8.000 - R$ 35.000 - classe média alta',
-                            'localizacao': 'Grandes centros urbanos brasileiros'
-                        },
-                        'dores_viscerais': [
-                            f"Trabalhar muito em {data.get('segmento')} sem crescimento proporcional",
-                            "Sentir-se sempre correndo atrás da concorrência",
-                            "Ver competidores menores crescendo mais rápido"
-                        ]
+            # NÃO GERA FALLBACK - FALHA EXPLICITAMENTE
+            return jsonify({
+                'error': 'Falha na análise',
+                'message': str(e),
+                'timestamp': datetime.now().isoformat(),
+                'recommendation': 'Configure todas as APIs necessárias e tente novamente',
+                'debug_info': {
+                    'session_id': session_id,
+                    'input_data': {
+                        'segmento': data.get('segmento'),
+                        'produto': data.get('produto'),
+                        'query': data.get('query')
                     },
-                    'insights_exclusivos': [
-                        f"Mercado brasileiro de {data.get('segmento')} em transformação",
-                        "Lacuna entre ferramentas disponíveis e conhecimento",
-                        "Profissionais pagam premium por simplicidade",
-                        "✅ Análise gerada em modo de emergência - dados limitados"
-                    ],
-                    'system_status': {
-                        'mode': 'EMERGENCY_MINIMAL',
-                        'errors': [str(e), str(backup_error)],
-                        'recommendation': 'Configure APIs completas para análise GIGANTE'
-                    }
+                    'ai_status': ai_manager.get_provider_status(),
+                    'search_status': production_search_manager.get_provider_status()
                 }
+            }), 500
         
         # Verifica se a análise foi bem-sucedida
         if not analysis_result or not isinstance(analysis_result, dict):
@@ -205,6 +195,8 @@ def analyze_market():
                 'produto': data.get('produto'),
                 'query': data.get('query')
             }
+            'quality_validated': True,
+            'simulation_free': True
         })
         
         logger.info(f"✅ Análise concluída em {processing_time:.2f} segundos")
@@ -379,28 +371,27 @@ def test_extraction():
         
         logger.info(f"🧪 Testando extração: {test_url}")
         
-        # Testa extração
-        content = robust_content_extractor.extract_content(test_url)
+        # Testa extração segura
+        extraction_result = safe_content_extractor.safe_extract_content(test_url)
         
-        if content:
-            # Valida qualidade
-            validation = content_quality_validator.validate_content(content, test_url)
-            
+        if extraction_result['success']:
             return jsonify({
                 'success': True,
                 'url': test_url,
-                'content_length': len(content),
-                'content_preview': content[:500] + '...' if len(content) > 500 else content,
-                'validation': validation,
-                'extractor_stats': robust_content_extractor.get_extractor_stats(),
+                'content_length': extraction_result['metadata']['content_length'],
+                'content_preview': extraction_result['content'][:500] + '...' if len(extraction_result['content']) > 500 else extraction_result['content'],
+                'validation': extraction_result['validation'],
+                'metadata': extraction_result['metadata'],
+                'extractor_stats': safe_content_extractor.get_extraction_stats(),
                 'timestamp': datetime.now().isoformat()
             })
         else:
             return jsonify({
                 'success': False,
                 'url': test_url,
-                'error': 'Falha na extração de conteúdo',
-                'extractor_stats': robust_content_extractor.get_extractor_stats(),
+                'error': extraction_result['error'],
+                'metadata': extraction_result['metadata'],
+                'extractor_stats': safe_content_extractor.get_extraction_stats(),
                 'timestamp': datetime.now().isoformat()
             })
         
@@ -416,7 +407,7 @@ def get_extractor_stats():
     """Obtém estatísticas dos extratores"""
     
     try:
-        stats = robust_content_extractor.get_extractor_stats()
+        stats = safe_content_extractor.get_extraction_stats()
         
         return jsonify({
             'success': True,
@@ -439,6 +430,8 @@ def reset_extractors():
         data = request.get_json() or {}
         extractor_name = data.get('extractor')
         
+        # Reset através do extrator robusto
+        from services.robust_content_extractor import robust_content_extractor
         robust_content_extractor.reset_extractor_stats(extractor_name)
         
         message = f"Reset estatísticas do extrator: {extractor_name}" if extractor_name else "Reset estatísticas de todos os extratores"
@@ -446,7 +439,7 @@ def reset_extractors():
         return jsonify({
             'success': True,
             'message': message,
-            'stats': robust_content_extractor.get_extractor_stats(),
+            'stats': safe_content_extractor.get_extraction_stats(),
             'timestamp': datetime.now().isoformat()
         })
         
@@ -454,6 +447,38 @@ def reset_extractors():
         logger.error(f"Erro ao resetar extratores: {str(e)}")
         return jsonify({
             'error': 'Erro ao resetar extratores',
+            'message': str(e)
+        }), 500
+
+@analysis_bp.route('/validate_analysis', methods=['POST'])
+def validate_analysis():
+    """Valida qualidade de uma análise"""
+    
+    try:
+        data = request.get_json()
+        
+        if not data:
+            return jsonify({
+                'error': 'Dados da análise não fornecidos'
+            }), 400
+        
+        # Valida análise
+        validation_result = analysis_quality_controller.validate_complete_analysis(data)
+        
+        # Gera relatório
+        quality_report = analysis_quality_controller.generate_quality_report(data)
+        
+        return jsonify({
+            'validation': validation_result,
+            'quality_report': quality_report,
+            'can_generate_pdf': analysis_quality_controller.should_generate_pdf(data),
+            'timestamp': datetime.now().isoformat()
+        })
+        
+    except Exception as e:
+        logger.error(f"Erro na validação: {str(e)}")
+        return jsonify({
+            'error': 'Erro na validação da análise',
             'message': str(e)
         }), 500
 

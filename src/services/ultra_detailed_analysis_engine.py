@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-ARQV30 Enhanced v2.0 - Ultra Detailed Analysis Engine REAL
+ARQV30 Enhanced v2.0 - Ultra Detailed Analysis Engine CORRIGIDO
 Motor de análise GIGANTE ultra-detalhado - SEM SIMULAÇÃO OU FALLBACK
-SISTEMA ROBUSTO QUE NUNCA PARA
 """
 
 import os
@@ -12,10 +11,10 @@ import time
 import json
 from datetime import datetime
 from typing import Dict, List, Optional, Any
-from concurrent.futures import ThreadPoolExecutor, as_completed, TimeoutError
 from services.ai_manager import ai_manager
 from services.production_search_manager import production_search_manager
 from services.robust_content_extractor import robust_content_extractor
+from services.content_quality_validator import content_quality_validator
 from services.mental_drivers_architect import mental_drivers_architect
 from services.visual_proofs_generator import visual_proofs_generator
 from services.anti_objection_system import anti_objection_system
@@ -24,19 +23,78 @@ from services.future_prediction_engine import future_prediction_engine
 
 logger = logging.getLogger(__name__)
 
+class ComponentDependencyManager:
+    """Gerenciador de dependências entre componentes"""
+    
+    def __init__(self):
+        self.dependencies = {
+            'avatar_ultra_detalhado': [],  # Sem dependências
+            'drivers_mentais_customizados': ['avatar_ultra_detalhado'],
+            'provas_visuais_sugeridas': ['avatar_ultra_detalhado'],
+            'sistema_anti_objecao': ['avatar_ultra_detalhado'],
+            'pre_pitch_invisivel': ['drivers_mentais_customizados', 'avatar_ultra_detalhado'],
+            'predicoes_futuro_completas': ['pesquisa_web_massiva'],
+        }
+        
+        self.component_status = {}
+    
+    def can_execute_component(self, component_name: str) -> bool:
+        """Verifica se um componente pode ser executado"""
+        dependencies = self.dependencies.get(component_name, [])
+        
+        for dependency in dependencies:
+            if not self.component_status.get(dependency, {}).get('success', False):
+                logger.warning(f"⚠️ Componente {component_name} não pode ser executado: dependência {dependency} falhou")
+                return False
+        
+        return True
+    
+    def mark_component_status(self, component_name: str, success: bool, data: Any = None, error: str = None):
+        """Marca status de um componente"""
+        self.component_status[component_name] = {
+            'success': success,
+            'data': data,
+            'error': error,
+            'timestamp': time.time()
+        }
+        
+        status = "✅ SUCESSO" if success else "❌ FALHA"
+        logger.info(f"{status} Componente {component_name}: {error if error else 'OK'}")
+    
+    def get_successful_components(self) -> Dict[str, Any]:
+        """Retorna apenas componentes que foram bem-sucedidos"""
+        successful = {}
+        
+        for component_name, status in self.component_status.items():
+            if status['success'] and status['data']:
+                successful[component_name] = status['data']
+        
+        return successful
+    
+    def get_failure_report(self) -> Dict[str, Any]:
+        """Gera relatório de falhas"""
+        failures = {}
+        
+        for component_name, status in self.component_status.items():
+            if not status['success']:
+                failures[component_name] = {
+                    'error': status['error'],
+                    'timestamp': status['timestamp']
+                }
+        
+        return failures
+
 class UltraDetailedAnalysisEngine:
-    """Motor de análise GIGANTE ultra-detalhado - ZERO SIMULAÇÃO - SISTEMA ROBUSTO"""
+    """Motor de análise GIGANTE ultra-detalhado - ZERO SIMULAÇÃO"""
 
     def __init__(self):
         """Inicializa o motor de análise GIGANTE"""
-        self.min_content_threshold = 2000   # Mais flexível mas ainda exigente
-        self.min_sources_threshold = 2      # Mínimo 2 fontes reais
-        self.quality_threshold = 70.0       # Score mínimo mais flexível
-        self.max_parallel_workers = 2       # Reduzido para estabilidade
-        self.analysis_timeout = 1800        # 30 minutos timeout
-        self.component_timeout = 300        # 5 minutos por componente
+        self.min_content_threshold = 5000   # Reduzido para ser mais realista
+        self.min_sources_threshold = 3      # Reduzido para ser mais realista
+        self.quality_threshold = 70.0       # Reduzido para ser mais realista
+        self.dependency_manager = ComponentDependencyManager()
 
-        logger.info("🚀 Ultra Detailed Analysis Engine GIGANTE ROBUSTO inicializado")
+        logger.info("🚀 Ultra Detailed Analysis Engine CORRIGIDO inicializado")
 
     def generate_gigantic_analysis(
         self, 
@@ -44,122 +102,248 @@ class UltraDetailedAnalysisEngine:
         session_id: Optional[str] = None,
         progress_callback: Optional[callable] = None
     ) -> Dict[str, Any]:
-        """Gera análise GIGANTE ultra-detalhada com sistema ROBUSTO que NUNCA PARA"""
+        """Gera análise GIGANTE ultra-detalhada - FALHA SE DADOS INSUFICIENTES"""
 
         start_time = time.time()
-        logger.info(f"🚀 INICIANDO ANÁLISE GIGANTE ROBUSTA para {data.get('segmento')}")
+        logger.info(f"🚀 INICIANDO ANÁLISE GIGANTE CORRIGIDA para {data.get('segmento')}")
 
         if progress_callback:
             progress_callback(1, "🔍 Validando dados de entrada...")
 
-        # VALIDAÇÃO BÁSICA - MAS NÃO PARA O PROCESSO
+        # VALIDAÇÃO CRÍTICA - FALHA SE INSUFICIENTE
         validation_result = self._validate_input_data(data)
         if not validation_result['valid']:
-            logger.warning(f"⚠️ Dados com limitações: {validation_result['message']}")
-            # CONTINUA MESMO COM DADOS LIMITADOS
-
-        # ESTRUTURA FINAL QUE SERÁ PREENCHIDA
-        final_analysis = {
-            'projeto_dados': data,
-            'pesquisa_web_massiva': {},
-            'avatar_ultra_detalhado': {},
-            'drivers_mentais_customizados': {},
-            'provas_visuais_sugeridas': [],
-            'sistema_anti_objecao': {},
-            'pre_pitch_invisivel': {},
-            'predicoes_futuro_completas': {},
-            'escopo_posicionamento': {},
-            'analise_concorrencia_detalhada': {},
-            'estrategia_palavras_chave': {},
-            'metricas_performance_detalhadas': {},
-            'funil_vendas_detalhado': {},
-            'plano_acao_detalhado': {},
-            'insights_exclusivos': [],
-            'metadata': {}
-        }
+            raise Exception(f"DADOS INSUFICIENTES: {validation_result['message']}")
 
         try:
             # FASE 1: PESQUISA WEB MASSIVA REAL
             if progress_callback:
                 progress_callback(2, "🌐 Executando pesquisa web massiva REAL...")
 
-            research_data = self._execute_massive_real_research_robust(data, progress_callback)
-            final_analysis['pesquisa_web_massiva'] = research_data
+            research_data = self._execute_massive_real_research(data, progress_callback)
 
-            # FASE 2: ANÁLISE DUPLA COM IA REAL (DUAS IAs TRABALHANDO)
+            # VALIDAÇÃO CRÍTICA - FALHA SE PESQUISA INSUFICIENTE
+            if not self._validate_research_quality(research_data):
+                raise Exception("PESQUISA INSUFICIENTE: Não foi possível coletar dados reais suficientes da web")
+
+            # Marca pesquisa como bem-sucedida
+            self.dependency_manager.mark_component_status('pesquisa_web_massiva', True, research_data)
+
+            # FASE 2: ANÁLISE COM IA REAL
             if progress_callback:
-                progress_callback(4, "🧠 Analisando com DUAS IAs REAIS trabalhando em paralelo...")
+                progress_callback(4, "🧠 Analisando com múltiplas IAs REAIS...")
 
-            ai_analysis_primary, ai_analysis_secondary = self._execute_dual_ai_analysis(data, research_data, progress_callback)
+            ai_analysis = self._execute_real_ai_analysis(data, research_data, progress_callback)
 
-            # FASE 3: GERAÇÃO PARALELA ROBUSTA DE TODOS OS COMPONENTES
-            if progress_callback:
-                progress_callback(6, "⚡ Gerando TODOS os componentes em paralelo...")
+            # VALIDAÇÃO CRÍTICA - FALHA SE IA NÃO RESPONDER
+            if not ai_analysis or not self._validate_ai_response(ai_analysis):
+                raise Exception("IA FALHOU: Não foi possível gerar análise válida com IA")
 
-            components = self._generate_all_components_parallel_robust(
-                data, research_data, ai_analysis_primary, ai_analysis_secondary, progress_callback
-            )
+            # Marca avatar como bem-sucedido
+            self.dependency_manager.mark_component_status('avatar_ultra_detalhado', True, ai_analysis.get('avatar_ultra_detalhado'))
 
-            # INTEGRA COMPONENTES NA ANÁLISE FINAL
-            final_analysis.update(components)
+            # FASE 3: SISTEMAS AVANÇADOS REAIS (COM DEPENDÊNCIAS)
+            advanced_components = self._execute_advanced_components(ai_analysis, data, progress_callback)
 
-            # FASE 4: CONSOLIDAÇÃO E VALIDAÇÃO FINAL
+            # FASE 4: CONSOLIDAÇÃO FINAL
             if progress_callback:
                 progress_callback(12, "✨ Consolidando análise GIGANTE...")
 
-            final_analysis = self._consolidate_and_enhance_analysis(final_analysis, data, research_data)
+            final_analysis = self._consolidate_gigantic_analysis(
+                data, research_data, ai_analysis, advanced_components
+            )
 
-            # CALCULA QUALIDADE FINAL
-            quality_score = self._calculate_comprehensive_quality_score(final_analysis)
+            # VALIDAÇÃO FINAL CRÍTICA
+            quality_score = self._calculate_final_quality_score(final_analysis)
+            if quality_score < self.quality_threshold:
+                logger.warning(f"⚠️ Qualidade abaixo do ideal: {quality_score:.1f}% < {self.quality_threshold}%")
+                # Não falha mais, mas registra aviso
 
             end_time = time.time()
             processing_time = end_time - start_time
 
-            # METADADOS FINAIS COMPLETOS
+            # Adiciona metadados finais
             final_analysis['metadata'] = {
                 'processing_time_seconds': processing_time,
                 'processing_time_formatted': f"{int(processing_time // 60)}m {int(processing_time % 60)}s",
-                'analysis_engine': 'ARQV30 Enhanced v2.0 - GIGANTE ROBUSTO MODE',
+                'analysis_engine': 'ARQV30 Enhanced v2.0 - GIGANTE MODE CORRIGIDO',
                 'generated_at': datetime.utcnow().isoformat(),
                 'quality_score': quality_score,
-                'report_type': 'GIGANTE_ULTRA_DETALHADO_ROBUSTO',
+                'report_type': 'GIGANTE_ULTRA_DETALHADO',
                 'simulation_free_guarantee': True,
                 'real_data_sources': len(research_data.get('sources', [])),
                 'total_content_analyzed': research_data.get('total_content_length', 0),
-                'ai_models_used': 2,  # Duas IAs trabalhando
-                'advanced_systems_included': True,
-                'components_generated': len([k for k, v in final_analysis.items() if v and k != 'metadata']),
-                'robustness_level': 'MAXIMUM',
-                'failure_tolerance': 'ZERO_STOP_POLICY'
+                'successful_components': len(self.dependency_manager.get_successful_components()),
+                'failed_components': len(self.dependency_manager.get_failure_report()),
+                'component_failures': self.dependency_manager.get_failure_report()
             }
 
             if progress_callback:
-                progress_callback(13, "🎉 Análise GIGANTE ROBUSTA concluída com sucesso!")
+                progress_callback(13, "🎉 Análise GIGANTE concluída!")
 
-            logger.info(f"✅ Análise GIGANTE ROBUSTA concluída - Score: {quality_score:.1f} - Tempo: {processing_time:.2f}s")
+            logger.info(f"✅ Análise GIGANTE concluída - Score: {quality_score:.1f}% - Tempo: {processing_time:.2f}s")
             return final_analysis
 
         except Exception as e:
-            logger.error(f"❌ ERRO na análise GIGANTE: {str(e)}")
-            # MESMO COM ERRO, RETORNA O QUE FOI POSSÍVEL GERAR
-            return self._emergency_completion(final_analysis, data, str(e))
+            logger.error(f"❌ FALHA CRÍTICA na análise GIGANTE: {str(e)}")
+            # NÃO GERA FALLBACK - FALHA EXPLICITAMENTE
+            raise Exception(f"ANÁLISE FALHOU: {str(e)}. Configure APIs corretamente e tente novamente.")
 
-    def _execute_massive_real_research_robust(
+    def _execute_advanced_components(
+        self, 
+        ai_analysis: Dict[str, Any], 
+        data: Dict[str, Any], 
+        progress_callback: Optional[callable] = None
+    ) -> Dict[str, Any]:
+        """Executa componentes avançados com gerenciamento de dependências"""
+        
+        advanced_components = {}
+        
+        # 1. Drivers Mentais Customizados
+        if progress_callback:
+            progress_callback(6, "🧠 Gerando drivers mentais customizados...")
+        
+        if self.dependency_manager.can_execute_component('drivers_mentais_customizados'):
+            try:
+                avatar_data = ai_analysis.get('avatar_ultra_detalhado', {})
+                mental_drivers = mental_drivers_architect.generate_complete_drivers_system(avatar_data, data)
+                
+                if mental_drivers and mental_drivers.get('validation_status') == 'VALID':
+                    advanced_components['drivers_mentais_customizados'] = mental_drivers
+                    self.dependency_manager.mark_component_status('drivers_mentais_customizados', True, mental_drivers)
+                else:
+                    raise ValueError("Drivers mentais inválidos gerados")
+                    
+            except Exception as e:
+                error_msg = f"Falha na geração de drivers mentais: {str(e)}"
+                logger.error(f"❌ {error_msg}")
+                self.dependency_manager.mark_component_status('drivers_mentais_customizados', False, error=error_msg)
+        
+        # 2. Provas Visuais Instantâneas
+        if progress_callback:
+            progress_callback(7, "🎭 Criando provas visuais instantâneas...")
+        
+        if self.dependency_manager.can_execute_component('provas_visuais_sugeridas'):
+            try:
+                avatar_data = ai_analysis.get('avatar_ultra_detalhado', {})
+                concepts_to_prove = self._extract_concepts_for_visual_proof(ai_analysis, data)
+                
+                if concepts_to_prove:
+                    visual_proofs = visual_proofs_generator.generate_complete_proofs_system(
+                        concepts_to_prove, avatar_data, data
+                    )
+                    
+                    if visual_proofs and len(visual_proofs) > 0:
+                        advanced_components['provas_visuais_sugeridas'] = visual_proofs
+                        self.dependency_manager.mark_component_status('provas_visuais_sugeridas', True, visual_proofs)
+                    else:
+                        raise ValueError("Nenhuma prova visual válida gerada")
+                else:
+                    raise ValueError("Nenhum conceito identificado para provas visuais")
+                    
+            except Exception as e:
+                error_msg = f"Falha na geração de provas visuais: {str(e)}"
+                logger.error(f"❌ {error_msg}")
+                self.dependency_manager.mark_component_status('provas_visuais_sugeridas', False, error=error_msg)
+        
+        # 3. Sistema Anti-Objeção
+        if progress_callback:
+            progress_callback(8, "🛡️ Construindo sistema anti-objeção...")
+        
+        if self.dependency_manager.can_execute_component('sistema_anti_objecao'):
+            try:
+                avatar_data = ai_analysis.get('avatar_ultra_detalhado', {})
+                objections = avatar_data.get('objecoes_reais', [])
+                
+                if objections and len(objections) > 0:
+                    anti_objection = anti_objection_system.generate_complete_anti_objection_system(
+                        objections, avatar_data, data
+                    )
+                    
+                    if anti_objection and anti_objection.get('validation_status') == 'VALID':
+                        advanced_components['sistema_anti_objecao'] = anti_objection
+                        self.dependency_manager.mark_component_status('sistema_anti_objecao', True, anti_objection)
+                    else:
+                        raise ValueError("Sistema anti-objeção inválido gerado")
+                else:
+                    raise ValueError("Nenhuma objeção identificada no avatar")
+                    
+            except Exception as e:
+                error_msg = f"Falha na geração do sistema anti-objeção: {str(e)}"
+                logger.error(f"❌ {error_msg}")
+                self.dependency_manager.mark_component_status('sistema_anti_objecao', False, error=error_msg)
+        
+        # 4. Pré-Pitch Invisível
+        if progress_callback:
+            progress_callback(9, "🎯 Arquitetando pré-pitch invisível...")
+        
+        if self.dependency_manager.can_execute_component('pre_pitch_invisivel'):
+            try:
+                drivers_data = advanced_components.get('drivers_mentais_customizados', {})
+                avatar_data = ai_analysis.get('avatar_ultra_detalhado', {})
+                
+                if drivers_data and drivers_data.get('drivers_customizados'):
+                    pre_pitch = pre_pitch_architect.generate_complete_pre_pitch_system(
+                        drivers_data['drivers_customizados'], avatar_data, data
+                    )
+                    
+                    if pre_pitch and pre_pitch.get('validation_status') == 'VALID':
+                        advanced_components['pre_pitch_invisivel'] = pre_pitch
+                        self.dependency_manager.mark_component_status('pre_pitch_invisivel', True, pre_pitch)
+                    else:
+                        raise ValueError("Pré-pitch inválido gerado")
+                else:
+                    raise ValueError("Drivers mentais não disponíveis para pré-pitch")
+                    
+            except Exception as e:
+                error_msg = f"Falha na geração do pré-pitch: {str(e)}"
+                logger.error(f"❌ {error_msg}")
+                self.dependency_manager.mark_component_status('pre_pitch_invisivel', False, error=error_msg)
+        
+        # 5. Predições do Futuro
+        if progress_callback:
+            progress_callback(10, "🔮 Predizendo futuro do mercado...")
+        
+        if self.dependency_manager.can_execute_component('predicoes_futuro_completas'):
+            try:
+                research_data = self.dependency_manager.component_status.get('pesquisa_web_massiva', {}).get('data', {})
+                
+                if research_data:
+                    future_predictions = future_prediction_engine.predict_market_future(
+                        data.get('segmento', 'negócios'), data, horizon_months=36
+                    )
+                    
+                    if future_predictions and len(future_predictions) > 0:
+                        advanced_components['predicoes_futuro_completas'] = future_predictions
+                        self.dependency_manager.mark_component_status('predicoes_futuro_completas', True, future_predictions)
+                    else:
+                        raise ValueError("Predições futuras inválidas geradas")
+                else:
+                    raise ValueError("Dados de pesquisa não disponíveis para predições")
+                    
+            except Exception as e:
+                error_msg = f"Falha na geração de predições futuras: {str(e)}"
+                logger.error(f"❌ {error_msg}")
+                self.dependency_manager.mark_component_status('predicoes_futuro_completas', False, error=error_msg)
+        
+        return advanced_components
+
+    def _execute_massive_real_research(
         self, 
         data: Dict[str, Any], 
         progress_callback: Optional[callable] = None
     ) -> Dict[str, Any]:
-        """Executa pesquisa web massiva REAL com sistema ROBUSTO"""
+        """Executa pesquisa web massiva REAL - FALHA SE INSUFICIENTE"""
 
-        logger.info("🌐 INICIANDO PESQUISA WEB MASSIVA ROBUSTA")
+        logger.info("🌐 INICIANDO PESQUISA WEB MASSIVA REAL")
 
-        # Gera queries inteligentes expandidas
-        queries = self._generate_comprehensive_queries(data)
+        # Gera queries de pesquisa inteligentes
+        queries = self._generate_intelligent_queries(data)
 
         all_results = []
         extracted_content = []
         total_content_length = 0
-        successful_queries = 0
+        successful_extractions = 0
 
         for i, query in enumerate(queries):
             if progress_callback:
@@ -169,37 +353,52 @@ class UltraDetailedAnalysisEngine:
                 # Busca com múltiplos provedores
                 search_results = production_search_manager.search_with_fallback(query, max_results=10)
 
-                if search_results:
-                    successful_queries += 1
-                    all_results.extend(search_results)
+                if not search_results:
+                    logger.warning(f"⚠️ Query '{query}' retornou 0 resultados")
+                    continue
 
-                    # Extrai conteúdo das URLs encontradas
-                    for result in search_results[:8]:  # Top 8 URLs por query
-                        try:
-                            content = robust_content_extractor.extract_content(result['url'])
-                            if content and len(content) >= 200:  # Mínimo mais flexível
+                all_results.extend(search_results)
+
+                # Extrai conteúdo das URLs encontradas
+                logger.info(f"📄 Extraindo conteúdo de {len(search_results)} URLs...")
+
+                for result in search_results[:8]:  # Limita para performance
+                    try:
+                        # Usa o extrator robusto corrigido
+                        content = robust_content_extractor.extract_content(result['url'])
+                        
+                        if content:
+                            # Valida qualidade do conteúdo
+                            validation = content_quality_validator.validate_content(content, result['url'])
+                            
+                            if validation['valid'] and len(content) >= 500:
                                 extracted_content.append({
                                     'url': result['url'],
                                     'title': result.get('title', 'Sem título'),
-                                    'content': content[:2500],  # Limita tamanho
+                                    'content': content[:3000],  # Limita tamanho
                                     'snippet': result.get('snippet', ''),
-                                    'query_origin': query
+                                    'quality_score': validation['score'],
+                                    'source': result.get('source', 'unknown')
                                 })
                                 total_content_length += len(content)
-                                logger.info(f"✅ Conteúdo extraído: {len(content)} chars de {result['url']}")
+                                successful_extractions += 1
+                                logger.info(f"✅ Conteúdo extraído e validado: {len(content)} chars, qualidade {validation['score']:.1f}%")
                             else:
-                                logger.warning(f"⚠️ Conteúdo insuficiente: {len(content) if content else 0} chars")
-                        except Exception as e:
-                            logger.error(f"❌ Erro ao extrair {result['url']}: {str(e)}")
-                            continue
+                                logger.warning(f"⚠️ Conteúdo rejeitado por baixa qualidade: {validation['reason']}")
+                        else:
+                            logger.warning(f"⚠️ Nenhum conteúdo extraído de {result['url']}")
+                            
+                    except Exception as e:
+                        logger.error(f"❌ Erro ao extrair {result['url']}: {str(e)}")
+                        continue
 
-                time.sleep(0.5)  # Rate limiting reduzido
+                time.sleep(1)  # Rate limiting
 
             except Exception as e:
                 logger.error(f"❌ Erro na query '{query}': {str(e)}")
                 continue
 
-        # Remove duplicatas
+        # Remove duplicatas por URL
         unique_content = []
         seen_urls = set()
         for content_item in extracted_content:
@@ -208,623 +407,255 @@ class UltraDetailedAnalysisEngine:
                 unique_content.append(content_item)
 
         research_data = {
-            'queries_executadas': queries,
-            'queries_bem_sucedidas': successful_queries,
+            'queries_executed': queries,
             'total_queries': len(queries),
-            'total_resultados': len(all_results),
-            'fontes_unicas': len(unique_content),
+            'total_results': len(all_results),
+            'unique_sources': len(unique_content),
+            'successful_extractions': successful_extractions,
             'total_content_length': total_content_length,
-            'conteudo_extraido': unique_content,
-            'sources': [{'url': item['url'], 'title': item['title']} for item in unique_content],
+            'extracted_content': unique_content,
+            'sources': [{'url': item['url'], 'title': item['title'], 'quality_score': item['quality_score']} for item in unique_content],
             'research_timestamp': datetime.now().isoformat(),
-            'qualidade_pesquisa': 'REAL' if len(unique_content) >= 2 else 'LIMITADA'
+            'quality_metrics': {
+                'avg_quality_score': sum(item['quality_score'] for item in unique_content) / len(unique_content) if unique_content else 0,
+                'extraction_success_rate': (successful_extractions / len(all_results)) * 100 if all_results else 0
+            }
         }
 
-        logger.info(f"✅ Pesquisa massiva ROBUSTA: {len(unique_content)} páginas, {total_content_length:,} caracteres")
+        logger.info(f"✅ Pesquisa massiva: {len(unique_content)} páginas válidas, {total_content_length:,} caracteres")
         return research_data
 
-    def _generate_comprehensive_queries(self, data: Dict[str, Any]) -> List[str]:
-        """Gera queries abrangentes para pesquisa"""
+    def _validate_research_quality(self, research_data: Dict[str, Any]) -> bool:
+        """Valida qualidade da pesquisa - FALHA SE INSUFICIENTE"""
 
-        segmento = data.get('segmento', '')
-        produto = data.get('produto', '')
-        publico = data.get('publico', '')
+        total_content = research_data.get('total_content_length', 0)
+        unique_sources = research_data.get('unique_sources', 0)
+        successful_extractions = research_data.get('successful_extractions', 0)
 
-        # Queries principais expandidas
-        base_queries = [
-            f"mercado {segmento} Brasil 2024 dados estatísticas crescimento",
-            f"análise competitiva {segmento} principais empresas brasileiras",
-            f"tendências {segmento} oportunidades investimento futuro",
-            f"comportamento consumidor {segmento} Brasil pesquisa dados",
-            f"startups {segmento} investimento venture capital Brasil",
-            f"regulamentação {segmento} mudanças legais impacto mercado",
-            f"inovação tecnológica {segmento} disrupção transformação",
-            f"cases sucesso empresas {segmento} brasileiras líderes",
-            f"desafios principais {segmento} soluções mercado problemas",
-            f"preços médios {segmento} Brasil benchmarks mercado",
-            f"público-alvo {segmento} perfil demográfico comportamento",
-            f"marketing digital {segmento} estratégias eficazes",
-            f"automação {segmento} inteligência artificial impacto",
-            f"sustentabilidade {segmento} ESG tendências futuro",
-            f"economia brasileira {segmento} perspectivas 2024 2025"
-        ]
+        # Critérios mais realistas
+        if total_content < self.min_content_threshold:
+            logger.error(f"❌ Conteúdo insuficiente: {total_content} < {self.min_content_threshold}")
+            return False
 
-        # Adiciona queries específicas se produto informado
-        if produto:
-            base_queries.extend([
-                f"demanda {produto} Brasil estatísticas consumo mercado",
-                f"preço médio {produto} mercado brasileiro concorrência",
-                f"inovações {produto} tecnologias emergentes tendências"
-            ])
+        if unique_sources < self.min_sources_threshold:
+            logger.error(f"❌ Fontes insuficientes: {unique_sources} < {self.min_sources_threshold}")
+            return False
+        
+        if successful_extractions == 0:
+            logger.error("❌ Nenhuma extração bem-sucedida")
+            return False
+        
+        # Verifica qualidade média
+        avg_quality = research_data.get('quality_metrics', {}).get('avg_quality_score', 0)
+        if avg_quality < 60:
+            logger.error(f"❌ Qualidade média muito baixa: {avg_quality:.1f}%")
+            return False
+        
+        logger.info(f"✅ Pesquisa validada: {total_content} caracteres de {unique_sources} fontes, qualidade média {avg_quality:.1f}%")
+        return True
 
-        # Adiciona queries específicas se público informado
-        if publico:
-            base_queries.extend([
-                f"perfil demográfico {publico} Brasil dados IBGE",
-                f"comportamento compra {publico} pesquisa mercado"
-            ])
-
-        return base_queries[:18]  # Máximo 18 queries para otimização
-
-    def _execute_dual_ai_analysis(
+    def _execute_real_ai_analysis(
         self, 
         data: Dict[str, Any], 
         research_data: Dict[str, Any],
         progress_callback: Optional[callable] = None
-    ) -> tuple:
-        """Executa análise com DUAS IAs trabalhando em paralelo"""
-
-        search_context = self._prepare_comprehensive_search_context(research_data)
-
-        # Prompts especializados para cada IA
-        prompt_primary = self._build_primary_analysis_prompt(data, search_context)
-        prompt_secondary = self._build_secondary_analysis_prompt(data, search_context)
-
-        logger.info("🤖 Executando análise com DUAS IAs REAIS em paralelo...")
-
-        # Executa as duas análises em paralelo
-        with ThreadPoolExecutor(max_workers=2) as executor:
-            future_primary = executor.submit(
-                ai_manager.generate_analysis, 
-                prompt_primary, 
-                max_tokens=8192
-            )
-            future_secondary = executor.submit(
-                ai_manager.generate_analysis, 
-                prompt_secondary, 
-                max_tokens=8192
-            )
-
-            try:
-                # Aguarda ambas as análises com timeout
-                ai_response_primary = future_primary.result(timeout=600)  # 10 minutos
-                ai_response_secondary = future_secondary.result(timeout=600)  # 10 minutos
-
-                if not ai_response_primary and not ai_response_secondary:
-                    raise Exception("AMBAS AS IAs FALHARAM: Nenhuma resposta obtida")
-
-                # Processa respostas
-                processed_primary = self._process_ai_response_robust(ai_response_primary, data) if ai_response_primary else {}
-                processed_secondary = self._process_ai_response_robust(ai_response_secondary, data) if ai_response_secondary else {}
-
-                logger.info("✅ Análise dupla com IA concluída")
-                return processed_primary, processed_secondary
-
-            except TimeoutError:
-                logger.error("❌ Timeout na análise dupla com IA")
-                # Tenta pegar o que conseguiu
-                try:
-                    ai_response_primary = future_primary.result(timeout=1) if not future_primary.done() else future_primary.result()
-                except:
-                    ai_response_primary = None
-                
-                try:
-                    ai_response_secondary = future_secondary.result(timeout=1) if not future_secondary.done() else future_secondary.result()
-                except:
-                    ai_response_secondary = None
-
-                processed_primary = self._process_ai_response_robust(ai_response_primary, data) if ai_response_primary else {}
-                processed_secondary = self._process_ai_response_robust(ai_response_secondary, data) if ai_response_secondary else {}
-
-                return processed_primary, processed_secondary
-
-    def _generate_all_components_parallel_robust(
-        self,
-        data: Dict[str, Any],
-        research_data: Dict[str, Any],
-        ai_analysis_primary: Dict[str, Any],
-        ai_analysis_secondary: Dict[str, Any],
-        progress_callback: Optional[callable] = None
     ) -> Dict[str, Any]:
-        """Gera TODOS os componentes em paralelo com sistema ROBUSTO"""
+        """Executa análise com IA REAL - FALHA SE IA NÃO RESPONDER"""
 
-        logger.info("⚡ INICIANDO GERAÇÃO PARALELA ROBUSTA DE TODOS OS COMPONENTES")
+        # Prepara contexto de pesquisa REAL
+        search_context = self._prepare_search_context(research_data)
 
-        # Combina análises das duas IAs
-        combined_ai_analysis = self._merge_ai_analyses(ai_analysis_primary, ai_analysis_secondary)
+        # Constrói prompt ULTRA-DETALHADO
+        prompt = self._build_gigantic_analysis_prompt(data, search_context)
 
-        # Define todas as tarefas de geração
-        generation_tasks = [
-            ('avatar_ultra_detalhado', self._generate_avatar_component),
-            ('drivers_mentais_customizados', self._generate_drivers_component),
-            ('provas_visuais_sugeridas', self._generate_visual_proofs_component),
-            ('sistema_anti_objecao', self._generate_anti_objection_component),
-            ('pre_pitch_invisivel', self._generate_pre_pitch_component),
-            ('predicoes_futuro_completas', self._generate_future_predictions_component),
-            ('escopo_posicionamento', self._generate_positioning_component),
-            ('analise_concorrencia_detalhada', self._generate_competition_component),
-            ('estrategia_palavras_chave', self._generate_keywords_component),
-            ('metricas_performance_detalhadas', self._generate_metrics_component),
-            ('funil_vendas_detalhado', self._generate_funnel_component),
-            ('plano_acao_detalhado', self._generate_action_plan_component),
-            ('insights_exclusivos', self._generate_insights_component)
-        ]
+        logger.info("🤖 Executando análise com IA REAL...")
 
-        # Executa geração em paralelo com sistema ROBUSTO
-        components_results = {}
-        completed_components = 0
+        # Executa com AI Manager (sistema de fallback automático)
+        ai_response = ai_manager.generate_analysis(prompt, max_tokens=8192)
 
-        with ThreadPoolExecutor(max_workers=self.max_parallel_workers) as executor:
-            # Submete todas as tarefas
-            future_to_component = {}
-            for component_name, generator_func in generation_tasks:
-                future = executor.submit(
-                    self._safe_component_generation,
-                    component_name,
-                    generator_func,
-                    data,
-                    research_data,
-                    combined_ai_analysis
-                )
-                future_to_component[future] = component_name
+        if not ai_response:
+            raise Exception("IA NÃO RESPONDEU: Nenhum provedor de IA disponível ou funcionando")
 
-            # Coleta resultados conforme completam
-            for future in as_completed(future_to_component, timeout=self.analysis_timeout):
-                component_name = future_to_component[future]
-                
-                try:
-                    result = future.result(timeout=self.component_timeout)
-                    components_results[component_name] = result
-                    completed_components += 1
-                    
-                    if progress_callback:
-                        progress = 6 + (completed_components / len(generation_tasks)) * 5
-                        progress_callback(int(progress), f"✅ {component_name} gerado", f"{completed_components}/{len(generation_tasks)} componentes")
-                    
-                    logger.info(f"✅ Componente gerado: {component_name}")
-                    
-                except Exception as e:
-                    logger.error(f"❌ Erro no componente {component_name}: {str(e)}")
-                    # GERA COMPONENTE BÁSICO REAL (NÃO SIMULADO)
-                    components_results[component_name] = self._generate_basic_real_component(
-                        component_name, data, research_data, combined_ai_analysis
-                    )
-                    completed_components += 1
+        # Processa resposta da IA
+        processed_analysis = self._process_ai_response_strict(ai_response, data)
 
-        logger.info(f"✅ Geração paralela concluída: {completed_components}/{len(generation_tasks)} componentes")
-        return components_results
+        return processed_analysis
 
-    def _safe_component_generation(
-        self,
-        component_name: str,
-        generator_func: callable,
-        data: Dict[str, Any],
-        research_data: Dict[str, Any],
-        ai_analysis: Dict[str, Any]
-    ) -> Any:
-        """Execução segura de geração de componente"""
-        
-        try:
-            logger.info(f"🔧 Gerando componente: {component_name}")
-            result = generator_func(data, research_data, ai_analysis)
-            
-            if not result:
-                raise Exception(f"Componente {component_name} retornou vazio")
-            
-            return result
-            
-        except Exception as e:
-            logger.error(f"❌ Erro na geração segura de {component_name}: {str(e)}")
-            # Gera versão básica REAL
-            return self._generate_basic_real_component(component_name, data, research_data, ai_analysis)
+    def _prepare_search_context(self, research_data: Dict[str, Any]) -> str:
+        """Prepara contexto de pesquisa para IA"""
 
-    def _generate_avatar_component(self, data: Dict[str, Any], research_data: Dict[str, Any], ai_analysis: Dict[str, Any]) -> Dict[str, Any]:
-        """Gera componente de avatar ultra-detalhado"""
-        
-        # Usa dados da pesquisa para criar avatar REAL
-        avatar_prompt = f"""
-Baseado na pesquisa REAL realizada, crie um avatar ultra-detalhado para o segmento {data.get('segmento')}.
+        extracted_content = research_data.get('extracted_content', [])
 
-DADOS DA PESQUISA REAL:
-{json.dumps(research_data, ensure_ascii=False)[:3000]}
+        if not extracted_content:
+            raise Exception("NENHUM CONTEÚDO EXTRAÍDO: Pesquisa web falhou completamente")
 
-DADOS DO PROJETO:
-- Segmento: {data.get('segmento')}
-- Produto: {data.get('produto')}
-- Público: {data.get('publico')}
-- Preço: R$ {data.get('preco')}
+        # Combina conteúdo das páginas mais relevantes
+        context = "PESQUISA WEB MASSIVA REAL EXECUTADA:\n\n"
 
-Crie um avatar ULTRA-DETALHADO baseado APENAS nos dados REAIS da pesquisa.
+        # Ordena por qualidade
+        sorted_content = sorted(extracted_content, key=lambda x: x.get('quality_score', 0), reverse=True)
 
-RETORNE APENAS JSON VÁLIDO:
+        for i, content_item in enumerate(sorted_content[:10], 1):  # Top 10 páginas por qualidade
+            context += f"--- FONTE REAL {i}: {content_item['title']} ---\n"
+            context += f"URL: {content_item['url']}\n"
+            context += f"Qualidade: {content_item.get('quality_score', 0):.1f}%\n"
+            context += f"Conteúdo: {content_item['content'][:2000]}\n\n"
+
+        # Adiciona estatísticas da pesquisa
+        context += f"\n=== ESTATÍSTICAS DA PESQUISA REAL ===\n"
+        context += f"Total de queries executadas: {research_data.get('total_queries', 0)}\n"
+        context += f"Total de resultados encontrados: {research_data.get('total_results', 0)}\n"
+        context += f"Páginas únicas analisadas: {research_data.get('unique_sources', 0)}\n"
+        context += f"Extrações bem-sucedidas: {research_data.get('successful_extractions', 0)}\n"
+        context += f"Total de caracteres extraídos: {research_data.get('total_content_length', 0):,}\n"
+        context += f"Qualidade média do conteúdo: {research_data.get('quality_metrics', {}).get('avg_quality_score', 0):.1f}%\n"
+        context += f"Garantia de dados reais: 100%\n"
+
+        return context
+
+    def _build_gigantic_analysis_prompt(self, data: Dict[str, Any], search_context: str) -> str:
+        """Constrói prompt GIGANTE para análise ultra-detalhada"""
+
+        prompt = f"""
+# ANÁLISE GIGANTE ULTRA-DETALHADA - ARQV30 ENHANCED v2.0 CORRIGIDO
+
+Você é o DIRETOR SUPREMO DE ANÁLISE DE MERCADO GIGANTE, especialista de elite com 30+ anos de experiência.
+
+## DADOS REAIS DO PROJETO:
+- **Segmento**: {data.get('segmento', 'Não informado')}
+- **Produto/Serviço**: {data.get('produto', 'Não informado')}
+- **Público-Alvo**: {data.get('publico', 'Não informado')}
+- **Preço**: R$ {data.get('preco', 'Não informado')}
+- **Objetivo de Receita**: R$ {data.get('objetivo_receita', 'Não informado')}
+- **Orçamento Marketing**: R$ {data.get('orcamento_marketing', 'Não informado')}
+
+{search_context}
+
+## INSTRUÇÕES CRÍTICAS:
+
+1. Use APENAS dados REAIS da pesquisa acima
+2. NUNCA use placeholders como "N/A", "Customizado para", "Baseado em"
+3. Se não houver dados suficientes para uma seção, omita a seção
+4. Seja específico e detalhado, não genérico
+5. Baseie tudo em evidências da pesquisa
+
+## FORMATO DE RESPOSTA OBRIGATÓRIO:
 ```json
 {{
-  "nome_ficticio": "Nome representativo baseado em dados reais",
-  "perfil_demografico": {{
-    "idade": "Faixa etária específica com dados reais",
-    "genero": "Distribuição real por gênero",
-    "renda": "Faixa de renda real baseada em pesquisas",
-    "escolaridade": "Nível educacional real",
-    "localizacao": "Regiões geográficas reais",
-    "estado_civil": "Status relacionamento real",
-    "profissao": "Ocupações reais mais comuns"
+  "avatar_ultra_detalhado": {{
+    "nome_ficticio": "Nome específico baseado no segmento e dados reais",
+    "perfil_demografico": {{
+      "idade": "Faixa etária específica com dados reais do IBGE/mercado",
+      "genero": "Distribuição real por gênero com percentuais reais",
+      "renda": "Faixa de renda mensal real baseada em pesquisas de mercado",
+      "escolaridade": "Nível educacional real predominante no segmento",
+      "localizacao": "Regiões geográficas reais com maior concentração",
+      "estado_civil": "Status relacionamento real predominante",
+      "profissao": "Ocupações reais mais comuns baseadas em dados"
+    }},
+    "perfil_psicografico": {{
+      "personalidade": "Traços reais dominantes baseados em estudos comportamentais",
+      "valores": "Valores reais e crenças principais com exemplos concretos",
+      "interesses": "Hobbies e interesses reais específicos do segmento",
+      "estilo_vida": "Como realmente vive o dia a dia baseado em pesquisas",
+      "comportamento_compra": "Processo real de decisão de compra documentado",
+      "influenciadores": "Quem realmente influencia suas decisões e como",
+      "medos_profundos": "Medos reais documentados relacionados ao nicho",
+      "aspiracoes_secretas": "Aspirações reais baseadas em estudos psicográficos"
+    }},
+    "dores_viscerais": [
+      "Lista de 10-15 dores específicas, viscerais e REAIS baseadas em pesquisas de mercado"
+    ],
+    "desejos_secretos": [
+      "Lista de 10-15 desejos profundos REAIS baseados em estudos comportamentais"
+    ],
+    "objecoes_reais": [
+      "Lista de 8-12 objeções REAIS específicas baseadas em dados de vendas"
+    ],
+    "jornada_emocional": {{
+      "consciencia": "Como realmente toma consciência baseado em dados comportamentais",
+      "consideracao": "Processo real de avaliação baseado em estudos de mercado",
+      "decisao": "Fatores reais decisivos baseados em análises de conversão",
+      "pos_compra": "Experiência real pós-compra baseada em pesquisas de satisfação"
+    }},
+    "linguagem_interna": {{
+      "frases_dor": ["Frases reais que usa baseadas em pesquisas qualitativas"],
+      "frases_desejo": ["Frases reais de desejo baseadas em entrevistas"],
+      "metaforas_comuns": ["Metáforas reais usadas no segmento"],
+      "vocabulario_especifico": ["Palavras e gírias reais específicas do nicho"],
+      "tom_comunicacao": "Tom real de comunicação baseado em análises linguísticas"
+    }}
   }},
-  "perfil_psicografico": {{
-    "personalidade": "Traços reais dominantes",
-    "valores": "Valores reais e crenças principais",
-    "interesses": "Hobbies e interesses reais específicos",
-    "estilo_vida": "Como realmente vive baseado em pesquisas",
-    "comportamento_compra": "Processo real de decisão",
-    "influenciadores": "Quem realmente influencia decisões",
-    "medos_profundos": "Medos reais documentados",
-    "aspiracoes_secretas": "Aspirações reais baseadas em estudos"
+  
+  "escopo": {{
+    "posicionamento_mercado": "Posicionamento único REAL baseado em análise competitiva",
+    "proposta_valor": "Proposta REAL irresistível baseada em gaps de mercado",
+    "diferenciais_competitivos": [
+      "Lista de diferenciais REAIS únicos e defensáveis baseados em análise"
+    ],
+    "mensagem_central": "Mensagem principal REAL que resume tudo",
+    "tom_comunicacao": "Tom de voz REAL ideal para este avatar específico",
+    "nicho_especifico": "Nicho mais específico REAL recomendado",
+    "estrategia_oceano_azul": "Como criar mercado REAL sem concorrência direta",
+    "ancoragem_preco": "Como ancorar o preço REAL na mente do cliente"
   }},
-  "dores_viscerais": [
-    "Lista de 12-15 dores específicas e REAIS baseadas em pesquisas"
-  ],
-  "desejos_secretos": [
-    "Lista de 12-15 desejos profundos REAIS baseados em estudos"
-  ],
-  "objecoes_reais": [
-    "Lista de 10-12 objeções REAIS específicas baseadas em dados"
-  ],
-  "jornada_emocional": {{
-    "consciencia": "Como realmente toma consciência",
-    "consideracao": "Processo real de avaliação",
-    "decisao": "Fatores reais decisivos",
-    "pos_compra": "Experiência real pós-compra"
-  }},
-  "linguagem_interna": {{
-    "frases_dor": ["Frases reais que usa"],
-    "frases_desejo": ["Frases reais de desejo"],
-    "metaforas_comuns": ["Metáforas reais usadas"],
-    "vocabulario_especifico": ["Palavras específicas do nicho"],
-    "tom_comunicacao": "Tom real de comunicação"
-  }}
-}}
-```
-"""
-        
-        response = ai_manager.generate_analysis(avatar_prompt, max_tokens=3000)
-        return self._parse_json_response(response, 'avatar')
-
-    def _generate_drivers_component(self, data: Dict[str, Any], research_data: Dict[str, Any], ai_analysis: Dict[str, Any]) -> Dict[str, Any]:
-        """Gera drivers mentais customizados"""
-        
-        try:
-            avatar_data = ai_analysis.get('avatar_ultra_detalhado', {})
-            if not avatar_data:
-                # Cria avatar básico se não existir
-                avatar_data = self._create_basic_avatar(data, research_data)
-            
-            return mental_drivers_architect.generate_complete_drivers_system(avatar_data, data)
-            
-        except Exception as e:
-            logger.error(f"❌ Erro ao gerar drivers: {str(e)}")
-            return self._generate_basic_drivers(data, research_data)
-
-    def _generate_visual_proofs_component(self, data: Dict[str, Any], research_data: Dict[str, Any], ai_analysis: Dict[str, Any]) -> List[Dict[str, Any]]:
-        """Gera provas visuais instantâneas"""
-        
-        try:
-            concepts_to_prove = self._extract_concepts_for_visual_proof(ai_analysis, data)
-            return visual_proofs_generator.generate_complete_proofs_system(concepts_to_prove, ai_analysis, data)
-            
-        except Exception as e:
-            logger.error(f"❌ Erro ao gerar provas visuais: {str(e)}")
-            return self._generate_basic_visual_proofs(data, research_data)
-
-    def _generate_anti_objection_component(self, data: Dict[str, Any], research_data: Dict[str, Any], ai_analysis: Dict[str, Any]) -> Dict[str, Any]:
-        """Gera sistema anti-objeção"""
-        
-        try:
-            avatar_data = ai_analysis.get('avatar_ultra_detalhado', {})
-            objecoes = avatar_data.get('objecoes_reais', [])
-            
-            if not objecoes:
-                objecoes = self._extract_common_objections(data, research_data)
-            
-            return anti_objection_system.generate_complete_anti_objection_system(objecoes, avatar_data, data)
-            
-        except Exception as e:
-            logger.error(f"❌ Erro ao gerar sistema anti-objeção: {str(e)}")
-            return self._generate_basic_anti_objection(data, research_data)
-
-    def _generate_pre_pitch_component(self, data: Dict[str, Any], research_data: Dict[str, Any], ai_analysis: Dict[str, Any]) -> Dict[str, Any]:
-        """Gera pré-pitch invisível"""
-        
-        try:
-            drivers_data = ai_analysis.get('drivers_mentais_customizados', {})
-            avatar_data = ai_analysis.get('avatar_ultra_detalhado', {})
-            
-            return pre_pitch_architect.generate_complete_pre_pitch_system(
-                drivers_data.get('drivers_customizados', []), avatar_data, data
-            )
-            
-        except Exception as e:
-            logger.error(f"❌ Erro ao gerar pré-pitch: {str(e)}")
-            return self._generate_basic_pre_pitch(data, research_data)
-
-    def _generate_future_predictions_component(self, data: Dict[str, Any], research_data: Dict[str, Any], ai_analysis: Dict[str, Any]) -> Dict[str, Any]:
-        """Gera predições do futuro"""
-        
-        try:
-            return future_prediction_engine.predict_market_future(
-                data.get('segmento', 'negócios'), data, horizon_months=60
-            )
-            
-        except Exception as e:
-            logger.error(f"❌ Erro ao gerar predições futuras: {str(e)}")
-            return self._generate_basic_future_predictions(data, research_data)
-
-    def _generate_positioning_component(self, data: Dict[str, Any], research_data: Dict[str, Any], ai_analysis: Dict[str, Any]) -> Dict[str, Any]:
-        """Gera escopo e posicionamento"""
-        
-        positioning_prompt = f"""
-Baseado na pesquisa REAL, crie estratégia de posicionamento para {data.get('segmento')}.
-
-DADOS DA PESQUISA:
-{json.dumps(research_data, ensure_ascii=False)[:2000]}
-
-RETORNE JSON:
-```json
-{{
-  "posicionamento_mercado": "Posicionamento único REAL baseado em análise",
-  "proposta_valor": "Proposta REAL irresistível",
-  "diferenciais_competitivos": ["Lista de diferenciais REAIS únicos"],
-  "mensagem_central": "Mensagem principal REAL",
-  "nicho_especifico": "Nicho mais específico REAL",
-  "estrategia_oceano_azul": "Como criar mercado REAL sem concorrência"
-}}
-```
-"""
-        
-        response = ai_manager.generate_analysis(positioning_prompt, max_tokens=2000)
-        return self._parse_json_response(response, 'positioning')
-
-    def _generate_competition_component(self, data: Dict[str, Any], research_data: Dict[str, Any], ai_analysis: Dict[str, Any]) -> Dict[str, Any]:
-        """Gera análise de concorrência"""
-        
-        competition_prompt = f"""
-Baseado na pesquisa REAL, analise a concorrência no segmento {data.get('segmento')}.
-
-DADOS DA PESQUISA:
-{json.dumps(research_data, ensure_ascii=False)[:2000]}
-
-RETORNE JSON:
-```json
-{{
-  "concorrentes_diretos": [
+  
+  "analise_concorrencia_detalhada": [
     {{
-      "nome": "Nome REAL do concorrente principal",
+      "nome": "Nome REAL do concorrente principal identificado na pesquisa",
       "analise_swot": {{
-        "forcas": ["Principais forças REAIS específicas"],
-        "fraquezas": ["Principais fraquezas REAIS exploráveis"],
+        "forcas": ["Principais forças REAIS específicas identificadas"],
+        "fraquezas": ["Principais fraquezas REAIS exploráveis identificadas"],
         "oportunidades": ["Oportunidades REAIS que eles não veem"],
-        "ameacas": ["Ameaças REAIS que representam"]
+        "ameacas": ["Ameaças REAIS que representam para nós"]
       }},
-      "estrategia_marketing": "Estratégia REAL principal detalhada",
-      "posicionamento": "Como se posicionam REALMENTE",
-      "vulnerabilidades": ["Pontos fracos REAIS exploráveis"]
+      "estrategia_marketing": "Estratégia REAL principal detalhada observada",
+      "posicionamento": "Como se posicionam REALMENTE no mercado",
+      "vulnerabilidades": ["Pontos fracos REAIS específicos exploráveis"],
+      "share_mercado_estimado": "Participação REAL estimada baseada em dados"
     }}
   ],
-  "gaps_oportunidade": ["Oportunidades REAIS não exploradas"],
-  "benchmarks_setor": "Benchmarks REAIS específicos"
-}}
-```
-"""
-        
-        response = ai_manager.generate_analysis(competition_prompt, max_tokens=2500)
-        return self._parse_json_response(response, 'competition')
-
-    def _generate_keywords_component(self, data: Dict[str, Any], research_data: Dict[str, Any], ai_analysis: Dict[str, Any]) -> Dict[str, Any]:
-        """Gera estratégia de palavras-chave"""
-        
-        keywords_prompt = f"""
-Baseado na pesquisa REAL, crie estratégia de palavras-chave para {data.get('segmento')}.
-
-DADOS DA PESQUISA:
-{json.dumps(research_data, ensure_ascii=False)[:2000]}
-
-RETORNE JSON:
-```json
-{{
-  "palavras_primarias": ["15-20 palavras-chave REAIS principais"],
-  "palavras_secundarias": ["25-35 palavras-chave REAIS secundárias"],
-  "long_tail": ["30-50 palavras-chave REAIS de cauda longa"],
-  "intencao_busca": {{
-    "informacional": ["Palavras REAIS para conteúdo educativo"],
-    "navegacional": ["Palavras REAIS para encontrar a marca"],
-    "transacional": ["Palavras REAIS para conversão direta"]
-  }},
-  "estrategia_conteudo": "Como usar as palavras-chave REALMENTE",
-  "oportunidades_seo": "Oportunidades REAIS específicas"
-}}
-```
-"""
-        
-        response = ai_manager.generate_analysis(keywords_prompt, max_tokens=2000)
-        return self._parse_json_response(response, 'keywords')
-
-    def _generate_metrics_component(self, data: Dict[str, Any], research_data: Dict[str, Any], ai_analysis: Dict[str, Any]) -> Dict[str, Any]:
-        """Gera métricas de performance"""
-        
-        metrics_prompt = f"""
-Baseado na pesquisa REAL, crie métricas de performance para {data.get('segmento')}.
-
-DADOS DO PROJETO:
-- Preço: R$ {data.get('preco', 0)}
-- Objetivo Receita: R$ {data.get('objetivo_receita', 0)}
-- Orçamento Marketing: R$ {data.get('orcamento_marketing', 0)}
-
-RETORNE JSON:
-```json
-{{
-  "kpis_principais": [
-    {{
-      "metrica": "Nome da métrica REAL",
-      "objetivo": "Valor objetivo REAL",
-      "frequencia": "Frequência de medição"
-    }}
-  ],
-  "projecoes_financeiras": {{
-    "cenario_conservador": {{
-      "receita_mensal": "Valor REAL baseado em dados",
-      "clientes_mes": "Número REAL de clientes",
-      "ticket_medio": "Ticket médio REAL",
-      "margem_lucro": "Margem REAL esperada"
+  
+  "estrategia_palavras_chave": {{
+    "palavras_primarias": [
+      "15-20 palavras-chave REAIS principais identificadas na pesquisa"
+    ],
+    "palavras_secundarias": [
+      "25-35 palavras-chave REAIS secundárias encontradas"
+    ],
+    "long_tail": [
+      "30-50 palavras-chave REAIS de cauda longa específicas"
+    ],
+    "intencao_busca": {{
+      "informacional": ["Palavras REAIS para conteúdo educativo"],
+      "navegacional": ["Palavras REAIS para encontrar a marca"],
+      "transacional": ["Palavras REAIS para conversão direta"]
     }},
-    "cenario_realista": {{
-      "receita_mensal": "Valor REAL baseado em dados",
-      "clientes_mes": "Número REAL de clientes",
-      "ticket_medio": "Ticket médio REAL",
-      "margem_lucro": "Margem REAL esperada"
-    }},
-    "cenario_otimista": {{
-      "receita_mensal": "Valor REAL baseado em dados",
-      "clientes_mes": "Número REAL de clientes",
-      "ticket_medio": "Ticket médio REAL",
-      "margem_lucro": "Margem REAL esperada"
-    }}
+    "estrategia_conteudo": "Como usar as palavras-chave REALMENTE de forma estratégica",
+    "sazonalidade": "Variações REAIS sazonais das buscas identificadas",
+    "oportunidades_seo": "Oportunidades REAIS específicas de SEO identificadas"
   }},
-  "roi_esperado": "ROI REAL baseado em dados do mercado"
+  
+  "insights_exclusivos": [
+    "Lista de 20-30 insights únicos, específicos e ULTRA-VALIOSOS baseados EXCLUSIVAMENTE na análise REAL profunda dos dados coletados"
+  ]
 }}
 ```
+
+CRÍTICO: Use APENAS dados REAIS da pesquisa fornecida. NUNCA invente ou simule informações.
+Se não houver dados suficientes para uma seção, omita a seção completamente.
 """
-        
-        response = ai_manager.generate_analysis(metrics_prompt, max_tokens=2000)
-        return self._parse_json_response(response, 'metrics')
 
-    def _generate_funnel_component(self, data: Dict[str, Any], research_data: Dict[str, Any], ai_analysis: Dict[str, Any]) -> Dict[str, Any]:
-        """Gera funil de vendas detalhado"""
-        
-        funnel_prompt = f"""
-Baseado na pesquisa REAL, crie funil de vendas detalhado para {data.get('segmento')}.
+        return prompt
 
-RETORNE JSON:
-```json
-{{
-  "topo_funil": {{
-    "objetivo": "Objetivo REAL do topo",
-    "estrategias": ["Estratégias REAIS específicas"],
-    "conteudos": ["Tipos de conteúdo REAIS"],
-    "metricas": ["Métricas REAIS a acompanhar"]
-  }},
-  "meio_funil": {{
-    "objetivo": "Objetivo REAL do meio",
-    "estrategias": ["Estratégias REAIS específicas"],
-    "conteudos": ["Tipos de conteúdo REAIS"],
-    "metricas": ["Métricas REAIS a acompanhar"]
-  }},
-  "fundo_funil": {{
-    "objetivo": "Objetivo REAL do fundo",
-    "estrategias": ["Estratégias REAIS específicas"],
-    "conteudos": ["Tipos de conteúdo REAIS"],
-    "metricas": ["Métricas REAIS a acompanhar"]
-  }}
-}}
-```
-"""
-        
-        response = ai_manager.generate_analysis(funnel_prompt, max_tokens=2000)
-        return self._parse_json_response(response, 'funnel')
+    def _process_ai_response_strict(self, ai_response: str, original_data: Dict[str, Any]) -> Dict[str, Any]:
+        """Processa resposta da IA com validação RIGOROSA"""
 
-    def _generate_action_plan_component(self, data: Dict[str, Any], research_data: Dict[str, Any], ai_analysis: Dict[str, Any]) -> Dict[str, Any]:
-        """Gera plano de ação detalhado"""
-        
-        action_prompt = f"""
-Baseado na pesquisa REAL, crie plano de ação detalhado para {data.get('segmento')}.
-
-RETORNE JSON:
-```json
-{{
-  "primeiros_30_dias": {{
-    "foco": "Foco REAL dos primeiros 30 dias",
-    "atividades": ["Lista de atividades REAIS específicas"],
-    "investimento": "Investimento REAL necessário",
-    "entregas": ["Entregas REAIS esperadas"]
-  }},
-  "dias_31_60": {{
-    "foco": "Foco REAL dos dias 31-60",
-    "atividades": ["Lista de atividades REAIS específicas"],
-    "investimento": "Investimento REAL necessário",
-    "entregas": ["Entregas REAIS esperadas"]
-  }},
-  "dias_61_90": {{
-    "foco": "Foco REAL dos dias 61-90",
-    "atividades": ["Lista de atividades REAIS específicas"],
-    "investimento": "Investimento REAL necessário",
-    "entregas": ["Entregas REAIS esperadas"]
-  }}
-}}
-```
-"""
-        
-        response = ai_manager.generate_analysis(action_prompt, max_tokens=2000)
-        return self._parse_json_response(response, 'action_plan')
-
-    def _generate_insights_component(self, data: Dict[str, Any], research_data: Dict[str, Any], ai_analysis: Dict[str, Any]) -> List[str]:
-        """Gera insights exclusivos"""
-        
-        insights_prompt = f"""
-Baseado na pesquisa REAL realizada, gere 25-30 insights únicos e valiosos para {data.get('segmento')}.
-
-DADOS DA PESQUISA:
-{json.dumps(research_data, ensure_ascii=False)[:3000]}
-
-Cada insight deve ser:
-- Específico e acionável
-- Baseado em dados REAIS da pesquisa
-- Único e não óbvio
-- Valioso para tomada de decisão
-
-RETORNE APENAS LISTA JSON:
-["Insight 1 específico e valioso", "Insight 2 específico e valioso", ...]
-"""
-        
-        response = ai_manager.generate_analysis(insights_prompt, max_tokens=2500)
-        
         try:
-            # Tenta extrair lista JSON
-            clean_response = response.strip()
-            if "```json" in clean_response:
-                start = clean_response.find("```json") + 7
-                end = clean_response.rfind("```")
-                clean_response = clean_response[start:end].strip()
-            elif "[" in clean_response and "]" in clean_response:
-                start = clean_response.find("[")
-                end = clean_response.rfind("]") + 1
-                clean_response = clean_response[start:end]
-            
-            insights = json.loads(clean_response)
-            if isinstance(insights, list):
-                return insights
-            
-        except:
-            pass
-        
-        # Fallback: extrai insights do texto
-        return self._extract_insights_from_text(response, data, research_data)
+            # Remove markdown se presente
+            clean_text = ai_response.strip()
 
-    def _parse_json_response(self, response: str, component_type: str) -> Dict[str, Any]:
-        """Parse robusto de resposta JSON"""
-        
-        if not response:
-            return {}
-        
-        try:
-            clean_text = response.strip()
-            
+            # Extrai JSON do markdown
             if "```json" in clean_text:
                 start = clean_text.find("```json") + 7
                 end = clean_text.rfind("```")
@@ -833,374 +664,95 @@ RETORNE APENAS LISTA JSON:
                 start = clean_text.find("```") + 3
                 end = clean_text.rfind("```")
                 clean_text = clean_text[start:end].strip()
-            
-            return json.loads(clean_text)
-            
+
+            # Tenta parsear JSON
+            analysis = json.loads(clean_text)
+
+            # VALIDAÇÃO RIGOROSA - FALHA SE SIMULADO
+            if self._contains_simulated_data(analysis):
+                raise Exception("IA RETORNOU DADOS SIMULADOS: Análise contém dados genéricos ou simulados")
+
+            return analysis
+
         except json.JSONDecodeError as e:
-            logger.error(f"❌ Erro ao parsear JSON para {component_type}: {str(e)}")
-            return self._extract_structured_data_from_text(response, component_type)
+            logger.error(f"❌ Erro ao parsear JSON da IA: {str(e)}")
+            logger.error(f"Resposta recebida: {ai_response[:500]}...")
+            raise Exception("IA RETORNOU JSON INVÁLIDO: Não foi possível processar resposta da IA")
 
-    def _generate_basic_real_component(
-        self, 
-        component_name: str, 
-        data: Dict[str, Any], 
-        research_data: Dict[str, Any], 
-        ai_analysis: Dict[str, Any]
-    ) -> Any:
-        """Gera componente básico REAL (não simulado)"""
-        
-        segmento = data.get('segmento', 'negócios')
-        
-        if component_name == 'avatar_ultra_detalhado':
-            return self._create_basic_avatar(data, research_data)
-        elif component_name == 'drivers_mentais_customizados':
-            return self._generate_basic_drivers(data, research_data)
-        elif component_name == 'provas_visuais_sugeridas':
-            return self._generate_basic_visual_proofs(data, research_data)
-        elif component_name == 'sistema_anti_objecao':
-            return self._generate_basic_anti_objection(data, research_data)
-        elif component_name == 'pre_pitch_invisivel':
-            return self._generate_basic_pre_pitch(data, research_data)
-        elif component_name == 'predicoes_futuro_completas':
-            return self._generate_basic_future_predictions(data, research_data)
-        elif component_name == 'insights_exclusivos':
-            return self._generate_basic_insights(data, research_data)
-        else:
-            return self._generate_generic_component(component_name, data, research_data)
+    def _contains_simulated_data(self, analysis: Dict[str, Any]) -> bool:
+        """Verifica se análise contém dados simulados - FALHA SE ENCONTRAR"""
 
-    def _create_basic_avatar(self, data: Dict[str, Any], research_data: Dict[str, Any]) -> Dict[str, Any]:
-        """Cria avatar básico baseado em dados REAIS"""
-        
-        segmento = data.get('segmento', 'negócios')
-        
-        # Dados REAIS baseados no segmento brasileiro
-        avatar_data = {
-            "nome_ficticio": f"Profissional {segmento} Brasileiro",
-            "perfil_demografico": {
-                "idade": "30-45 anos - faixa de maior poder aquisitivo",
-                "genero": "Distribuição equilibrada com leve predominância masculina",
-                "renda": "R$ 8.000 - R$ 35.000 - classe média alta brasileira",
-                "escolaridade": "Superior completo - 78% têm graduação",
-                "localizacao": "Concentrados em grandes centros urbanos",
-                "estado_civil": "68% casados ou união estável",
-                "profissao": f"Profissionais de {segmento} e áreas correlatas"
-            },
-            "perfil_psicografico": {
-                "personalidade": "Ambiciosos, determinados, orientados a resultados",
-                "valores": "Liberdade financeira, reconhecimento profissional, segurança familiar",
-                "interesses": "Crescimento profissional, tecnologia, investimentos",
-                "estilo_vida": "Rotina intensa, sempre conectados, buscam eficiência",
-                "comportamento_compra": "Pesquisam extensivamente, decidem por lógica mas compram por emoção"
-            },
-            "dores_viscerais": [
-                f"Trabalhar excessivamente em {segmento} sem ver crescimento proporcional",
-                "Sentir-se sempre correndo atrás da concorrência",
-                "Ver competidores menores crescendo mais rapidamente",
-                "Não conseguir se desconectar do trabalho",
-                "Viver com medo constante de que tudo pode desmoronar",
-                "Desperdiçar potencial em tarefas operacionais",
-                "Sacrificar tempo de qualidade com família"
-            ],
-            "desejos_secretos": [
-                f"Ser reconhecido como autoridade no mercado de {segmento}",
-                "Ter um negócio que funcione sem presença constante",
-                "Ganhar dinheiro de forma passiva",
-                "Ter liberdade total de horários e decisões",
-                "Deixar um legado significativo"
-            ]
-        }
-        
-        # Enriquece com dados da pesquisa se disponível
-        if research_data.get('conteudo_extraido'):
-            avatar_data['fonte_dados'] = f"Baseado em pesquisa real de {len(research_data['conteudo_extraido'])} fontes"
-        
-        return avatar_data
-
-    def _generate_basic_insights(self, data: Dict[str, Any], research_data: Dict[str, Any]) -> List[str]:
-        """Gera insights básicos REAIS"""
-        
-        segmento = data.get('segmento', 'negócios')
-        
-        insights = [
-            f"O mercado brasileiro de {segmento} está em transformação digital acelerada",
-            "Existe lacuna entre ferramentas disponíveis e conhecimento para implementá-las",
-            "A maior dor não é falta de informação, mas excesso sem direcionamento",
-            f"Profissionais de {segmento} pagam premium por simplicidade",
-            "Fator decisivo é combinação de confiança + urgência + prova social",
-            "Prova social de pares vale mais que depoimentos de clientes diferentes",
-            "Objeção real não é preço, é medo de mais uma tentativa frustrada",
-            f"Sistemas automatizados são vistos como 'santo graal' no {segmento}",
-            "Jornada de compra é longa (3-6 meses) mas decisão final é emocional",
-            "Conteúdo educativo gratuito é porta de entrada, venda acontece na demonstração"
+        # Palavras que indicam simulação
+        simulation_indicators = [
+            'n/a', 'não informado', 'customizado para', 'baseado em',
+            'específico para', 'história customizada', 'frase de ancoragem para',
+            'exemplo', 'simulado', 'fictício', 'hipotético', 'genérico',
+            'placeholder', 'template'
         ]
-        
-        # Adiciona insights da pesquisa se disponível
-        if research_data.get('conteudo_extraido'):
-            insights.append(f"✅ Análise baseada em {len(research_data['conteudo_extraido'])} fontes reais")
-            insights.append(f"📊 {research_data.get('total_content_length', 0):,} caracteres de conteúdo real analisados")
-        
-        return insights
 
-    def _merge_ai_analyses(self, primary: Dict[str, Any], secondary: Dict[str, Any]) -> Dict[str, Any]:
-        """Combina análises de duas IAs"""
-        
-        merged = primary.copy()
-        
-        # Combina insights
-        primary_insights = primary.get('insights_exclusivos', [])
-        secondary_insights = secondary.get('insights_exclusivos', [])
-        merged['insights_exclusivos'] = primary_insights + secondary_insights
-        
-        # Enriquece avatar se secundário tem mais dados
-        if secondary.get('avatar_ultra_detalhado') and len(str(secondary['avatar_ultra_detalhado'])) > len(str(primary.get('avatar_ultra_detalhado', {}))):
-            merged['avatar_ultra_detalhado'] = secondary['avatar_ultra_detalhado']
-        
-        return merged
+        # Converte análise para string
+        analysis_str = json.dumps(analysis, ensure_ascii=False).lower()
 
-    def _prepare_comprehensive_search_context(self, research_data: Dict[str, Any]) -> str:
-        """Prepara contexto abrangente de pesquisa"""
-        
-        extracted_content = research_data.get('conteudo_extraido', [])
-        
-        if not extracted_content:
-            return "PESQUISA LIMITADA: Poucos dados disponíveis"
-        
-        context = "PESQUISA WEB MASSIVA REAL EXECUTADA:\n\n"
-        
-        for i, content_item in enumerate(extracted_content[:12], 1):  # Top 12 páginas
-            context += f"--- FONTE REAL {i}: {content_item['title']} ---\n"
-            context += f"URL: {content_item['url']}\n"
-            context += f"Conteúdo: {content_item['content'][:1500]}\n\n"
-        
-        context += f"\n=== ESTATÍSTICAS DA PESQUISA REAL ===\n"
-        context += f"Total de queries executadas: {research_data.get('total_queries', 0)}\n"
-        context += f"Queries bem-sucedidas: {research_data.get('queries_bem_sucedidas', 0)}\n"
-        context += f"Total de resultados encontrados: {research_data.get('total_resultados', 0)}\n"
-        context += f"Páginas únicas analisadas: {research_data.get('fontes_unicas', 0)}\n"
-        context += f"Total de caracteres extraídos: {research_data.get('total_content_length', 0):,}\n"
-        
-        return context
+        # Verifica indicadores de simulação
+        found_indicators = []
+        for indicator in simulation_indicators:
+            if indicator in analysis_str:
+                found_indicators.append(indicator)
 
-    def _build_primary_analysis_prompt(self, data: Dict[str, Any], search_context: str) -> str:
-        """Constrói prompt para IA primária"""
-        
-        return f"""
-# ANÁLISE PRIMÁRIA ULTRA-DETALHADA - ARQV30 ENHANCED v2.0
+        if found_indicators:
+            logger.error(f"❌ Indicadores de simulação encontrados: {', '.join(found_indicators[:5])}")
+            return True
 
-Você é o DIRETOR SUPREMO DE ANÁLISE DE MERCADO, especialista de elite com 30+ anos de experiência.
+        # Verifica se seções obrigatórias estão presentes e substanciais
+        required_sections = ['avatar_ultra_detalhado', 'escopo', 'insights_exclusivos']
+        for section in required_sections:
+            if section not in analysis or not analysis[section]:
+                logger.error(f"❌ Seção obrigatória ausente ou vazia: {section}")
+                return True
 
-## DADOS REAIS DO PROJETO:
-- **Segmento**: {data.get('segmento', 'Não informado')}
-- **Produto/Serviço**: {data.get('produto', 'Não informado')}
-- **Público-Alvo**: {data.get('publico', 'Não informado')}
-- **Preço**: R$ {data.get('preco', 'Não informado')}
+        # Verifica se insights são substanciais
+        insights = analysis.get('insights_exclusivos', [])
+        if len(insights) < 5:
+            logger.error(f"❌ Insights insuficientes: {len(insights)} < 5")
+            return True
+        
+        # Verifica qualidade dos insights
+        substantial_insights = [insight for insight in insights if len(insight) > 50]
+        if len(substantial_insights) < len(insights) * 0.7:
+            logger.error(f"❌ Muitos insights superficiais: {len(substantial_insights)}/{len(insights)}")
+            return True
 
-{search_context[:8000]}
+        return False
 
-GERE ANÁLISE ULTRA-COMPLETA EM JSON:
+    def _validate_ai_response(self, ai_analysis: Dict[str, Any]) -> bool:
+        """Valida resposta da IA - FALHA SE INSUFICIENTE"""
 
-```json
-{{
-  "avatar_ultra_detalhado": {{
-    "perfil_demografico": {{
-      "idade": "Dados REAIS específicos",
-      "renda": "Faixa REAL baseada em pesquisas",
-      "localizacao": "Regiões REAIS"
-    }},
-    "dores_viscerais": ["Lista de 10+ dores REAIS"],
-    "desejos_secretos": ["Lista de 10+ desejos REAIS"]
-  }},
-  "insights_exclusivos": ["Lista de 20+ insights ÚNICOS baseados na pesquisa REAL"]
-}}
-```
+        if not ai_analysis or not isinstance(ai_analysis, dict):
+            logger.error("❌ Resposta da IA não é um dicionário válido")
+            return False
 
-CRÍTICO: Use APENAS dados REAIS da pesquisa. NUNCA simule.
-"""
+        # Verifica seções obrigatórias
+        required_sections = ['avatar_ultra_detalhado', 'escopo', 'insights_exclusivos']
 
-    def _build_secondary_analysis_prompt(self, data: Dict[str, Any], search_context: str) -> str:
-        """Constrói prompt para IA secundária"""
-        
-        return f"""
-# ANÁLISE SECUNDÁRIA COMPLEMENTAR - ARQV30 ENHANCED v2.0
+        for section in required_sections:
+            if section not in ai_analysis or not ai_analysis[section]:
+                logger.error(f"❌ Seção obrigatória ausente: {section}")
+                return False
 
-Você é o ESPECIALISTA EM ESTRATÉGIA COMPETITIVA, focado em análise de mercado e oportunidades.
+        # Valida avatar
+        avatar = ai_analysis.get('avatar_ultra_detalhado', {})
+        if not avatar.get('perfil_demografico') or not avatar.get('dores_viscerais'):
+            logger.error("❌ Avatar incompleto")
+            return False
 
-## DADOS REAIS DO PROJETO:
-- **Segmento**: {data.get('segmento', 'Não informado')}
-- **Produto/Serviço**: {data.get('produto', 'Não informado')}
-
-{search_context[:8000]}
-
-GERE ANÁLISE ESTRATÉGICA COMPLEMENTAR EM JSON:
-
-```json
-{{
-  "analise_concorrencia": {{
-    "concorrentes_principais": ["Lista de concorrentes REAIS"],
-    "gaps_oportunidade": ["Oportunidades REAIS identificadas"]
-  }},
-  "estrategia_posicionamento": {{
-    "posicionamento_ideal": "Posicionamento REAL único",
-    "diferenciais": ["Diferenciais REAIS defensáveis"]
-  }},
-  "insights_estrategicos": ["Lista de 15+ insights ESTRATÉGICOS únicos"]
-}}
-```
-
-FOQUE em oportunidades e estratégias baseadas em dados REAIS.
-"""
-
-    def _process_ai_response_robust(self, response: str, data: Dict[str, Any]) -> Dict[str, Any]:
-        """Processa resposta da IA com sistema robusto"""
-        
-        if not response:
-            return {}
-        
-        try:
-            return self._parse_json_response(response, 'ai_analysis')
-        except Exception as e:
-            logger.error(f"❌ Erro ao processar resposta da IA: {str(e)}")
-            return self._extract_structured_data_from_text(response, 'ai_analysis')
-
-    def _extract_structured_data_from_text(self, text: str, component_type: str) -> Dict[str, Any]:
-        """Extrai dados estruturados de texto não-JSON"""
-        
-        # Implementação básica que extrai informações mesmo sem JSON
-        return {
-            'status': 'extracted_from_text',
-            'component_type': component_type,
-            'raw_content': text[:1000] if text else '',
-            'extraction_method': 'text_parsing'
-        }
-
-    def _extract_insights_from_text(self, text: str, data: Dict[str, Any], research_data: Dict[str, Any]) -> List[str]:
-        """Extrai insights de texto não estruturado"""
-        
-        insights = []
-        
-        if text:
-            # Divide em sentenças e filtra insights
-            sentences = [s.strip() for s in text.split('.') if len(s.strip()) > 30]
-            
-            for sentence in sentences[:20]:
-                if any(word in sentence.lower() for word in ['mercado', 'oportunidade', 'tendência', 'crescimento']):
-                    insights.append(sentence[:200])
-        
-        # Adiciona insights básicos se lista muito pequena
-        if len(insights) < 10:
-            insights.extend(self._generate_basic_insights(data, research_data))
-        
-        return insights[:25]
-
-    def _consolidate_and_enhance_analysis(
-        self, 
-        analysis: Dict[str, Any], 
-        data: Dict[str, Any], 
-        research_data: Dict[str, Any]
-    ) -> Dict[str, Any]:
-        """Consolida e enriquece análise final"""
-        
-        # Adiciona dados da pesquisa em seção específica
-        analysis['pesquisa_web_massiva'] = {
-            **research_data,
-            'resumo_executivo': f"Pesquisa realizada em {research_data.get('fontes_unicas', 0)} fontes únicas",
-            'qualidade_dados': research_data.get('qualidade_pesquisa', 'REAL'),
-            'confiabilidade': '100% - dados verificados' if research_data.get('fontes_unicas', 0) > 0 else 'Limitada'
-        }
-        
-        # Enriquece insights com dados da pesquisa
-        existing_insights = analysis.get('insights_exclusivos', [])
-        research_insights = [
-            f"📊 Pesquisa baseada em {research_data.get('fontes_unicas', 0)} fontes reais",
-            f"🔍 {research_data.get('total_content_length', 0):,} caracteres de conteúdo real analisados",
-            f"✅ {research_data.get('queries_bem_sucedidas', 0)} de {research_data.get('total_queries', 0)} queries bem-sucedidas"
-        ]
-        
-        analysis['insights_exclusivos'] = existing_insights + research_insights
-        
-        return analysis
-
-    def _calculate_comprehensive_quality_score(self, analysis: Dict[str, Any]) -> float:
-        """Calcula score abrangente de qualidade"""
-        
-        score = 0.0
-        
-        # Pontuação por pesquisa (30 pontos)
-        pesquisa = analysis.get('pesquisa_web_massiva', {})
-        if pesquisa.get('fontes_unicas', 0) >= 2:
-            score += 15
-        if pesquisa.get('total_content_length', 0) >= 2000:
-            score += 15
-        
-        # Pontuação por componentes principais (50 pontos)
-        main_components = [
-            'avatar_ultra_detalhado', 'drivers_mentais_customizados', 'sistema_anti_objecao',
-            'pre_pitch_invisivel', 'insights_exclusivos'
-        ]
-        
-        for component in main_components:
-            if analysis.get(component):
-                score += 10
-        
-        # Pontuação por componentes secundários (20 pontos)
-        secondary_components = [
-            'escopo_posicionamento', 'analise_concorrencia_detalhada', 
-            'estrategia_palavras_chave', 'metricas_performance_detalhadas'
-        ]
-        
-        for component in secondary_components:
-            if analysis.get(component):
-                score += 5
-        
-        return min(score, 100.0)
-
-    def _emergency_completion(self, partial_analysis: Dict[str, Any], data: Dict[str, Any], error: str) -> Dict[str, Any]:
-        """Completa análise em modo de emergência"""
-        
-        logger.warning(f"⚠️ Completando análise em modo de emergência: {error}")
-        
-        # Garante que pelo menos os componentes básicos existam
-        if not partial_analysis.get('insights_exclusivos'):
-            partial_analysis['insights_exclusivos'] = self._generate_basic_insights(data, {})
-        
-        if not partial_analysis.get('avatar_ultra_detalhado'):
-            partial_analysis['avatar_ultra_detalhado'] = self._create_basic_avatar(data, {})
-        
-        # Adiciona metadados de emergência
-        partial_analysis['metadata'] = {
-            'status': 'EMERGENCIA_PARCIAL',
-            'error': error,
-            'components_completed': len([k for k, v in partial_analysis.items() if v and k != 'metadata']),
-            'generated_at': datetime.now().isoformat(),
-            'recommendation': 'Execute nova análise com configuração completa das APIs'
-        }
-        
-        return partial_analysis
-
-    def _validate_input_data(self, data: Dict[str, Any]) -> Dict[str, Any]:
-        """Valida dados de entrada com critérios flexíveis"""
-        
-        if not data.get('segmento'):
-            return {
-                'valid': False,
-                'message': "Campo 'segmento' é obrigatório"
-            }
-        
-        segmento = data.get('segmento', '').strip()
-        if len(segmento) < 2:
-            return {
-                'valid': False,
-                'message': "Segmento deve ter pelo menos 2 caracteres"
-            }
-        
-        return {'valid': True, 'message': 'Dados válidos'}
+        return True
 
     def _extract_concepts_for_visual_proof(self, ai_analysis: Dict[str, Any], data: Dict[str, Any]) -> List[str]:
-        """Extrai conceitos para prova visual"""
+        """Extrai conceitos que precisam de prova visual"""
         
         concepts = []
         
-        # Extrai do avatar
+        # Extrai conceitos do avatar
         avatar = ai_analysis.get('avatar_ultra_detalhado', {})
         if avatar.get('dores_viscerais'):
             concepts.extend(avatar['dores_viscerais'][:5])
@@ -1208,153 +760,158 @@ FOQUE em oportunidades e estratégias baseadas em dados REAIS.
         if avatar.get('desejos_secretos'):
             concepts.extend(avatar['desejos_secretos'][:5])
         
-        # Adiciona conceitos básicos se lista vazia
-        if not concepts:
-            segmento = data.get('segmento', 'negócios')
-            concepts = [
-                f"Transformação necessária em {segmento}",
-                f"Método vs tentativa em {segmento}",
-                f"Urgência de ação em {segmento}",
-                f"Prova de resultados em {segmento}",
-                f"Autoridade no mercado de {segmento}"
-            ]
+        # Extrai conceitos do escopo
+        escopo = ai_analysis.get('escopo', {})
+        if escopo.get('diferenciais_competitivos'):
+            concepts.extend(escopo['diferenciais_competitivos'][:3])
         
-        return concepts[:10]
+        # Filtra conceitos válidos (não vazios, não genéricos)
+        valid_concepts = []
+        for concept in concepts:
+            if (concept and 
+                len(concept) > 20 and 
+                'customizado para' not in concept.lower() and
+                'baseado em' not in concept.lower()):
+                valid_concepts.append(concept)
+        
+        return valid_concepts[:10]  # Máximo 10 conceitos
 
-    def _extract_common_objections(self, data: Dict[str, Any], research_data: Dict[str, Any]) -> List[str]:
-        """Extrai objeções comuns do segmento"""
-        
-        segmento = data.get('segmento', 'negócios')
-        
-        return [
-            "Já tentei várias estratégias e nenhuma funcionou",
-            "Não tenho tempo para implementar nova estratégia",
-            f"Meu nicho em {segmento} é muito específico",
-            "Preciso ver resultados rápidos e concretos",
-            "Não tenho equipe suficiente para executar",
-            "Já invisto muito em marketing sem retorno",
-            "Meus clientes são diferentes e mais exigentes",
-            "Não tenho conhecimento técnico suficiente"
-        ]
+    def _consolidate_gigantic_analysis(
+        self,
+        data: Dict[str, Any],
+        research_data: Dict[str, Any],
+        ai_analysis: Dict[str, Any],
+        advanced_components: Dict[str, Any]
+    ) -> Dict[str, Any]:
+        """Consolida análise GIGANTE final"""
 
-    def _generate_basic_drivers(self, data: Dict[str, Any], research_data: Dict[str, Any]) -> Dict[str, Any]:
-        """Gera drivers mentais básicos REAIS"""
-        
-        segmento = data.get('segmento', 'negócios')
-        
-        return {
-            "drivers_customizados": [
-                {
-                    "nome": "Diagnóstico Brutal",
-                    "gatilho_central": "Confronto com realidade",
-                    "roteiro_ativacao": {
-                        "pergunta_abertura": f"Há quanto tempo você está estagnado em {segmento}?",
-                        "comando_acao": "Pare de aceitar mediocridade"
-                    }
+        # Obtém apenas componentes bem-sucedidos
+        successful_components = self.dependency_manager.get_successful_components()
+
+        consolidated_analysis = {
+            "projeto_dados": data,
+            "pesquisa_web_massiva": {
+                "estatisticas": {
+                    "total_queries": research_data.get('total_queries', 0),
+                    "total_resultados": research_data.get('total_results', 0),
+                    "fontes_unicas": research_data.get('unique_sources', 0),
+                    "total_conteudo": research_data.get('total_content_length', 0),
+                    "extrações_bem_sucedidas": research_data.get('successful_extractions', 0),
+                    "qualidade_media": research_data.get('quality_metrics', {}).get('avg_quality_score', 0)
                 },
-                {
-                    "nome": "Ambição Expandida",
-                    "gatilho_central": "Sonhos limitados",
-                    "roteiro_ativacao": {
-                        "pergunta_abertura": f"Por que você está pedindo tão pouco do seu negócio em {segmento}?",
-                        "comando_acao": "Eleve suas expectativas"
-                    }
-                }
-            ],
-            "fonte_dados": f"Baseado em pesquisa real para {segmento}"
-        }
-
-    def _generate_basic_visual_proofs(self, data: Dict[str, Any], research_data: Dict[str, Any]) -> List[Dict[str, Any]]:
-        """Gera provas visuais básicas REAIS"""
-        
-        segmento = data.get('segmento', 'negócios')
-        
-        return [
-            {
-                "nome": "GPS vs Mapa Rasgado",
-                "conceito_alvo": f"Método vs tentativa em {segmento}",
-                "experimento": "Comparar navegação com GPS vs mapa danificado",
-                "materiais": ["GPS/celular", "Mapa rasgado", "Cronômetro"],
-                "impacto_esperado": "Alto"
+                "fontes": research_data.get('sources', [])
             },
-            {
-                "nome": "Cofrinho Furado",
-                "conceito_alvo": f"Sistema vs improviso em {segmento}",
-                "experimento": "Cofrinho com furos vs cofre lacrado",
-                "materiais": ["Cofrinho com furos", "Cofre", "Água colorida"],
-                "impacto_esperado": "Alto"
+            **ai_analysis,  # Inclui avatar, escopo, etc.
+            **successful_components,  # Inclui apenas componentes bem-sucedidos
+            "consolidacao_timestamp": datetime.now().isoformat(),
+            "component_status": {
+                "successful": list(successful_components.keys()),
+                "failed": list(self.dependency_manager.get_failure_report().keys()),
+                "total_attempted": len(self.dependency_manager.component_status)
             }
-        ]
-
-    def _generate_basic_anti_objection(self, data: Dict[str, Any], research_data: Dict[str, Any]) -> Dict[str, Any]:
-        """Gera sistema anti-objeção básico REAL"""
-        
-        return {
-            "objecoes_universais": {
-                "tempo": {
-                    "objecao": "Não tenho tempo",
-                    "contra_ataque": "Tempo não é o problema, prioridade é"
-                },
-                "dinheiro": {
-                    "objecao": "Não tenho dinheiro",
-                    "contra_ataque": "Investimento que se paga em 30-60 dias"
-                },
-                "confianca": {
-                    "objecao": "Preciso de garantias",
-                    "contra_ataque": "Resultados comprovados + garantia total"
-                }
-            },
-            "fonte_dados": "Sistema baseado em padrões reais do mercado"
         }
 
-    def _generate_basic_pre_pitch(self, data: Dict[str, Any], research_data: Dict[str, Any]) -> Dict[str, Any]:
-        """Gera pré-pitch básico REAL"""
-        
-        segmento = data.get('segmento', 'negócios')
-        
-        return {
-            "estrutura_basica": {
-                "abertura": f"Diagnóstico da situação atual em {segmento}",
-                "desenvolvimento": "Amplificação da dor e do desejo",
-                "pre_climax": "Criação de tensão máxima",
-                "transicao": "Ponte para a solução"
-            },
-            "duracao_total": "15-20 minutos",
-            "fonte_dados": f"Estrutura baseada em padrões reais de {segmento}"
-        }
+        return consolidated_analysis
 
-    def _generate_basic_future_predictions(self, data: Dict[str, Any], research_data: Dict[str, Any]) -> Dict[str, Any]:
-        """Gera predições básicas REAIS"""
-        
-        segmento = data.get('segmento', 'negócios')
-        
-        return {
-            "tendencias_principais": [
-                f"Digitalização acelerada no {segmento}",
-                f"Automação crescente em {segmento}",
-                f"Personalização como diferencial em {segmento}",
-                f"Sustentabilidade como obrigatório em {segmento}"
-            ],
-            "oportunidades_emergentes": [
-                f"IA aplicada ao {segmento}",
-                f"Economia do criador em {segmento}",
-                f"Experiência híbrida em {segmento}"
-            ],
-            "horizonte_temporal": "24-36 meses",
-            "fonte_dados": f"Baseado em tendências reais do mercado {segmento}"
-        }
+    def _calculate_final_quality_score(self, final_analysis: Dict[str, Any]) -> float:
+        """Calcula score final de qualidade"""
 
-    def _generate_generic_component(self, component_name: str, data: Dict[str, Any], research_data: Dict[str, Any]) -> Dict[str, Any]:
-        """Gera componente genérico básico REAL"""
+        score = 0.0
+        max_score = 100.0
+
+        # Verifica pesquisa massiva (30 pontos)
+        pesquisa = final_analysis.get('pesquisa_web_massiva', {})
+        estatisticas = pesquisa.get('estatisticas', {})
         
-        return {
-            'component_name': component_name,
-            'status': 'generated_basic',
-            'data_source': 'real_research_based',
-            'segmento': data.get('segmento'),
-            'generated_at': datetime.now().isoformat(),
-            'note': f'Componente {component_name} gerado com dados básicos reais'
-        }
+        if estatisticas.get('fontes_unicas', 0) >= 3:
+            score += 15
+        if estatisticas.get('total_conteudo', 0) >= 5000:
+            score += 15
+
+        # Verifica análise IA (40 pontos)
+        if final_analysis.get('avatar_ultra_detalhado'):
+            score += 15
+        if final_analysis.get('insights_exclusivos') and len(final_analysis['insights_exclusivos']) >= 5:
+            score += 15
+        if final_analysis.get('analise_concorrencia_detalhada'):
+            score += 10
+
+        # Verifica componentes avançados (30 pontos)
+        advanced_components = ['drivers_mentais_customizados', 'provas_visuais_sugeridas', 
+                              'sistema_anti_objecao', 'pre_pitch_invisivel', 'predicoes_futuro_completas']
+        
+        successful_advanced = sum(1 for comp in advanced_components if comp in final_analysis)
+        score += (successful_advanced / len(advanced_components)) * 30
+
+        # Bonus por qualidade da pesquisa
+        avg_quality = estatisticas.get('qualidade_media', 0)
+        if avg_quality >= 80:
+            score += 5
+        elif avg_quality >= 60:
+            score += 3
+
+        return min(score, max_score)
+
+    def _generate_intelligent_queries(self, data: Dict[str, Any]) -> List[str]:
+        """Gera queries inteligentes para pesquisa"""
+
+        segmento = data.get('segmento', '')
+        produto = data.get('produto', '')
+        publico = data.get('publico', '')
+
+        base_queries = []
+
+        # Queries principais
+        if produto:
+            base_queries.extend([
+                f"mercado {segmento} {produto} Brasil 2024 dados estatísticas",
+                f"análise competitiva {segmento} {produto} oportunidades",
+                f"tendências {segmento} {produto} crescimento futuro"
+            ])
+        else:
+            base_queries.extend([
+                f"mercado {segmento} Brasil 2024 dados estatísticas crescimento",
+                f"análise competitiva {segmento} principais empresas",
+                f"tendências {segmento} oportunidades investimento"
+            ])
+
+        # Queries específicas por público
+        if publico:
+            base_queries.extend([
+                f"comportamento consumidor {publico} {segmento} pesquisa",
+                f"perfil demográfico {publico} Brasil dados"
+            ])
+
+        # Queries de inteligência de mercado
+        base_queries.extend([
+            f"startups {segmento} investimento venture capital Brasil",
+            f"cases sucesso empresas {segmento} brasileiras",
+            f"desafios principais {segmento} soluções mercado"
+        ])
+
+        return base_queries[:8]  # Máximo 8 queries para otimização
+
+    def _validate_input_data(self, data: Dict[str, Any]) -> Dict[str, Any]:
+        """Valida dados de entrada - FALHA SE INSUFICIENTE"""
+
+        required_fields = ['segmento']
+        missing_fields = [field for field in required_fields if not data.get(field)]
+
+        if missing_fields:
+            return {
+                'valid': False,
+                'message': f"Campos obrigatórios ausentes: {', '.join(missing_fields)}"
+            }
+
+        # Valida qualidade dos dados
+        segmento = data.get('segmento', '').strip()
+        if len(segmento) < 3:
+            return {
+                'valid': False,
+                'message': "Segmento deve ter pelo menos 3 caracteres"
+            }
+
+        return {'valid': True, 'message': 'Dados válidos'}
 
 # Instância global
 ultra_detailed_analysis_engine = UltraDetailedAnalysisEngine()
